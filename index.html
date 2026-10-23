@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800;900&family=Golos+Text:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="hero/class-poster.webp">
+<link rel="preload" as="image" href="hero/hero-wide-poster.webp">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,7 +84,6 @@ button{font:inherit;color:inherit;cursor:pointer}
   opacity:0;transition:opacity .8s ease}
 .hero-media video.ready{opacity:1}
 .hero-media .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%}
-.hero-media .dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(180deg, rgba(6,34,24,.55) 0%, rgba(6,34,24,.18) 22%, rgba(6,34,24,0) 40%),
              linear-gradient(0deg, rgba(6,34,24,.45) 0%, rgba(6,34,24,0) 14%)}
@@ -99,7 +98,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--lime);opacity:.9}
 
 h1{margin:0;font-family:var(--display);font-weight:800;letter-spacing:-.025em;line-height:1.04;
-  font-size:clamp(34px,min(5.6vw,9vh),104px);transition:text-shadow .8s ease}
+  font-size:clamp(34px,min(5.6vw,9vh),88px);transition:text-shadow .8s ease}
 h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
 /* the shadow only after the reveal: inside overflow:hidden it would be clipped into a visible box */
 h1.settled{text-shadow:0 2px 3px rgba(6,40,27,.35),0 8px 28px rgba(6,40,27,.6)}
@@ -137,12 +136,54 @@ h1 .l2{font-size:.37em;letter-spacing:-.005em;line-height:1.35;margin-top:.3em;c
 .deco{position:absolute;z-index:2;pointer-events:none;will-change:transform}
 .deco img{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 24px rgba(3,28,18,.35))}
 .deco .float{animation:bob 6s ease-in-out infinite}
-.d-bubble{width:clamp(110px,9.5vw,150px);left:27%;top:37.5%}
+.d-bubble{width:clamp(110px,9.5vw,150px);left:29.5%;top:37.5%}
 .d-bubble .float{animation-duration:5.4s}
 .d-bubble span{position:absolute;inset:0 0 18% 0;display:grid;place-items:center;font:700 clamp(26px,2.3vw,36px)/1 var(--hand);color:var(--g800);transform:rotate(-6deg)}
-.d-cap{width:clamp(88px,7vw,116px);left:50%;top:35.5%}
+.d-cap{width:clamp(84px,6.6vw,110px);left:47.5%;top:35.5%}
 .d-cap .float{animation-duration:6.6s;animation-delay:-2s}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(4deg)}}
+/* study units floating over the scene: clay symbols, clay lettering and a mini test */
+.u .float{animation:bob 6s ease-in-out infinite}
+.u-abc{left:83.5%;top:32.5%}
+.u-abc .float{animation-duration:6.8s;animation-delay:-1s}
+.u-tg{left:62.5%;top:35.2%}
+.u-tg .float{animation-duration:5.8s;animation-delay:-3s}
+.u-pi{display:none}
+.u-pi .float{animation-duration:7.2s;animation-delay:-2s}
+.clay{display:inline-block;font-family:var(--display);font-weight:900;line-height:1;letter-spacing:.01em;
+  background:linear-gradient(180deg,#FFF3B0 0%,#FFD23F 48%,#F0B60C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 0 #c99608) drop-shadow(0 3px 0 #b48405) drop-shadow(0 12px 12px rgba(3,28,18,.42))}
+.clay.lime{background-image:linear-gradient(180deg,#E8FAB9 0%,#A6DB5C 50%,#78B935 100%);filter:drop-shadow(0 2px 0 #5f9a25) drop-shadow(0 3px 0 #4f8320) drop-shadow(0 12px 12px rgba(3,28,18,.42))}
+.clay.peach{background-image:linear-gradient(180deg,#FFE6D6 0%,#FFB38A 50%,#EE8E66 100%);filter:drop-shadow(0 2px 0 #cc6c47) drop-shadow(0 3px 0 #b65d3b) drop-shadow(0 12px 12px rgba(3,28,18,.42))}
+.clay.cream{background-image:linear-gradient(180deg,#FFFFFF 0%,#FFF4DA 55%,#E6D9BA 100%);filter:drop-shadow(0 2px 0 #c3b48f) drop-shadow(0 3px 0 #ab9c78) drop-shadow(0 12px 12px rgba(3,28,18,.42))}
+.u-abc .clay{font-size:clamp(30px,2.8vw,44px)}
+.u-abc .clay:nth-child(1){transform:rotate(-8deg)}
+.u-abc .clay:nth-child(2){transform:translateY(-6px) rotate(4deg)}
+.u-abc .clay:nth-child(3){transform:rotate(-3deg)}
+.u-tg .clay{font-size:clamp(24px,2.1vw,34px)}
+.gapbox{position:absolute;z-index:2;width:170px;height:60px;pointer-events:none;display:none}
+.gapbox.on{display:block}
+.u-cos{left:0;top:0}
+.u-cos .clay{font-size:clamp(24px,2.1vw,32px)}
+.u-cos .float{animation-duration:6.2s;animation-delay:-4s}
+.u-div{width:44px;right:6px;top:-4px}
+.u-div .float{animation-duration:5.2s;animation-delay:-1.5s}
+.u-test{left:12.5%;top:37.5%;width:clamp(168px,13.2vw,196px)}
+.u-test .float{animation-duration:7s}
+.card-test{background:#FFFDF6;color:var(--g900);border-radius:16px;padding:12px 14px 12px;transform:rotate(-4deg);
+  box-shadow:0 18px 36px rgba(3,28,18,.38),inset 0 -3px 0 rgba(15,61,44,.08)}
+.ct-h{display:flex;justify-content:space-between;align-items:center;font:700 10.5px/1 var(--text);letter-spacing:.08em;text-transform:uppercase;color:#5d7466}
+.ct-h i{font-style:normal;background:var(--yellow);color:var(--g900);border-radius:999px;padding:3px 7px;letter-spacing:.02em}
+.ct-q{margin:8px 0 9px;font:800 16px/1.15 var(--display);letter-spacing:-.01em}
+.ct-o{display:flex;gap:6px}
+.ct-o span{flex:1;text-align:center;padding:6px 0;border-radius:10px;border:1.5px solid #dfe9d3;font:700 13px/1 var(--text);background:#fff}
+.ct-o .pick{animation:probe 6s ease-in-out infinite}
+.ct-o .right{animation:answer 6s ease-in-out infinite}
+.ct-o .right::after{content:" \2713";opacity:0;animation:tick 6s ease-in-out infinite}
+@keyframes probe{0%,12%{border-color:#dfe9d3;background:#fff}18%,30%{border-color:#FFD23F;background:#FFF6D1}36%,100%{border-color:#dfe9d3;background:#fff}}
+@keyframes answer{0%,38%{border-color:#dfe9d3;background:#fff;color:#0B3324}46%,92%{border-color:#7DBE3A;background:#7DBE3A;color:#fff}100%{border-color:#dfe9d3;background:#fff;color:#0B3324}}
+@keyframes tick{0%,40%{opacity:0}48%,92%{opacity:1}100%{opacity:0}}
+
 
 /* facts bar */
 .facts{position:absolute;z-index:4;left:50%;bottom:clamp(14px,2.6vh,28px);transform:translateX(-50%);
@@ -201,6 +242,7 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
 
 /* ---------- responsive ---------- */
 @media (max-width:1180px){ .nav{display:none} .hdr-right{margin-left:auto} }
+@media (max-width:1100px){ .u-pi,.u-tg{display:none} }
 @media (min-width:901px) and (max-width:1180px){
   .hero-inner{grid-template-columns:minmax(0,1fr) minmax(280px,340px)}
   h1{font-size:clamp(34px,min(5.2vw,8.4vh),104px)}
@@ -211,7 +253,14 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
   .hero-inner{grid-template-columns:1fr;gap:clamp(12px,2vh,18px);align-items:start}
   .side{padding-bottom:0;max-width:34em}
   .d-cap{left:auto;right:6%;top:auto;bottom:45%}
-  .d-bubble{display:none}
+  .d-bubble,.u-tg,.u-pi{display:none}
+  .u-abc{left:5%;top:var(--band-top,60%)}
+  .u-test{left:auto;right:4%;top:calc(var(--band-top,60%) + 6px);width:136px}
+  .u-test .ct-q{font-size:12.5px;margin:0 0 5px}
+  .u-test .card-test{padding:7px 9px 8px}
+  .u-test .ct-h{display:none}
+  .u-test .ct-o span{font-size:11px;padding:4px 0}
+  .hero.tight .u-test{display:none}
 }
 /* portrait: the wide scene sits in the lower part and the "camera" slowly walks along the group */
 .hero-media.pan video,.hero-media.pan .poster{top:auto;bottom:0;height:var(--panh,64%);width:auto;aspect-ratio:16/9;max-width:none;
@@ -296,9 +345,8 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
 <main>
 <section class="hero" aria-label="Абітурієнт — від букваря до НМТ">
   <div class="hero-media" aria-hidden="true">
-    <img class="poster" src="hero/class-poster.webp" alt="">
+    <img class="poster" src="hero/hero-wide-poster.webp" alt="">
     <video muted loop playsinline preload="auto"></video>
-    <canvas class="dust"></canvas>
   </div>
 
   <div class="hero-inner">
@@ -324,19 +372,32 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
     </div>
   </div>
 
+  <div class="deco d-bubble" data-depth="26" aria-hidden="true"><div class="pop"><div class="float"><img src="hero/deco/bubble.webp" alt=""><span>Hello!</span></div></div></div>
+  <div class="deco d-cap" data-depth="34" aria-hidden="true"><div class="pop"><div class="float"><img src="hero/deco/cap.webp" alt=""></div></div></div>
+  <div class="deco u u-abc" data-depth="20" aria-hidden="true"><div class="pop"><div class="float"><span class="clay">A</span><span class="clay lime">B</span><span class="clay peach">C</span></div></div></div>
+  <div class="deco u u-tg" data-depth="24" aria-hidden="true"><div class="pop"><div class="float"><span class="clay lime">tg&nbsp;x</span></div></div></div>
+  <div class="gapbox" aria-hidden="true">
+    <div class="deco u u-cos" data-depth="16"><div class="pop"><div class="float"><span class="clay cream">cos&nbsp;&alpha;</span></div></div></div>
+    <div class="deco u u-div" data-depth="22"><div class="pop"><div class="float"><img src="hero/math/divide.webp" alt=""></div></div></div>
+  </div>
+  <div class="deco u u-test" data-depth="12" aria-hidden="true"><div class="pop"><div class="float"><div class="card-test">
+    <div class="ct-h">Тест НМТ <i>№ 12</i></div>
+    <div class="ct-q">sin²α + cos²α = ?</div>
+    <div class="ct-o"><span class="pick">А&nbsp;0</span><span class="right">Б&nbsp;1</span><span>В&nbsp;2</span></div>
+  </div></div></div></div>
 
   <div class="facts" aria-label="Коротко про центр">
     <div class="facts-track">
-      <div class="fact"><img src="hero/edu/abc.webp" alt=""><div><b>Англійська з 7 років</b><small>і для дорослих</small></div></div>
-      <div class="fact"><img src="hero/edu/book.webp" alt=""><div><b>Ліцензійні підручники</b><small>та інтерактивні платформи</small></div></div>
-      <div class="fact"><img src="hero/edu/pencil.webp" alt=""><div><b>Математика з 5 класу</b><small>з 7-го алгебра й геометрія</small></div></div>
-      <div class="fact"><img src="hero/edu/cap.webp" alt=""><div><b>НМТ з 5 предметів</b><small>очно або онлайн</small></div></div>
+      <div class="fact"><img src="hero/deco/bubble.webp" alt=""><div><b>Англійська з 7 років</b><small>і для дорослих</small></div></div>
+      <div class="fact"><img src="hero/deco/book.webp" alt=""><div><b>Ліцензійні підручники</b><small>та інтерактивні платформи</small></div></div>
+      <div class="fact"><img src="hero/math/plus.webp" alt=""><div><b>Математика з 5 класу</b><small>з 7-го алгебра й геометрія</small></div></div>
+      <div class="fact"><img src="hero/deco/cap.webp" alt=""><div><b>НМТ з 5 предметів</b><small>очно або онлайн</small></div></div>
     </div>
     <div class="facts-track" aria-hidden="true">
-      <div class="fact"><img src="hero/edu/abc.webp" alt=""><div><b>Англійська з 7 років</b></div></div>
-      <div class="fact"><img src="hero/edu/book.webp" alt=""><div><b>Ліцензійні підручники</b></div></div>
-      <div class="fact"><img src="hero/edu/pencil.webp" alt=""><div><b>Математика з 5 класу</b></div></div>
-      <div class="fact"><img src="hero/edu/cap.webp" alt=""><div><b>НМТ з 5 предметів</b></div></div>
+      <div class="fact"><img src="hero/deco/bubble.webp" alt=""><div><b>Англійська з 7 років</b></div></div>
+      <div class="fact"><img src="hero/deco/book.webp" alt=""><div><b>Ліцензійні підручники</b></div></div>
+      <div class="fact"><img src="hero/math/plus.webp" alt=""><div><b>Математика з 5 класу</b></div></div>
+      <div class="fact"><img src="hero/deco/cap.webp" alt=""><div><b>НМТ з 5 предметів</b></div></div>
     </div>
   </div>
 </section>
@@ -344,7 +405,7 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
 
 <dialog id="zapys" aria-labelledby="zapys-t">
   <div class="dlg-in">
-    <img class="dlg-flower" src="hero/edu/abc.webp" alt="" aria-hidden="true">
+    <img class="dlg-flower" src="hero/deco/flower.webp" alt="" aria-hidden="true">
     <button class="dlg-x" type="button" aria-label="Закрити" data-close>×</button>
     <form class="form" novalidate>
       <h2 id="zapys-t">Запис на пробне заняття</h2>
@@ -376,7 +437,7 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
       <p class="note">Передзвонимо в робочий час, до 20:00</p>
     </form>
     <div class="ok" role="status">
-      <img src="hero/edu/bubble.webp" alt="" aria-hidden="true">
+      <img src="hero/deco/bubble.webp" alt="" aria-hidden="true">
       <h2>Дякуємо, заявку отримано!</h2>
       <p class="sub">Ми зв'яжемося з вами найближчим часом і запропонуємо зручний час пробного заняття.</p>
       <button class="send" type="button" data-close>Добре</button>
@@ -398,7 +459,7 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
     panAnims.forEach(a => a.cancel());
     panAnims = [];
     if (!media.classList.contains('pan')) return;
-    const h = hero.clientHeight * (innerWidth < 721 ? .74 : .7);
+    const h = hero.clientHeight * (innerWidth < 721 ? .7 : .7);
     const x = Math.min(0, innerWidth - h * 16 / 9);
     media.style.setProperty('--panh', h + 'px');
     const ease = 'cubic-bezier(.45,0,.55,1)';
@@ -416,10 +477,10 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
     const tall = tallMq.matches;
     media.classList.toggle('pan', tall && !reduce);
     media.classList.toggle('still-tall', tall && reduce);
-    poster.src = 'hero/class-poster.webp';
+    poster.src = tall && reduce ? 'hero/hero-tall-poster.webp' : 'hero/hero-wide-poster.webp';
     fitPan();
     if (reduce || video.src) return;
-    video.src = 'hero/class-wide.mp4';
+    video.src = 'hero/hero-wide.mp4';
     video.play().catch(() => {});
   }
   video.addEventListener('playing', () => video.classList.add('ready'));
@@ -434,32 +495,41 @@ dialog[open]{animation:dlg .45s cubic-bezier(.2,1.2,.4,1)}
   });
   pickMedia();
 
-  // chalk dust drifting in the sunbeam over the board
-  const dust = media.querySelector('.dust');
-  if (!reduce && dust.getContext) {
-    const ctx = dust.getContext('2d');
-    let W = 0, H = 0, motes = [];
-    const fit = () => {
-      const r = devicePixelRatio > 1 ? 1.5 : 1;
-      W = dust.width = dust.clientWidth * r; H = dust.height = dust.clientHeight * r;
-      motes = Array.from({ length: Math.round(W * H / 26000) }, () => ({
-        x: Math.random() * W, y: Math.random() * H * .7, r: (Math.random() * 1.6 + .5) * r,
-        vx: (Math.random() * .25 + .05) * r, vy: -(Math.random() * .18 + .03) * r, a: Math.random() * .35 + .12, t: Math.random() * 6.28
-      }));
-    };
-    fit(); addEventListener('resize', fit);
-    (function draw() {
-      ctx.clearRect(0, 0, W, H);
-      for (const m of motes) {
-        m.x += m.vx; m.y += m.vy; m.t += .02;
-        if (m.x > W + 5 || m.y < -5) { m.x = Math.random() * W * .6; m.y = H * (.35 + Math.random() * .4); }
-        ctx.globalAlpha = m.a * (.6 + .4 * Math.sin(m.t));
-        ctx.fillStyle = '#FFF8E7';
-        ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, 6.283); ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    })();
+
+  // study units: the mini test sits in the free gap between the headline and the right column;
+  // on phones it goes into the band under the button, above the characters
+  const gapbox = document.querySelector('.gapbox');
+  const line1 = document.querySelector('h1 .l > span');
+  const side = document.querySelector('.side');
+  const abc = document.querySelector('.u-abc');
+  const tg = document.querySelector('.u-tg');
+  function placeUnits() {
+    const hr = hero.getBoundingClientRect(), l1 = line1.getBoundingClientRect(), sd = side.getBoundingClientRect();
+    if (innerWidth > 720) {
+      const gap = sd.left - l1.right;
+      gapbox.classList.toggle('on', gap >= 190);
+      gapbox.style.left = (l1.right - hr.left + (gap - 170) / 2) + 'px';
+      gapbox.style.top = (l1.top - hr.top + l1.height * .12) + 'px';
+      abc.style.display = '';
+      hero.classList.remove('tight');
+      // ABC and tg x hang just under the right column so they never touch its text
+      abc.style.left = (sd.left - hr.left + sd.width * .62) + 'px';
+      abc.style.top = (sd.bottom - hr.top + 12) + 'px';
+      tg.style.left = (sd.left - hr.left - 110) + 'px';
+      tg.style.top = (sd.bottom - hr.top + 4) + 'px';
+    } else {
+      const bandTop = sd.bottom - hr.top + 16;
+      const headsTop = hr.height * (1 - .7 * .56);
+      const room = headsTop - bandTop;
+      hero.style.setProperty('--band-top', bandTop + 'px');
+      gapbox.classList.remove('on');
+      hero.classList.toggle('tight', room < 52);
+      abc.style.display = room >= 56 ? '' : 'none';
+      abc.style.left = ''; abc.style.top = '';
+    }
   }
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(placeUnits, 60));
+  addEventListener('resize', placeUnits);
 
   // entrance
   const seq = [...document.querySelectorAll('.hero .rv')];
