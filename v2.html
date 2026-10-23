@@ -112,6 +112,11 @@ h1 em{font-style:italic;font-weight:500;color:var(--gold)}
   background:rgba(10,31,23,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:12.5px;font-weight:500;letter-spacing:.02em}
 .live i{width:7px;height:7px;border-radius:50%;background:#ff5a4f;box-shadow:0 0 0 0 rgba(255,90,79,.6);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,90,79,0)}100%{box-shadow:0 0 0 0 rgba(255,90,79,0)}}
+.cred{position:absolute;z-index:3;right:clamp(-44px,-2.6vw,-16px);top:clamp(26px,6vh,64px);display:flex;align-items:center;gap:12px;
+  background:var(--paper);color:var(--ink);border-radius:12px;padding:13px 18px 13px 14px;box-shadow:0 18px 44px rgba(0,0,0,.32)}
+.cred svg{width:30px;height:30px;color:#b38a1c;flex:none}
+.cred b{display:block;font:600 15.5px/1.2 var(--serif)}
+.cred span{display:block;margin-top:3px;font-size:12.5px;color:#4d6359}
 .quote{position:absolute;z-index:3;left:clamp(-64px,-4vw,-24px);bottom:clamp(24px,5vh,48px);width:min(330px,82%);
   background:var(--paper);color:var(--ink);border-radius:14px;padding:20px 22px 18px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
 .quote::before{content:"“";position:absolute;top:-22px;left:18px;font:600 72px/1 var(--serif);color:var(--gold)}
@@ -163,6 +168,7 @@ dialog[open]{animation:dlg .4s cubic-bezier(.2,.9,.3,1)}
 @media (max-width:1200px){ .nav{display:none} .hdr-right{margin-left:auto} }
 @media (max-width:1100px){ .stats{grid-template-columns:repeat(2,auto);row-gap:18px} .stat:nth-child(2){border-right:0;margin-right:0;padding-right:0} }
 @media (min-width:901px) and (max-height:760px){ .stats{display:none} }
+@media (min-width:901px) and (max-width:1100px) and (max-height:820px){ .stats{display:none} }
 @media (max-width:900px){
   :root{--hdr:66px}
   .hdr{gap:12px;border-bottom:0}
@@ -175,7 +181,7 @@ dialog[open]{animation:dlg .4s cubic-bezier(.2,.9,.3,1)}
   .wrap{display:block;min-height:100svh;padding:calc(var(--hdr) + 18px) 20px 28px}
   .media{position:absolute;inset:0;width:auto;aspect-ratio:auto;z-index:-1;justify-self:stretch}
   .frame video,.frame img{object-position:50% 100%}
-  .media::before,.quote{display:none}
+  .media::before,.quote,.cred{display:none}
   .frame{border-radius:0;box-shadow:none}
   .frame::after{background:linear-gradient(180deg,rgba(10,31,23,.92) 0%,rgba(10,31,23,.82) 38%,rgba(10,31,23,.35) 64%,rgba(10,31,23,.1) 78%,rgba(10,31,23,.55) 100%)}
   .live{top:auto;bottom:22px;left:20px}
@@ -235,7 +241,7 @@ dialog[open]{animation:dlg .4s cubic-bezier(.2,.9,.3,1)}
         <span class="s">Англійська</span><i class="dot" aria-hidden="true"></i><span class="s">Математика</span><i class="dot" aria-hidden="true"></i><span class="s">Підготовка до НМТ</span><span class="where">у Винниках</span>
         <span class="bar" aria-hidden="true"></span>
       </div>
-      <p class="lead rv">Англійська для дітей від 7&nbsp;років і&nbsp;дорослих, математика з&nbsp;5&nbsp;класу, підготовка до&nbsp;школи та&nbsp;НМТ. <b>Невеликі групи, очно або онлайн.</b></p>
+      <p class="lead rv">Англійська для дітей від 7&nbsp;років і&nbsp;дорослих, математика з&nbsp;5&nbsp;класу, підготовка до&nbsp;школи та&nbsp;НМТ. <b>Ліцензійні підручники, інтерактивні платформи й&nbsp;невеликі групи.</b></p>
       <div class="actions rv">
         <button class="cta" type="button" data-open>Записатися на пробне заняття
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -246,9 +252,9 @@ dialog[open]{animation:dlg .4s cubic-bezier(.2,.9,.3,1)}
         </a>
       </div>
       <div class="stats rv" aria-label="Коротко про центр">
-        <div class="stat"><b data-count="10" data-prefix="1–">1–10</b><small>клас: англійська й&nbsp;математика</small></div>
-        <div class="stat"><b data-count="5">5</b><small>предметів НМТ</small></div>
-        <div class="stat"><b data-count="2">2</b><small>заняття на&nbsp;тиждень</small></div>
+        <div class="stat"><b data-count="7" data-suffix="+">7+</b><small>років: англійська для дітей і&nbsp;дорослих</small></div>
+        <div class="stat"><b data-count="5">5</b><small>предметів НМТ, очно або онлайн</small></div>
+        <div class="stat"><b data-count="10" data-prefix="1–">1–10</b><small>клас: математика, з&nbsp;7-го алгебра й&nbsp;геометрія</small></div>
         <div class="stat"><b data-count="3">3</b><small>формати: група, пара або індивідуально</small></div>
       </div>
     </div>
@@ -258,6 +264,10 @@ dialog[open]{animation:dlg .4s cubic-bezier(.2,.9,.3,1)}
         <img src="hero/real/v2-sq-poster.webp" alt="Заняття в навчальному центрі «Абітурієнт» у Винниках">
         <video muted loop playsinline preload="auto" aria-hidden="true"></video>
         <div class="live"><i></i>Заняття в центрі · Галицька 34Б</div>
+      </div>
+      <div class="cred">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2Zm0 0A2 2 0 0 0 6 22h13v-4"/><path d="m9 9.5 2 2 4-4"/></svg>
+        <div><b>Ліцензійні підручники</b><span>та інтерактивні платформи</span></div>
       </div>
       <figure class="quote" aria-live="polite">
         <div class="q"><p id="q-text">Вчителі не тиснуть, а лише мотивують. Відчуваєш, що помилятись не страшно.</p></div>
@@ -358,11 +368,11 @@ dialog[open]{animation:dlg .4s cubic-bezier(.2,.9,.3,1)}
   // count-up
   document.querySelectorAll('.stat b[data-count]').forEach(b => {
     if (reduce) return;
-    const to = +b.dataset.count, pre = b.dataset.prefix || '';
+    const to = +b.dataset.count, pre = b.dataset.prefix || '', suf = b.dataset.suffix || '';
     const t0 = performance.now() + 900, dur = 1100;
     (function tick(t) {
       const p = Math.min(1, Math.max(0, (t - t0) / dur));
-      b.textContent = pre + Math.max(pre ? 1 : 0, Math.round(to * (1 - Math.pow(1 - p, 3))));
+      b.textContent = pre + Math.max(pre ? 1 : 0, Math.round(to * (1 - Math.pow(1 - p, 3)))) + suf;
       if (p < 1) requestAnimationFrame(tick);
     })(performance.now());
   });
