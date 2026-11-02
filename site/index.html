@@ -1,0 +1,721 @@
+<!doctype html>
+<!-- Прототип сайта «Абітурієнт» по брифу v4 (02.11.2026). Тексты дословно из brief/bryf-abiturient-v4.html, «уточнити» = заглушки. Сцена hero временная: _src/hero-v4/scene-v1-clean.png -->
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Репетиторський центр у Винниках | Абітурієнт</title>
+<meta name="description" content="Репетиторський центр у Винниках | Абітурієнт. Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.">
+<meta property="og:title" content="Репетиторський центр у Винниках | Абітурієнт">
+<meta property="og:description" content="Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:image" content="https://ananinalist-maker.github.io/proto-abiturient-vynnyky/site/media/hero-scene.jpg">
+<meta property="og:url" content="https://ananinalist-maker.github.io/proto-abiturient-vynnyky/site/">
+<meta name="theme-color" content="#0E2E1D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Golos+Text:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap">
+<link rel="preload" as="image" href="media/hero-scene.webp">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Абітурієнт","description":"Репетиторський центр у Винниках: англійська, математика, НМТ і початкова школа. Тільки очно.","telephone":"+380667561828","address":{"@type":"PostalAddress","streetAddress":"вул. Галицька, 34Б","addressLocality":"Винники","postalCode":"79495","addressCountry":"UA"},"geo":{"@type":"GeoCoordinates","latitude":49.8169732,"longitude":24.1405218},"sameAs":["https://www.instagram.com/abiturient.lviv/"]}
+</script>
+<style>
+:root{
+  --g950:#0A2416; --g900:#0E2E1D; --g800:#143A26; --g700:#1B4A30; --g100:#E6F0E4;
+  --yellow:#F5C83A; --yellow-d:#E3B21E; --lime:#A6E06B;
+  --ink:#13261B; --muted:#4F6155; --cream:#F7F4EA; --paper:#FFFDF7; --line:#E3DFD0;
+  --on-dark:rgba(255,255,255,.88); --line-dark:rgba(255,255,255,.12);
+  --round:'M PLUS Rounded 1c', 'Golos Text', system-ui, sans-serif;
+  --font:'Golos Text', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --hand:'Caveat', cursive;
+  --wrap:1200px; --gut:clamp(16px, 4vw, 47px);
+  --hh:66px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 16.5px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--round);font-weight:800;letter-spacing:-.015em;line-height:1.12;margin:0;text-wrap:balance}
+p{margin:0}
+section[id]{scroll-margin-top:calc(var(--hh) + 8px)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+.todo{display:inline-block;padding:1px 9px;border-radius:6px;background:#FFE58A;color:#5A4300;border:1px dashed #C9A21A;font:600 13px/1.5 var(--font);font-style:normal;white-space:nowrap;vertical-align:1px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 24px;border-radius:999px;border:0;background:var(--yellow);color:var(--ink);font:700 15.5px/1.2 var(--font);text-decoration:none;cursor:pointer;transition:transform .15s ease, background .15s ease, box-shadow .15s ease}
+.btn:hover{background:var(--yellow-d);transform:translateY(-1px)}
+.btn:focus-visible,.pill:focus-visible,.tab-btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.btn .arr{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--yellow);font-size:15px;flex:none}
+.btn.big{padding:14px 16px 14px 26px;font-size:16px;box-shadow:0 10px 30px rgba(245,200,58,.32)}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;height:var(--hh);color:#fff;transition:background .25s ease, box-shadow .25s ease}
+.hdr.solid{background:rgba(14,46,29,.97);box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.hdr-in{height:100%;max-width:1320px;margin:0 auto;padding-inline:var(--gut);display:flex;align-items:center;gap:18px}
+.logo{display:flex;align-items:center;gap:9px;font:800 21px var(--round);letter-spacing:-.01em;text-decoration:none;color:#fff;flex:none}
+.logo i{font-style:normal;color:var(--yellow)}
+.logo svg{width:30px;height:24px}
+.menu{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:13.5px;font-weight:500}
+.menu a{text-decoration:none;white-space:nowrap;opacity:.95}
+.menu a:hover{color:var(--yellow)}
+.hdr .phone{font-weight:700;font-size:14.5px;text-decoration:none;white-space:nowrap}
+.hdr .btn{min-height:40px;padding:9px 18px;font-size:13.5px;white-space:nowrap;flex:none}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;cursor:pointer}
+.burger svg{width:22px;height:22px;margin:auto}
+.drawer{display:none}
+
+/* hero */
+.hero{position:relative;background:var(--g900);color:#fff;overflow:hidden}
+.hero-stage{position:relative;min-height:clamp(620px, 55.8vw, 760px)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.hero-col{position:relative;z-index:2;max-width:var(--wrap);margin:0 auto;padding:calc(var(--hh) + 20px) var(--gut) 48px}
+.hero-col > *{max-width:570px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
+.hero h1{font-size:clamp(44px, 5.4vw, 70px);line-height:1;letter-spacing:-.02em;margin-bottom:16px;text-shadow:0 2px 18px rgba(0,0,0,.18)}
+.hero h1 b{color:var(--yellow);font-weight:800;display:block}
+.hero .sub{font-size:16.5px;line-height:1.45;color:rgba(255,255,255,.93);max-width:510px;margin-bottom:12px}
+.ask{font:700 27px/1.1 var(--hand);color:var(--yellow);margin:0 0 9px}
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:40px}
+.pill{padding:9px 15px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3);background:rgba(8,30,18,.5);color:#fff;font:600 14px/1.2 var(--font);white-space:nowrap;cursor:pointer;transition:background .15s, border-color .15s, color .15s}
+.pill:hover{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.hero .btn.big{margin-bottom:12px}
+.small{font-size:13px;color:rgba(255,255,255,.82)}
+.facts{position:relative;z-index:2;background:var(--g900);border-top:1px solid var(--line-dark)}
+.facts ul{list-style:none;margin:0 auto;padding:0;max-width:var(--wrap);display:grid;grid-template-columns:repeat(4, minmax(0,1fr))}
+.facts li{display:flex;align-items:center;gap:12px;padding:22px 20px;border-right:1px solid var(--line-dark);font-size:14.5px;font-weight:600;line-height:1.35;color:var(--on-dark)}
+.facts li:first-child{padding-left:var(--gut)}
+.facts li:last-child{border-right:0}
+.facts li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px rgba(245,200,58,.18)}
+
+/* sections */
+.sec{padding-block:clamp(64px, 8vw, 104px)}
+.sec.paper{background:var(--paper)}
+.sec.dark{background:var(--g900);color:#fff}
+.sec h2{font-size:clamp(30px, 3.6vw, 44px);margin-bottom:18px}
+.sec h2.kicker{font:700 34px/1 var(--hand);letter-spacing:0;margin:0}
+.kicker{display:inline-block;font:700 26px/1 var(--hand);color:var(--g700);margin-bottom:8px}
+.dark .kicker{color:var(--lime)}
+.lead{font-size:18px;color:var(--muted);max-width:62ch}
+.dark .lead{color:var(--on-dark)}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ticks li{position:relative;padding-left:32px}
+.ticks li::before{content:"";position:absolute;left:0;top:.28em;width:20px;height:20px;border-radius:50%;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' stroke='%2313261B' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.punch{font:700 19px/1.4 var(--round);letter-spacing:-.005em}
+
+/* safety */
+.safe{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center}
+.safe .ticks{margin:26px 0 26px;font-size:17px}
+.safe .punch{color:var(--yellow)}
+.vid{position:relative;border-radius:24px;overflow:hidden;background:var(--g800);aspect-ratio:720/920;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.vid video,.vid img{width:100%;height:100%;object-fit:cover}
+.safe .vid{max-width:420px;justify-self:end;width:100%}
+
+/* directions */
+.tabs{display:flex;gap:8px;margin:30px 0 26px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex:none;padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font:700 15px/1.2 var(--font);cursor:pointer;transition:background .15s, color .15s, border-color .15s}
+.tab-btn:hover{border-color:var(--g700)}
+.tab-btn[aria-selected="true"]{background:var(--g900);border-color:var(--g900);color:#fff}
+.tab-btn[aria-selected="true"]::after{content:"";display:inline-block;width:8px;height:8px;margin-left:9px;border-radius:50%;background:var(--yellow);vertical-align:2px}
+.panel{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(24px,4vw,56px);align-items:start;background:#fff;border-radius:28px;padding:clamp(22px,4vw,48px);box-shadow:0 1px 0 var(--line), 0 18px 50px rgba(19,38,27,.07)}
+.panel[hidden]{display:none}
+.panel.on{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:14px}
+.panel > div > p{color:var(--muted);margin-bottom:20px;max-width:60ch}
+.panel .ticks{margin-bottom:22px}
+.panel .punch{margin-bottom:22px}
+.board{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--g900)}
+.board video{width:100%;height:100%;object-fit:cover}
+.board::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,36,22,.15) 40%, rgba(10,36,22,.9));z-index:1}
+.scale{position:absolute;left:18px;right:18px;bottom:20px;z-index:2;color:#fff}
+.scale .bar{position:relative;height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden}
+.scale .bar i{position:absolute;inset:0 auto 0 0;width:0;border-radius:inherit;background:linear-gradient(90deg, var(--lime), var(--yellow));animation:fill 3.6s cubic-bezier(.3,.7,.3,1) .4s infinite alternate}
+@keyframes fill{to{width:100%}}
+.scale .ticksrow{display:flex;justify-content:space-between;margin-top:8px;font:800 15px var(--round);font-variant-numeric:tabular-nums}
+.scale .ticksrow span:last-child{color:var(--yellow)}
+.scale .nm{font:800 34px/1 var(--round);margin-bottom:10px;letter-spacing:-.01em}
+.scale .nm b{color:var(--yellow)}
+.art{position:relative;border-radius:22px;aspect-ratio:1/1;background:var(--g900);color:#fff;display:grid;place-items:center;overflow:hidden}
+.art span{font:800 clamp(72px,9vw,128px)/1 var(--round);letter-spacing:-.03em;color:var(--yellow);position:relative;z-index:1}
+.art small{position:absolute;left:20px;bottom:18px;font:700 24px var(--hand);color:var(--lime)}
+.art::before{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle, rgba(166,224,107,.28), transparent 70%)}
+
+/* founder */
+.founder{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start}
+.ph{border-radius:24px;aspect-ratio:4/5;background:repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 14px, transparent 14px 28px), var(--g800);border:2px dashed rgba(255,255,255,.22);display:grid;place-items:center;text-align:center;padding:20px;color:var(--on-dark);font-size:15px}
+.ph.light{background:repeating-linear-gradient(135deg, rgba(19,38,27,.04) 0 14px, transparent 14px 28px), #EFEBDD;border-color:#CFC8B2;color:var(--muted)}
+.ph b{display:block;font:700 26px var(--hand);color:var(--lime);margin-bottom:6px}
+.ph.light b{color:var(--g700)}
+.founder .lead{margin-bottom:14px}
+.quotes{display:grid;gap:14px;margin-top:28px}
+.q{margin:0;padding:22px 24px;border-radius:20px;background:var(--g800);border:1px solid var(--line-dark)}
+.q p{font-size:16px;line-height:1.55;color:var(--on-dark)}
+.q footer{margin-top:12px;font-size:14px;font-weight:600;color:var(--lime)}
+
+/* myths */
+.myths{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:14px}
+.myths li{display:grid;grid-template-columns:minmax(0,.85fr) auto minmax(0,1.15fr);gap:20px;align-items:center;padding:22px 26px;border-radius:20px;background:#fff;box-shadow:0 1px 0 var(--line)}
+.myths .m{color:#8A948C;text-decoration:line-through;text-decoration-color:#C0463B;text-decoration-thickness:2px;font-size:17px}
+.myths .to{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--yellow);font-weight:800}
+.myths .r{font-weight:500;font-size:17px}
+
+/* travel */
+.trips{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.trips .q{background:#fff;border-color:var(--line);margin-top:24px}
+.trips .q p{color:var(--ink)}
+.trips .q footer{color:var(--g700)}
+.strip-ph{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:10px}
+.strip-ph .ph{aspect-ratio:3/4;font-size:13px}
+.strip-ph .ph:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+
+/* reviews */
+.rev-top{display:flex;align-items:end;justify-content:space-between;gap:20px}
+.arrows{display:flex;gap:8px}
+.arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-size:20px;cursor:pointer}
+.arrows button:hover{border-color:var(--g700)}
+.reel{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px, calc((100% - 32px)/3));gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 0 10px;scrollbar-width:thin}
+.reel .q{scroll-snap-align:start;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.reel .q p{color:var(--ink);flex:1}
+.reel .q footer{color:var(--g700)}
+.reel .q::before{content:"“";font:800 54px/0.6 var(--round);color:var(--yellow);margin-bottom:6px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px)}
+.steps ol{list-style:none;margin:28px 0 0;padding:0;counter-reset:s;display:grid;gap:12px}
+.steps ol li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:start;padding:18px 20px;border-radius:18px;background:#fff;box-shadow:0 1px 0 var(--line)}
+.steps ol li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--g900);color:var(--yellow);font:800 20px var(--round)}
+.promise{padding:clamp(24px,3vw,36px);border-radius:24px;background:var(--g900);color:#fff;align-self:start;margin-top:28px}
+.promise h3{font-size:26px;margin-bottom:18px;color:var(--yellow)}
+.promise .ticks{color:var(--on-dark)}
+
+/* form */
+.form-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.form{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(22px,3.5vw,40px);display:grid;gap:16px}
+.f label,.f legend{display:block;font-size:14px;font-weight:600;margin-bottom:6px;padding:0}
+.f input,.f select{width:100%;min-height:50px;padding:12px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);font:500 16px var(--font);color:var(--ink)}
+.f input:focus,.f select:focus{outline:none;border-color:var(--g700);box-shadow:0 0 0 4px rgba(27,74,48,.12)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+fieldset.f{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{margin:0}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-block;padding:10px 16px;border-radius:999px;border:1.5px solid var(--line);font:600 14.5px var(--font);cursor:pointer;background:var(--paper)}
+.chips input:checked + span{background:var(--g900);border-color:var(--g900);color:#fff}
+.chips input:focus-visible + span{outline:3px solid var(--lime);outline-offset:2px}
+.form .btn{width:100%;margin-top:4px}
+.thanks{display:none;text-align:center;padding:40px 10px}
+.thanks .ok{width:72px;height:72px;margin:0 auto 18px;border-radius:50%;background:var(--lime);display:grid;place-items:center}
+.thanks p{font:800 24px/1.3 var(--round)}
+.form.sent > :not(.thanks){display:none}
+.form.sent .thanks{display:block}
+
+/* faq + contacts */
+.faq{display:grid;gap:10px;margin-top:28px}
+.faq details{background:#fff;border-radius:18px;box-shadow:0 1px 0 var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 60px 20px 24px;position:relative;font:700 18px/1.35 var(--round)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font:700 20px/1 var(--font);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{padding:0 24px 22px;color:var(--muted);max-width:68ch}
+.contacts{margin-top:clamp(48px,6vw,72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch}
+.c-card{padding:clamp(24px,3vw,36px);border-radius:24px;background:var(--g900);color:#fff}
+.c-card h3{font-size:30px;margin-bottom:18px}
+.c-list{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:12px;font-size:17px}
+.c-list li{display:flex;gap:12px;align-items:baseline}
+.c-list b{min-width:110px;color:var(--lime);font-weight:600;font-size:14px}
+.c-list a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.c-card .row{display:flex;flex-wrap:wrap;gap:10px}
+.map{border-radius:24px;overflow:hidden;min-height:320px;background:var(--g100)}
+.map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+
+footer.ft{background:var(--g950);color:rgba(255,255,255,.7);padding:28px 0 32px;font-size:14px}
+footer.ft .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer.ft a{text-decoration:none}
+
+/* mobile bottom bar */
+.mbar{display:none}
+
+@media (max-width:1180px){
+  .menu,.hdr .phone,.hdr .nbtn{display:none}
+  .burger{display:grid}
+  .drawer{position:fixed;inset:var(--hh) 0 auto;z-index:49;background:var(--g900);color:#fff;padding:12px var(--gut) 24px;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+  .drawer.open{display:block}
+  .drawer a{display:block;padding:13px 0;border-bottom:1px solid var(--line-dark);text-decoration:none;font-weight:600;font-size:17px}
+  .drawer a:last-child{border-bottom:0}
+}
+@media (max-width:900px){
+  .facts ul{grid-template-columns:1fr 1fr}
+  .facts li{border-bottom:1px solid var(--line-dark);padding:16px var(--gut) !important}
+  .facts li:nth-child(2n){border-right:0}
+  .safe,.founder,.trips,.steps,.form-wrap,.contacts{grid-template-columns:1fr}
+  .safe .vid{justify-self:start;max-width:360px}
+  .panel{grid-template-columns:1fr}
+  .panel .board{max-width:380px}
+  .panel .art{max-width:380px;aspect-ratio:16/9}
+  .founder .ph{max-width:360px}
+  .reel{grid-auto-columns:minmax(280px, 80%)}
+}
+@media (max-width:640px){
+  :root{--hh:60px}
+  body{font-size:16px;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .hero-stage{min-height:0;display:flex;flex-direction:column}
+  .hero-stage picture{order:2}
+  .hero-bg{position:relative;height:300px;object-position:84% 60%}
+  .tabs{flex-wrap:wrap;overflow:visible}
+  .tab-btn{padding:11px 16px;font-size:14.5px}
+  .hero-col{padding:calc(var(--hh) + 18px) var(--gut) 8px}
+  .hero h1{font-size:clamp(40px, 12vw, 52px)}
+  .hero .sub{font-size:16px}
+  .pills{margin-bottom:22px}
+  .pill{font-size:14px;padding:10px 14px}
+  .hero .btn.big{width:100%;justify-content:space-between;white-space:normal;text-align:left;font-size:15.5px}
+  .facts ul{grid-template-columns:1fr}
+  .facts li{border-right:0}
+  .myths li{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+  .myths .to{width:28px;height:28px;font-size:14px;transform:rotate(90deg)}
+  .two{grid-template-columns:1fr}
+  .rev-top .arrows{display:none}
+  .c-list li{flex-direction:column;gap:2px}
+  .mbar{display:grid;grid-template-columns:auto 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(14,46,29,.97);box-shadow:0 -8px 24px rgba(0,0,0,.2)}
+  .mbar a{min-height:52px}
+  .mbar .call{padding:12px 18px;color:#fff;border:1.5px solid rgba(255,255,255,.35);background:transparent}
+  .mbar .call svg{width:20px;height:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .scale .bar i{width:70%}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="#top" aria-label="Абітурієнт — на початок">
+      <svg viewBox="0 0 64 52" aria-hidden="true"><path d="M32 4 2 17l30 13 30-13L32 4Z" fill="#fff"/><path d="M14 24v11c0 5 8 9 18 9s18-4 18-9V24L32 32 14 24Z" fill="#fff" opacity=".8"/><path d="M32 17.5 52 21v13" stroke="#F5C83A" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M49.6 33h4.8l1.4 10h-7.6l1.4-10Z" fill="#F5C83A"/></svg>
+      <span>Аб<i>і</i>турієнт</span>
+    </a>
+    <nav class="menu" aria-label="Меню">
+      <a href="#napriamy" data-tab="nmt">НМТ</a>
+      <a href="#napriamy" data-tab="eng">Англійська</a>
+      <a href="#napriamy" data-tab="math">Математика</a>
+      <a href="#napriamy" data-tab="prim">Початкова школа</a>
+      <a href="#zasnovnytsia">Про засновницю</a>
+      <a href="#podorozhi">Подорожі</a>
+      <a href="#vidguky">Відгуки</a>
+      <a href="#kontakty">Контакти</a>
+    </nav>
+    <a class="phone" href="tel:+380667561828">066 756 18 28</a>
+    <a class="btn nbtn" href="#zapys">Залишити заявку</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="drawer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" aria-label="Меню">
+  <a href="#napriamy" data-tab="nmt">НМТ</a>
+  <a href="#napriamy" data-tab="eng">Англійська</a>
+  <a href="#napriamy" data-tab="math">Математика</a>
+  <a href="#napriamy" data-tab="prim">Початкова школа</a>
+  <a href="#zasnovnytsia">Про засновницю</a>
+  <a href="#podorozhi">Подорожі</a>
+  <a href="#vidguky">Відгуки</a>
+  <a href="#kontakty">Контакти</a>
+</nav>
+
+<main id="top">
+  <!-- 1. Перший екран -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-stage">
+      <picture>
+        <source srcset="media/hero-scene.webp" type="image/webp">
+        <img class="hero-bg" src="media/hero-scene.jpg" alt="Учні центру «Абітурієнт» різного віку радіють разом" width="1200" height="670" fetchpriority="high">
+      </picture>
+      <div class="hero-col">
+        <p class="eyebrow">Репетиторський центр у Винниках · Галицька 34Б</p>
+        <h1 id="h1">Репетиторство <b>від А до Я</b></h1>
+        <p class="sub">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.</p>
+        <p class="ask">Що вам потрібно?</p>
+        <div class="pills">
+          <button class="pill" type="button" data-tab="nmt">НМТ комплексно</button>
+          <button class="pill" type="button" data-tab="eng">Англійська</button>
+          <button class="pill" type="button" data-tab="math">Математика</button>
+          <button class="pill" type="button" data-tab="prim">Початкова школа</button>
+        </div>
+        <a class="btn big" href="#zapys">Записатися на безкоштовне пробне заняття <span class="arr" aria-hidden="true">→</span></a>
+        <p class="small">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
+      </div>
+    </div>
+    <div class="facts">
+      <ul>
+        <li>НМТ: 3 обов'язкові предмети + 1 на вибір</li>
+        <li>Заняття по 60 і 90 хвилин</li>
+        <li>Група, пара або індивідуально</li>
+        <li>Тільки очно, безпечний клас</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. Безпека -->
+  <section class="sec dark" id="bezpeka" aria-labelledby="h-safe">
+    <div class="wrap safe">
+      <div>
+        <h2 id="h-safe">Поки ви на роботі, дитина навчається в безпечному й теплому класі</h2>
+        <ul class="ticks">
+          <li>Центр розташований у напівпідвальному приміщенні з бетонним перекриттям. Стіни кабінету завтовшки пів метра, є вентиляція</li>
+          <li>Світло, тепло й інтернет працюють навіть під час відключень: автономне живлення до двох діб і підігрів підлоги</li>
+          <li>Окремий санвузол і вода у двох місцях</li>
+          <li>З боку проспекту повноцінні вікна, тому в класах світло й затишно</li>
+        </ul>
+        <p class="punch">На пробному занятті покажемо все на власні очі.</p>
+      </div>
+      <div class="vid">
+        <video data-lazy muted loop playsinline preload="none" poster="media/v3-poster.webp" aria-label="Класи центру «Абітурієнт»">
+          <source data-src="media/v3-montage.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Напрями -->
+  <section class="sec" id="napriamy" aria-labelledby="h-dir">
+    <div class="wrap">
+      <h2 id="h-dir" class="kicker">Напрями</h2>
+      <div class="tabs" role="tablist" aria-label="Напрями">
+        <button class="tab-btn" role="tab" id="t-nmt" aria-controls="p-nmt" aria-selected="true" data-tab="nmt">НМТ комплексно</button>
+        <button class="tab-btn" role="tab" id="t-eng" aria-controls="p-eng" aria-selected="false" tabindex="-1" data-tab="eng">Англійська</button>
+        <button class="tab-btn" role="tab" id="t-math" aria-controls="p-math" aria-selected="false" tabindex="-1" data-tab="math">Математика</button>
+        <button class="tab-btn" role="tab" id="t-prim" aria-controls="p-prim" aria-selected="false" tabindex="-1" data-tab="prim">Початкова школа</button>
+      </div>
+
+      <div class="panel on" role="tabpanel" id="p-nmt" aria-labelledby="t-nmt">
+        <div>
+          <h3>Підготовка до НМТ комплексно: усі предмети в одному центрі</h3>
+          <p>До НМТ найкраще готуватися системно і заздалегідь. У нас дитина готується з усіх предметів в одному місці, з викладачами, які добре знають формат тесту.</p>
+          <ul class="ticks">
+            <li>Три обов'язкові предмети: українська мова, математика, історія України</li>
+            <li>Четвертий на вибір: англійська або біологія</li>
+            <li>8 занять по 90 хвилин на місяць з кожного предмета</li>
+            <li>У групі, у парі чи індивідуально, тільки очно</li>
+            <li>Засновниця центру готує до ЗНО і НМТ від самого запровадження тестування</li>
+          </ul>
+          <p class="punch">Рік підготовки коштує менше, ніж роки навчання на контракті.</p>
+          <a class="btn" href="#zapys" data-dir="nmt">Записатися на пробне з НМТ</a>
+        </div>
+        <div class="board">
+          <video data-lazy muted loop playsinline preload="none" poster="media/v2-poster.webp" aria-label="Заняття в центрі «Абітурієнт»">
+            <source data-src="media/v2-montage.mp4" type="video/mp4">
+          </video>
+          <div class="scale" aria-hidden="true">
+            <div class="nm">НМТ</div>
+            <div class="bar"><i></i></div>
+            <div class="ticksrow"><span>100</span><span>125</span><span>150</span><span>175</span><span>200</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-eng" aria-labelledby="t-eng" hidden>
+        <div>
+          <h3>Англійська, щоб нею говорити: для школярів, студентів і дорослих</h3>
+          <p>Мова потрібна, щоб спілкуватися. Тому на кожному занятті учні говорять, слухають і виконують творчі завдання.</p>
+          <ul class="ticks">
+            <li>Школярі з 1 по 11 клас вчаться в групах за класами. Малеча вчиться через ігри й пісні, старші самі складають діалоги й тексти</li>
+            <li>Студенти й дорослі: <mark class="todo">уточнити</mark></li>
+            <li>Британські навчальні платформи: 30 % підручник і 70 % платформа, доступ оплачує центр</li>
+            <li>Двічі на тиждень по 60 хвилин</li>
+          </ul>
+          <a class="btn" href="#zapys" data-dir="eng">Записатися на пробне з англійської</a>
+        </div>
+        <div class="art" aria-hidden="true"><span>ABC</span><small>Hello!</small></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-math" aria-labelledby="t-math" hidden>
+        <div>
+          <h3>Математика для старшої школи: не тягне алгебру? Підтягнемо</h3>
+          <p>Програма з математики стала складнішою, і в 7–8 класі багато дітей перестають встигати. Ми знаходимо прогалини, тренуємо обчислення і крок за кроком розбираємо алгебру й геометрію.</p>
+          <ul class="ticks">
+            <li>Алгебра й геометрія з 7 класу</li>
+            <li>Підготовка до НМТ з математики</li>
+            <li>Групи за класами, заняття по 60 хвилин</li>
+            <li>Математика вчить бачити причину й наслідок, а це основа для програмування й науки</li>
+          </ul>
+          <p class="punch">Математика йде на допомогу дитині і батькам. Поверніть собі спокійні вечори без сліз над домашкою.</p>
+          <a class="btn" href="#zapys" data-dir="math">Записатися на пробне з математики</a>
+        </div>
+        <div class="art" aria-hidden="true"><span>a²+b²</span><small>= c²</small></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-prim" aria-labelledby="t-prim" hidden>
+        <div>
+          <h3>Репетитор початкової школи: щоб дитині було цікаво вчитися з першого класу</h3>
+          <p>У молодших класах закладається, як дитина ставитиметься до навчання. Допомагаємо з програмою 1–4 класу в маленькій групі, де вчитель бачить кожного.</p>
+          <ul class="ticks">
+            <li>Предмети: <mark class="todo">уточнити</mark></li>
+            <li>Підготовка до школи для дошкільнят <mark class="todo">уточнити</mark></li>
+            <li>Через гру, без тиску і без страху помилитися</li>
+          </ul>
+          <a class="btn" href="#zapys" data-dir="prim">Записатися на пробне</a>
+        </div>
+        <div class="art" aria-hidden="true"><span>1–4</span><small>клас</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Засновниця та керівник -->
+  <section class="sec dark" id="zasnovnytsia" aria-labelledby="h-founder">
+    <div class="wrap founder">
+      <div class="ph"><div><b>Фото засновниці</b><mark class="todo">уточнити</mark></div></div>
+      <div>
+        <h2 id="h-founder">Засновниця та керівник центру</h2>
+        <p class="lead">17 років викладала в державних школах. Готує до ЗНО і НМТ від самого запровадження тестування. Сама організовує для учнів подорожі Європою.</p>
+        <p class="lead"><mark class="todo">уточнити</mark> Тут буде ваша історія: як з'явився «Абітурієнт», чому ви це робите, що для вас важливо в навчанні дітей.</p>
+        <div class="quotes">
+          <blockquote class="q"><p>«Чудовий заклад! Обидві дочки займаються тут, їздимо на уроки англійської мови. … Викладачі - супер! Професійно викладають предмети, а діти їх обожнюють. Керівник закладу - пані Галина - заслуговує окремих слів, це надзвичайно щира і доброзичлива людина, сповнена енергії та ідей.»</p><footer>Павло, Google Maps</footer></blockquote>
+          <blockquote class="q"><p>«Дуже подобається навчання в цій школі. Помітно підтягнула англійську мову. Викладачі дуже приємні та сучасні, окрема подяка Галині Тадеївній за чудову організацію простору. Рекомендую!!!»</p><footer>Софія Костерева, Google Maps</footer></blockquote>
+          <blockquote class="q"><p>«Готувалась до нмт з англійської тут, дуже любила ці уроки, інформація подається доступно і цікаво. Вчителі не тиснуть, а лише мотивують. Відчуваєш, що помилятись не страшно. Дякую пані Галині!»</p><footer>Юлія Калина, Google Maps</footer></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Чому до нас переходять -->
+  <section class="sec paper" id="chomu" aria-labelledby="h-why">
+    <div class="wrap">
+      <h2 id="h-why">Вже платили репетитору, а результату немає? Ось чим ми відрізняємося</h2>
+      <ul class="myths">
+        <li><span class="m">«Спочатку граматика, говорити потім»</span><span class="to" aria-hidden="true">→</span><span class="r">Мова потрібна для спілкування: говоріння, слухання і творчі завдання на кожному занятті</span></li>
+        <li><span class="m">«Математика дається від природи»</span><span class="to" aria-hidden="true">→</span><span class="r">Математика — це тренування: прогалини закриваються практикою</span></li>
+        <li><span class="m">«Знайомий студент — дешево і нормально»</span><span class="to" aria-hidden="true">→</span><span class="r">Педагог із досвідом шкільної програми не робить домашку за дитину, а вчить робити самій</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Подорожі -->
+  <section class="sec" id="podorozhi" aria-labelledby="h-trips">
+    <div class="wrap trips">
+      <div>
+        <h2 id="h-trips">Вчимо англійську, щоб нею користуватися, і подорожуємо разом</h2>
+        <p class="lead">Разом з учнями ми побували в Парижі, Нормандії, на Мон-Сен-Мішель, у Празі, Мюнхені, Венеції, Стамбулі та інших містах.</p>
+        <blockquote class="q"><p>«Париж, мальовнича Нормандія та казковий Мон-Сен-Мішель — кожне місце по-своєму особливе й прекрасне. Усе було настільки красиво, що часом просто не вірилося, що я бачу це на власні очі. Дякую за організацію…»</p><footer>Софія Клименко, Google Maps</footer></blockquote>
+      </div>
+      <div class="strip-ph">
+        <div class="ph light"><div><b>Париж</b>фото <mark class="todo">уточнити</mark></div></div>
+        <div class="ph light"><div><b>Нормандія</b>фото</div></div>
+        <div class="ph light"><div><b>Прага</b>фото</div></div>
+        <div class="ph light"><div><b>Мюнхен</b>фото</div></div>
+        <div class="ph light"><div><b>Венеція</b>фото</div></div>
+        <div class="ph light"><div><b>Стамбул</b>фото</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Відгуки -->
+  <section class="sec paper" id="vidguky" aria-labelledby="h-rev">
+    <div class="wrap">
+      <div class="rev-top">
+        <h2 id="h-rev">Що кажуть батьки й учні</h2>
+        <div class="arrows"><button type="button" data-dir="-1" aria-label="Попередній відгук">←</button><button type="button" data-dir="1" aria-label="Наступний відгук">→</button></div>
+      </div>
+      <div class="reel" id="reel" tabindex="0" aria-label="Відгуки">
+        <blockquote class="q"><p>«Донька ходила на математику і англійську, тепер син другий рік на англійську. Діти задоволені. Завжди дружня атмосфера, доступно пояснюють. Приємні викладачі. Подобається, також, що організовують дітям поїздки за кордон.»</p><footer>Ірина Корницька</footer></blockquote>
+        <blockquote class="q"><p>«Дуже тішить результат і прогрес обох дітей. Щиро рекомендую цю школу всім батькам, які хочуть, щоб їхні діти вивчали англійську легко, із задоволенням та хорошими результатами!»</p><footer>Halyna Syzonenko</footer></blockquote>
+        <blockquote class="q"><p>«Дуже радію, що обрали саме вас! Моя доця з великим задоволенням ходить на заняття, хоча я не думала, що таке можливо. Оцінки в школі значно виросли, і мама радіє!!! Моїй дитині вже цікаво вчитися)»</p><footer>Людмила Гулько</footer></blockquote>
+        <blockquote class="q"><p>«Щиро дякуємо за високий професіоналізм всім викладачам, які приймали участь у підготовці до нмт сина. Все чудово, рекомендую»</p><footer>Марта Кузів</footer></blockquote>
+        <blockquote class="q"><p>«Результат від навчання у вас ну прям дууууже помітний: оцінки сина значно підвищилися, а навчання стало для нього набагато цікавішим.»</p><footer>Світлана Мазур</footer></blockquote>
+        <blockquote class="q"><p>«Викладачі пояснюють матеріал просто і зрозуміло, навіть складні теми стають легшими. На заняттях приємна атмосфера, ніхто не тисне і завжди можна поставити будь-яке запитання. … Рекомендую всім, хто хоче нормально підготуватися до вступу.»</p><footer>Maksym Hrydovii</footer></blockquote>
+        <blockquote class="q"><p>«Моя донечка із задоволенням відвідує заняття, завжди повертається додому з гарним настроєм і новими знаннями. Дуже приємно бачити, що вчителі ставляться до дітей з любов'ю та професіоналізмом.»</p><footer>Наталя Кріп</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Як почати -->
+  <section class="sec" id="yak-pochaty" aria-labelledby="h-steps">
+    <div class="wrap steps">
+      <div>
+        <h2 id="h-steps">Що буде після заявки</h2>
+        <ol>
+          <li>Ви залишаєте заявку на сайті або телефонуєте</li>
+          <li>Ми зв'язуємося з вами і підбираємо групу</li>
+          <li>Пробне заняття: дитина вчиться в групі свого класу, а ви знайомитеся з приміщенням і засновницею центру</li>
+          <li>Старт у групі й доступ до британської платформи, яку оплачує центр</li>
+        </ol>
+      </div>
+      <div class="promise">
+        <h3>Наші обіцянки</h3>
+        <ul class="ticks">
+          <li>Пробне заняття ні до чого не зобов'язує</li>
+          <li>Платите помісячно: не бачите сенсу — не продовжуєте</li>
+          <li>Заняття не зриваються через відключення світла</li>
+          <li>Ми не обіцяємо 200 балів чи «заговорить за місяць». Обіцяємо систему, маленьку групу і чесний зворотний зв'язок</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Запис на пробне -->
+  <section class="sec dark" id="zapys" aria-labelledby="h-form">
+    <div class="wrap form-wrap">
+      <div>
+        <h2 id="h-form">Запишіться на безкоштовне пробне заняття</h2>
+      </div>
+      <form class="form" id="form" novalidate>
+        <div class="two">
+          <div class="f"><label for="f-name">Ім'я</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="f"><label for="f-class">Клас дитини (або «дорослий»)</label><input id="f-class" name="class" required></div>
+        </div>
+        <div class="two">
+          <div class="f"><label for="f-dir">Напрям</label>
+            <select id="f-dir" name="dir" required>
+              <option value="nmt">НМТ</option>
+              <option value="eng">Англійська</option>
+              <option value="math">Математика</option>
+              <option value="prim">Початкова школа</option>
+            </select>
+          </div>
+          <div class="f"><label for="f-tel">Телефон</label><input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required></div>
+        </div>
+        <fieldset class="f">
+          <legend>Як з вами зв'язатися</legend>
+          <div class="chips">
+            <label><input type="radio" name="via" value="call" checked><span>Дзвінок</span></label>
+            <label><input type="radio" name="via" value="viber"><span>Viber</span></label>
+            <label><input type="radio" name="via" value="telegram"><span>Telegram</span></label>
+            <label><input type="radio" name="via" value="whatsapp"><span>WhatsApp</span></label>
+          </div>
+        </fieldset>
+        <button class="btn big" type="submit">Записатися <span class="arr" aria-hidden="true">→</span></button>
+        <div class="thanks" role="status" aria-live="polite">
+          <div class="ok" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 20 20"><path d="M5 10.5l3.2 3.2L15 6.8" stroke="#13261B" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p>Дякуємо! Ми зателефонуємо вам найближчим часом.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 10. Питання і контакти -->
+  <section class="sec paper" id="kontakty" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 id="h-faq">Часті питання</h2>
+      <div class="faq">
+        <details open><summary>Скільки коштують заняття?</summary><p><mark class="todo">уточнити</mark> Показуємо ціни на сайті чи пишемо «ціну назвемо після пробного заняття»?</p></details>
+        <details><summary>Чим ви відрізняєтеся від репетитора?</summary><p>В одному центрі всі предмети, від початкової школи до НМТ. Педагоги з досвідом шкільної програми, маленькі групи і безпечний клас, який працює навіть під час відключень.</p></details>
+        <details><summary>А якщо дитині не сподобається?</summary><p>Пробне заняття безкоштовне і ні до чого не зобов'язує. Платите помісячно: не бачите сенсу — не продовжуєте.</p></details>
+        <details><summary>Чи можна вчитися онлайн?</summary><p>Ні. Ми живий центр, заняття тільки очно.</p></details>
+        <details open><summary>Що відбувається під час тривоги?</summary><p><mark class="todo">уточнити</mark></p></details>
+        <details open><summary>Коли починати готуватися до НМТ?</summary><p><mark class="todo">уточнити</mark> Наприклад: «найкраще за рік до іспиту»?</p></details>
+      </div>
+
+      <div class="contacts">
+        <div class="c-card">
+          <h3>Контакти</h3>
+          <ul class="c-list">
+            <li><b>Адреса</b><span>Галицька 34Б, Винники</span></li>
+            <li><b>Телефон</b><a href="tel:+380667561828">066 756 18 28</a></li>
+            <li><b>Графік роботи</b><mark class="todo">уточнити</mark></li>
+            <li><b>Instagram</b><a href="https://www.instagram.com/abiturient.lviv/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+          <div class="row">
+            <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=49.8169732,24.1405218" target="_blank" rel="noopener">Прокласти маршрут</a>
+            <a class="btn" href="#zapys">Записатися на пробне</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Карта: Галицька 34Б, Винники" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=49.8169732,24.1405218&amp;z=16&amp;output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <span>Абітурієнт · Галицька 34Б, Винники</span>
+    <a href="tel:+380667561828">066 756 18 28</a>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn call" href="tel:+380667561828" aria-label="Подзвонити: 066 756 18 28"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></a>
+  <a class="btn" href="#zapys">Залишити заявку</a>
+</div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // header: прозрачная над hero, плотная после прокрутки
+  const hdr = $('#hdr');
+  const onScroll = () => hdr.classList.toggle('solid', scrollY > 40 || drawer.classList.contains('open'));
+  const drawer = $('#drawer'), burger = $('#burger');
+  addEventListener('scroll', onScroll, {passive: true}); onScroll();
+  burger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open); onScroll();
+  });
+  $$('#drawer a').forEach(a => a.addEventListener('click', () => { drawer.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
+  // вкладки «Напрями»
+  const tabs = $$('.tab-btn');
+  function activate(id, focus) {
+    tabs.forEach(t => {
+      const on = t.dataset.tab === id;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      const p = document.getElementById(t.getAttribute('aria-controls'));
+      p.hidden = !on; p.classList.toggle('on', on);
+      if (on) { if (focus) t.focus(); p.querySelectorAll('video[data-lazy]').forEach(v => vio && vio.observe(v)); }
+    });
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => activate(t.dataset.tab));
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); activate(tabs[(i + d + tabs.length) % tabs.length].dataset.tab, true); }
+    });
+  });
+  // кнопки первого экрана и пункты меню открывают свою вкладку
+  $$('.pill[data-tab], .menu a[data-tab], .drawer a[data-tab]').forEach(el => el.addEventListener('click', e => {
+    e.preventDefault();
+    activate(el.dataset.tab);
+    $('#napriamy').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    history.replaceState(null, '', '#napriamy');
+  }));
+
+  // CTA во вкладке выставляет направление в форме
+  $$('a[data-dir]').forEach(a => a.addEventListener('click', () => { $('#f-dir').value = a.dataset.dir; }));
+
+  // форма: экран «Дякуємо», никуда не отправляется
+  const form = $('#form');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    form.classList.add('sent');
+  });
+
+  // отзывы листаются стрелками
+  const reel = $('#reel');
+  $$('.arrows button').forEach(b => b.addEventListener('click', () => {
+    const card = reel.querySelector('.q');
+    reel.scrollBy({left: (card.offsetWidth + 16) * +b.dataset.dir, behavior: 'smooth'});
+  }));
+
+  // видео грузятся и играют только в кадре
+  const vio = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => {
+    const v = en.target;
+    if (en.isIntersecting) {
+      if (!v.dataset.loaded) { v.querySelectorAll('source[data-src]').forEach(s => s.src = s.dataset.src); v.load(); v.dataset.loaded = 1; }
+      v.play().catch(() => {});
+    } else v.pause();
+  }), {rootMargin: '200px'}) : null;
+  $$('video[data-lazy]').forEach(v => vio ? vio.observe(v) : (v.querySelectorAll('source[data-src]').forEach(s => s.src = s.dataset.src), v.load()));
+})();
+</script>
+</body>
+</html>
