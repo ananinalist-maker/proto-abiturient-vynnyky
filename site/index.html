@@ -264,8 +264,6 @@ footer.ft a{text-decoration:none}
   :root{--hh:60px}
   body{font-size:16px;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   .hero-stage{min-height:0;display:flex;flex-direction:column}
-  .hero-stage picture{order:2}
-  .hero-bg{position:relative;height:300px;object-position:84% 60%}
   .tabs{flex-wrap:wrap;overflow:visible}
   .tab-btn{padding:11px 16px;font-size:14.5px}
   .hero-col{padding:calc(var(--hh) + 18px) var(--gut) 8px}
@@ -290,6 +288,122 @@ footer.ft a{text-decoration:none}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none !important;transition:none !important}
   .scale .bar i{width:70%}
+}
+
+/* ===== v2: hero art, motion, accents ===== */
+:root{--wrap:1240px}
+.hero{background:radial-gradient(120% 90% at 58% -10%, #33805a 0, #1b5c3c 32%, #0e4029 62%, #0a3020 100%)}
+.hero-stage{min-height:clamp(620px, 47vw, 820px)}
+.hero-art{position:absolute;top:0;right:0;bottom:0;aspect-ratio:1200/670;max-width:none;transform:translate3d(calc(var(--mx,0)*-10px), calc(var(--my,0)*-6px), 0);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.hero-art picture{position:absolute;inset:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent 0, transparent 25%, #000 45%);mask-image:linear-gradient(90deg, transparent 0, transparent 25%, #000 45%)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:68% 60%;animation:kb 16s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.045) translate3d(-.8%, -.6%, 0)}}
+.spark{position:absolute;width:16px;height:16px;z-index:2;pointer-events:none;background:radial-gradient(circle, #fff 0 18%, transparent 20%), conic-gradient(from 45deg, transparent 0 22%, #FFE48A 22% 28%, transparent 28% 47%, #FFE48A 47% 53%, transparent 53% 72%, #FFE48A 72% 78%, transparent 78% 97%, #FFE48A 97%);border-radius:50%;opacity:0;animation:tw 3.2s ease-in-out infinite}
+.spark.s1{left:61%;top:9%;animation-delay:.2s}.spark.s2{left:80%;top:15%;width:12px;height:12px;animation-delay:1.3s}
+.spark.s3{left:66%;top:44%;width:11px;height:11px;animation-delay:2.1s}.spark.s4{left:53%;top:22%;animation-delay:.8s}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4) rotate(0)}45%{opacity:1;transform:scale(1.15) rotate(40deg)}60%{opacity:.9}}
+.chip-score{position:absolute;left:40%;top:80%;z-index:3;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,253,247,.96);color:var(--ink);box-shadow:0 14px 36px rgba(0,0,0,.28);animation:bob 4.6s ease-in-out infinite}
+.chip-score svg{width:44px;height:44px;transform:rotate(-90deg)}
+.chip-score circle{fill:none;stroke-width:5}
+.chip-score .trk{stroke:#E6F0E4}.chip-score .val{stroke:var(--lime);stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1;transition:stroke-dashoffset .1s linear}
+.chip-score small{display:block;font:700 11px/1 var(--font);letter-spacing:.12em;color:var(--muted)}
+.chip-score b{font:800 26px/1.05 var(--round);font-variant-numeric:tabular-nums;color:var(--g900)}
+.chip-score.done b{color:#2E7D32}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.rise{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-col > .rise:nth-child(1){animation-delay:.05s}.hero-col > .rise:nth-child(2){animation-delay:.15s}.hero-col > .rise:nth-child(3){animation-delay:.28s}
+.hero-col > .rise:nth-child(4){animation-delay:.4s}.hero-col > .rise:nth-child(5){animation-delay:.48s}.hero-col > .rise:nth-child(6){animation-delay:.58s}.hero-col > .rise:nth-child(7){animation-delay:.66s}
+@keyframes rise{to{opacity:1;transform:none}}
+.pill.on{background:var(--yellow);border-color:var(--yellow);color:var(--ink);transform:translateY(-2px) rotate(-1.5deg);box-shadow:0 8px 20px rgba(245,200,58,.3)}
+.pill{transition:background .35s, border-color .35s, color .35s, transform .45s cubic-bezier(.2,1.5,.4,1), box-shadow .35s}
+.shine{position:relative;overflow:hidden}
+.shine::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);transform:skewX(-18deg);animation:shine 5s ease-in-out 1.6s infinite}
+@keyframes shine{0%,70%{left:-60%}100%{left:130%}}
+.facts{background:rgba(9,40,26,.92);backdrop-filter:blur(6px)}
+.facts li::before{content:none}
+.facts li svg{flex:none;width:26px;height:26px;fill:none;stroke:var(--yellow);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hl{background:linear-gradient(transparent 60%, rgba(245,200,58,.55) 60%, rgba(245,200,58,.55) 92%, transparent 92%);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.dark .hl{background:none;color:var(--yellow)}
+.vtag{position:absolute;left:14px;bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(10,36,22,.78);color:#fff;font:600 13px var(--font);backdrop-filter:blur(4px)}
+.vtag::before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--lime);vertical-align:1px}
+
+/* NMT tablo */
+.tablo{border-radius:24px;background:var(--g950);padding:16px;color:#fff;box-shadow:0 24px 60px rgba(10,36,22,.25)}
+.tablo-top{display:flex;justify-content:space-between;align-items:center;font:700 12px var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin:2px 4px 12px}
+.tablo-top .rec{color:rgba(255,255,255,.6);letter-spacing:.06em;text-transform:none;font-weight:500}
+.tablo-top .rec::before{content:"";display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:#FF5A4F;vertical-align:1px;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.score{position:relative;aspect-ratio:16/11;border-radius:16px;overflow:hidden;background:var(--g900);isolation:isolate}
+.score video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.knock{position:absolute;inset:0;display:grid;place-items:center;background:#0B2A1A;mix-blend-mode:multiply}
+.knock .num{font:800 clamp(96px, 11.5vw, 168px)/1 var(--round);letter-spacing:-.045em;color:#fff;font-variant-numeric:tabular-nums}
+.knock.line{background:none;mix-blend-mode:normal}
+.knock.line .num{color:transparent;-webkit-text-stroke:2px rgba(245,200,58,.95)}
+.tablo .scale{position:static;margin:14px 4px 6px}
+.tablo .scale .bar i{animation:none;width:0;transition:width .12s linear}
+.flap{display:grid;gap:8px;margin-top:12px}
+.flap .row{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:10px}
+.flap b{font:600 11px var(--font);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cells{display:flex;gap:3px;flex-wrap:nowrap;overflow:hidden}
+.cells i{position:relative;display:grid;place-items:center;width:clamp(15px,1.55vw,20px);height:26px;border-radius:4px;background:#14402A;color:var(--yellow);font:700 14px/1 ui-monospace, 'Cascadia Mono', Consolas, monospace;font-style:normal}
+.cells i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.45)}
+.cells i.flip{animation:flip .12s linear}
+@keyframes flip{50%{transform:scaleY(.15)}}
+
+@media (min-width:1500px){.chip-score{left:31%;top:70%}}
+/* founder */
+.f-photo{position:relative;margin:0;align-self:start;padding-bottom:40px}
+.f-photo img{height:auto}
+.f-photo > img:first-child{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:26px;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.f-photo .pola{position:absolute;left:-18px;bottom:0;width:32%;aspect-ratio:21/26;object-fit:cover;border:7px solid #fff;border-bottom-width:26px;border-radius:6px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.f-photo figcaption{position:absolute;left:18px;top:18px;padding:12px 16px;border-radius:16px;background:rgba(10,36,22,.82);backdrop-filter:blur(6px);max-width:60%}
+.f-photo figcaption b{display:block;font:700 26px/1 var(--hand);color:var(--yellow)}
+.f-photo figcaption span{font-size:13px;color:var(--on-dark)}
+.badges{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.badges li{padding:9px 14px;border-radius:14px;background:var(--g800);border:1px solid var(--line-dark);font-size:13.5px;color:var(--on-dark)}
+.badges b{color:var(--yellow);font:800 18px var(--round);margin-right:6px}
+
+/* trips mosaic */
+.trips{display:block}
+.trips > div{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);column-gap:clamp(28px,5vw,64px);align-items:end}
+.trips > div > h2,.trips > div > .lead{grid-column:1}
+.trips > div > .q{grid-column:2;grid-row:1 / span 2;margin:0}
+.mosaic{margin-top:36px;display:grid;grid-template-columns:repeat(4, minmax(0,1fr));grid-auto-rows:clamp(130px, 14vw, 200px);gap:12px}
+.mosaic figure{position:relative;margin:0;border-radius:20px;overflow:hidden;background:#EFEBDD}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.mosaic figure:hover img{transform:scale(1.05)}
+.mosaic figcaption{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;background:rgba(255,253,247,.94);color:var(--ink);font:700 13.5px var(--font)}
+.m-big{grid-column:span 2;grid-row:span 2}
+.m-tall{grid-row:span 2}
+.m-wide{grid-column:span 2}
+
+/* cards & reveal */
+.myths li,.steps ol li,.reel .q,.faq details{transition:transform .25s ease, box-shadow .25s ease}
+.myths li:hover,.steps ol li:hover,.reel .q:hover{transform:translateY(-3px);box-shadow:0 1px 0 var(--line), 0 16px 34px rgba(19,38,27,.09)}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .trips > div{grid-template-columns:1fr}
+  .trips > div > .q{grid-column:1;grid-row:auto;margin-top:24px}
+  .f-photo{max-width:420px}
+  .mosaic{grid-template-columns:repeat(2, minmax(0,1fr));grid-auto-rows:150px}
+  .m-big{grid-column:span 2;grid-row:span 2}.m-tall{grid-row:span 2}.m-wide{grid-column:span 2}
+  .tablo{max-width:460px}
+}
+@media (max-width:640px){
+  .hero-art{position:relative;order:2;height:300px;width:100%;aspect-ratio:auto;transform:none}
+  .hero-art picture{-webkit-mask-image:none;mask-image:none}
+  .hero-bg{object-position:84% 60%}
+  .chip-score{left:4%;top:auto;bottom:16px}
+  .chip-score b{font-size:22px}
+  .spark{display:none}
+  .f-photo .pola{left:-6px;width:34%}
+  .cells i{width:16px;height:24px;font-size:12.5px}
+  .flap .row{grid-template-columns:62px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  .rise,.js .rv{opacity:1 !important;transform:none !important}
 }
 </style>
 </head>
@@ -333,31 +447,38 @@ footer.ft a{text-decoration:none}
   <!-- 1. Перший екран -->
   <section class="hero" aria-labelledby="h1">
     <div class="hero-stage">
-      <picture>
-        <source srcset="media/hero-scene.webp" type="image/webp">
-        <img class="hero-bg" src="media/hero-scene.jpg" alt="Учні центру «Абітурієнт» різного віку радіють разом" width="1200" height="670" fetchpriority="high">
-      </picture>
+      <div class="hero-art" id="heroArt">
+        <picture>
+          <source srcset="media/hero-scene.webp" type="image/webp">
+          <img class="hero-bg" src="media/hero-scene.jpg" alt="Учні центру «Абітурієнт» різного віку радіють разом" width="1200" height="670" fetchpriority="high">
+        </picture>
+        <i class="spark s1" aria-hidden="true"></i><i class="spark s2" aria-hidden="true"></i><i class="spark s3" aria-hidden="true"></i><i class="spark s4" aria-hidden="true"></i>
+        <div class="chip-score" aria-hidden="true">
+          <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" class="trk"/><circle cx="22" cy="22" r="18" class="val" id="heroRing"/></svg>
+          <div><small>НМТ</small><b id="heroNum">100</b></div>
+        </div>
+      </div>
       <div class="hero-col">
-        <p class="eyebrow">Репетиторський центр у Винниках · Галицька 34Б</p>
-        <h1 id="h1">Репетиторство <b>від А до Я</b></h1>
-        <p class="sub">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.</p>
-        <p class="ask">Що вам потрібно?</p>
-        <div class="pills">
+        <p class="eyebrow rise">Репетиторський центр у Винниках · Галицька 34Б</p>
+        <h1 id="h1" class="rise">Репетиторство <b>від А до Я</b></h1>
+        <p class="sub rise">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.</p>
+        <p class="ask rise">Що вам потрібно?</p>
+        <div class="pills rise" id="pills">
           <button class="pill" type="button" data-tab="nmt">НМТ комплексно</button>
           <button class="pill" type="button" data-tab="eng">Англійська</button>
           <button class="pill" type="button" data-tab="math">Математика</button>
           <button class="pill" type="button" data-tab="prim">Початкова школа</button>
         </div>
-        <a class="btn big" href="#zapys">Записатися на безкоштовне пробне заняття <span class="arr" aria-hidden="true">→</span></a>
-        <p class="small">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
+        <a class="btn big shine rise" href="#zapys">Записатися на безкоштовне пробне заняття <span class="arr" aria-hidden="true">→</span></a>
+        <p class="small rise">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
       </div>
     </div>
     <div class="facts">
       <ul>
-        <li>НМТ: 3 обов'язкові предмети + 1 на вибір</li>
-        <li>Заняття по 60 і 90 хвилин</li>
-        <li>Група, пара або індивідуально</li>
-        <li>Тільки очно, безпечний клас</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg><span>НМТ: 3 обов'язкові предмети + 1 на вибір</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Заняття по 60 і 90 хвилин</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.6.1 4.4 1.7 5 4.3"/></svg><span>Група, пара або індивідуально</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg><span>Тільки очно, безпечний клас</span></li>
       </ul>
     </div>
   </section>
@@ -366,7 +487,7 @@ footer.ft a{text-decoration:none}
   <section class="sec dark" id="bezpeka" aria-labelledby="h-safe">
     <div class="wrap safe">
       <div>
-        <h2 id="h-safe">Поки ви на роботі, дитина навчається в безпечному й теплому класі</h2>
+        <h2 id="h-safe">Поки ви на роботі, дитина навчається в <span class="hl">безпечному й теплому класі</span></h2>
         <ul class="ticks">
           <li>Центр розташований у напівпідвальному приміщенні з бетонним перекриттям. Стіни кабінету завтовшки пів метра, є вентиляція</li>
           <li>Світло, тепло й інтернет працюють навіть під час відключень: автономне живлення до двох діб і підігрів підлоги</li>
@@ -377,8 +498,9 @@ footer.ft a{text-decoration:none}
       </div>
       <div class="vid">
         <video data-lazy muted loop playsinline preload="none" poster="media/v3-poster.webp" aria-label="Класи центру «Абітурієнт»">
-          <source data-src="media/v3-montage.mp4" type="video/mp4">
+          <source data-src="media/v3-lite.mp4" type="video/mp4">
         </video>
+        <span class="vtag">Наші класи · Галицька 34Б</span>
       </div>
     </div>
   </section>
@@ -408,14 +530,22 @@ footer.ft a{text-decoration:none}
           <p class="punch">Рік підготовки коштує менше, ніж роки навчання на контракті.</p>
           <a class="btn" href="#zapys" data-dir="nmt">Записатися на пробне з НМТ</a>
         </div>
-        <div class="board">
-          <video data-lazy muted loop playsinline preload="none" poster="media/v2-poster.webp" aria-label="Заняття в центрі «Абітурієнт»">
-            <source data-src="media/v2-montage.mp4" type="video/mp4">
-          </video>
+        <div class="tablo" id="tablo">
+          <div class="tablo-top"><span>Шкала НМТ</span><span class="rec">заняття в центрі</span></div>
+          <div class="score">
+            <video data-lazy muted loop playsinline preload="none" poster="media/v2-poster.webp" aria-label="Заняття в центрі «Абітурієнт»">
+              <source data-src="media/v2-lite.mp4" type="video/mp4">
+            </video>
+            <div class="knock" aria-hidden="true"><span class="num">200</span></div>
+            <div class="knock line" aria-hidden="true"><span class="num">200</span></div>
+          </div>
           <div class="scale" aria-hidden="true">
-            <div class="nm">НМТ</div>
-            <div class="bar"><i></i></div>
+            <div class="bar"><i id="tabloBar"></i></div>
             <div class="ticksrow"><span>100</span><span>125</span><span>150</span><span>175</span><span>200</span></div>
+          </div>
+          <div class="flap" aria-hidden="true">
+            <div class="row"><b>Предмет</b><span class="cells" data-words="УКРАЇНСЬКА|МАТЕМАТИКА|ІСТОРІЯ|АНГЛІЙСЬКА|БІОЛОГІЯ"></span></div>
+            <div class="row"><b>Формат</b><span class="cells" data-words="ГРУПА|ПАРА|ІНДИВІДУАЛЬНО"></span></div>
           </div>
         </div>
       </div>
@@ -470,11 +600,18 @@ footer.ft a{text-decoration:none}
   <!-- 4. Засновниця та керівник -->
   <section class="sec dark" id="zasnovnytsia" aria-labelledby="h-founder">
     <div class="wrap founder">
-      <div class="ph"><div><b>Фото засновниці</b><mark class="todo">уточнити</mark></div></div>
+      <figure class="f-photo">
+        <img src="media/founder.webp" alt="Галина Коздрин, засновниця центру «Абітурієнт»" width="720" height="900" loading="lazy">
+        <img class="pola" src="media/founder-2.webp" alt="Галина Коздрин у Парижі під час поїздки з учнями" width="420" height="520" loading="lazy">
+        <figcaption><b>Галина Коздрин</b><span>засновниця і керівник «Абітурієнта»</span></figcaption>
+      </figure>
       <div>
         <h2 id="h-founder">Засновниця та керівник центру</h2>
-        <p class="lead">17 років викладала в державних школах. Готує до ЗНО і НМТ від самого запровадження тестування. Сама організовує для учнів подорожі Європою.</p>
-        <p class="lead"><mark class="todo">уточнити</mark> Тут буде ваша історія: як з'явився «Абітурієнт», чому ви це робите, що для вас важливо в навчанні дітей.</p>
+        <ul class="badges"><li><b>17</b> років у державних школах</li><li><b>ЗНО → НМТ</b> з першого року тестування</li></ul>
+        <p class="lead">Галина Коздрин 17 років викладала в державних школах. До ЗНО і НМТ вона готує від самого запровадження тестування, тому формат іспиту знає зсередини.</p>
+        <p class="lead">У відгуках батьки й учні дякують їй окремо: за щирість, енергію та ідеї, за продуманий простір центру і за атмосферу, де помилятися не страшно.</p>
+        <p class="lead">Англійську тут вчать, щоб нею користуватися, тому Галина сама везе учнів у Європу. Нормандія, Мон-Сен-Мішель, Париж, Бамберг: фото з поїздок трохи нижче.</p>
+        <p class="lead"><mark class="todo">уточнити</mark> Ваша історія: як з'явився «Абітурієнт» і що для вас найважливіше в навчанні дітей.</p>
         <div class="quotes">
           <blockquote class="q"><p>«Чудовий заклад! Обидві дочки займаються тут, їздимо на уроки англійської мови. … Викладачі - супер! Професійно викладають предмети, а діти їх обожнюють. Керівник закладу - пані Галина - заслуговує окремих слів, це надзвичайно щира і доброзичлива людина, сповнена енергії та ідей.»</p><footer>Павло, Google Maps</footer></blockquote>
           <blockquote class="q"><p>«Дуже подобається навчання в цій школі. Помітно підтягнула англійську мову. Викладачі дуже приємні та сучасні, окрема подяка Галині Тадеївній за чудову організацію простору. Рекомендую!!!»</p><footer>Софія Костерева, Google Maps</footer></blockquote>
@@ -487,7 +624,7 @@ footer.ft a{text-decoration:none}
   <!-- 5. Чому до нас переходять -->
   <section class="sec paper" id="chomu" aria-labelledby="h-why">
     <div class="wrap">
-      <h2 id="h-why">Вже платили репетитору, а результату немає? Ось чим ми відрізняємося</h2>
+      <h2 id="h-why">Вже платили репетитору, а результату немає? <span class="hl">Ось чим ми відрізняємося</span></h2>
       <ul class="myths">
         <li><span class="m">«Спочатку граматика, говорити потім»</span><span class="to" aria-hidden="true">→</span><span class="r">Мова потрібна для спілкування: говоріння, слухання і творчі завдання на кожному занятті</span></li>
         <li><span class="m">«Математика дається від природи»</span><span class="to" aria-hidden="true">→</span><span class="r">Математика — це тренування: прогалини закриваються практикою</span></li>
@@ -498,19 +635,20 @@ footer.ft a{text-decoration:none}
 
   <!-- 6. Подорожі -->
   <section class="sec" id="podorozhi" aria-labelledby="h-trips">
-    <div class="wrap trips">
+    <div class="wrap">
+      <div class="trips">
       <div>
-        <h2 id="h-trips">Вчимо англійську, щоб нею користуватися, і подорожуємо разом</h2>
+        <h2 id="h-trips">Вчимо англійську, щоб нею користуватися, і <span class="hl">подорожуємо разом</span></h2>
         <p class="lead">Разом з учнями ми побували в Парижі, Нормандії, на Мон-Сен-Мішель, у Празі, Мюнхені, Венеції, Стамбулі та інших містах.</p>
         <blockquote class="q"><p>«Париж, мальовнича Нормандія та казковий Мон-Сен-Мішель — кожне місце по-своєму особливе й прекрасне. Усе було настільки красиво, що часом просто не вірилося, що я бачу це на власні очі. Дякую за організацію…»</p><footer>Софія Клименко, Google Maps</footer></blockquote>
       </div>
-      <div class="strip-ph">
-        <div class="ph light"><div><b>Париж</b>фото <mark class="todo">уточнити</mark></div></div>
-        <div class="ph light"><div><b>Нормандія</b>фото</div></div>
-        <div class="ph light"><div><b>Прага</b>фото</div></div>
-        <div class="ph light"><div><b>Мюнхен</b>фото</div></div>
-        <div class="ph light"><div><b>Венеція</b>фото</div></div>
-        <div class="ph light"><div><b>Стамбул</b>фото</div></div>
+      </div>
+      <div class="mosaic">
+        <figure class="m-big"><img src="media/trip-msm.webp" alt="Учні центру разом на Мон-Сен-Мішель" width="960" height="640" loading="lazy"><figcaption>Мон-Сен-Мішель</figcaption></figure>
+        <figure class="m-tall"><img src="media/trip-paris.webp" alt="Учні біля собору Нотр-Дам у Парижі" width="480" height="640" loading="lazy"><figcaption>Париж</figcaption></figure>
+        <figure class="m-tall"><img src="media/trip-etretat.webp" alt="Скелі Етрета в Нормандії" width="480" height="640" loading="lazy"><figcaption>Етрета, Нормандія</figcaption></figure>
+        <figure class="m-wide"><img src="media/trip-honfleur.webp" alt="Учні в гавані Онфлера" width="640" height="480" loading="lazy"><figcaption>Онфлер</figcaption></figure>
+        <figure class="m-wide"><img src="media/trip-bamberg.webp" alt="Група учнів у Бамберзі" width="640" height="480" loading="lazy"><figcaption>Бамберг, Німеччина</figcaption></figure>
       </div>
     </div>
   </section>
@@ -519,7 +657,7 @@ footer.ft a{text-decoration:none}
   <section class="sec paper" id="vidguky" aria-labelledby="h-rev">
     <div class="wrap">
       <div class="rev-top">
-        <h2 id="h-rev">Що кажуть батьки й учні</h2>
+        <h2 id="h-rev">Що кажуть <span class="hl">батьки й учні</span></h2>
         <div class="arrows"><button type="button" data-dir="-1" aria-label="Попередній відгук">←</button><button type="button" data-dir="1" aria-label="Наступний відгук">→</button></div>
       </div>
       <div class="reel" id="reel" tabindex="0" aria-label="Відгуки">
@@ -562,7 +700,7 @@ footer.ft a{text-decoration:none}
   <section class="sec dark" id="zapys" aria-labelledby="h-form">
     <div class="wrap form-wrap">
       <div>
-        <h2 id="h-form">Запишіться на безкоштовне пробне заняття</h2>
+        <h2 id="h-form">Запишіться на <span class="hl">безкоштовне</span> пробне заняття</h2>
       </div>
       <form class="form" id="form" novalidate>
         <div class="two">
@@ -715,6 +853,80 @@ footer.ft a{text-decoration:none}
     } else v.pause();
   }), {rootMargin: '200px'}) : null;
   $$('video[data-lazy]').forEach(v => vio ? vio.observe(v) : (v.querySelectorAll('source[data-src]').forEach(s => s.src = s.dataset.src), v.load()));
+
+  // ===== v2 motion =====
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  function countUp(from, to, ms, step, done) {
+    if (reduce) { step(to, 1); done && done(); return; }
+    const t0 = performance.now();
+    (function f(now) {
+      const k = Math.min(1, (now - t0) / ms), v = Math.round(from + (to - from) * ease(k));
+      step(v, k); k < 1 ? requestAnimationFrame(f) : done && done();
+    })(t0);
+  }
+
+  // hero: параллакс за курсором
+  const hero = $('.hero'), art = $('#heroArt');
+  if (!reduce && matchMedia('(pointer:fine)').matches) hero.addEventListener('pointermove', e => {
+    const r = hero.getBoundingClientRect();
+    art.style.setProperty('--mx', ((e.clientX - r.left) / r.width - .5).toFixed(3));
+    art.style.setProperty('--my', ((e.clientY - r.top) / r.height - .5).toFixed(3));
+  });
+
+  // hero: бейдж НМТ считает 100 → 200
+  const hNum = $('#heroNum'), hRing = $('#heroRing'), chip = $('.chip-score');
+  function heroCount() {
+    chip.classList.remove('done');
+    countUp(100, 200, 2400, v => { hNum.textContent = v; hRing.style.strokeDashoffset = 113.1 * (1 - (v - 100) / 100); },
+      () => { chip.classList.add('done'); if (!reduce) setTimeout(heroCount, 5200); });
+  }
+  setTimeout(heroCount, reduce ? 0 : 900);
+
+  // hero: жёлтый маркер шагает по кнопкам, пока на них не навели
+  const pills = $$('#pills .pill');
+  let pi = -1, ptimer = null;
+  const hop = () => { pills.forEach(b => b.classList.remove('on')); pi = (pi + 1) % pills.length; pills[pi].classList.add('on'); };
+  if (!reduce) setTimeout(() => { hop(); ptimer = setInterval(hop, 1700); }, 1300);
+  $('#pills').addEventListener('pointerenter', () => { clearInterval(ptimer); pills.forEach(b => b.classList.remove('on')); });
+
+  // табло НМТ: счёт внутри видео + шкала + перекидные буквы
+  const tablo = $('#tablo'), nums = $$('#tablo .num'), tBar = $('#tabloBar');
+  let tRun = false;
+  function tabloCount() {
+    countUp(100, 200, 2600, v => { nums.forEach(n => n.textContent = v); tBar.style.width = (v - 100) + '%'; },
+      () => { if (!reduce) setTimeout(tabloCount, 6000); });
+  }
+  const ABC = 'АБВГДЕЄЖЗИІЇКЛМНОПРСТУФХЦЧШЩЮЯ';
+  $$('#tablo .cells').forEach((box, ri) => {
+    const words = box.dataset.words.split('|'), n = Math.max(...words.map(w => w.length));
+    box.innerHTML = '<i></i>'.repeat(n);
+    const cells = [...box.children];
+    let wi = 0;
+    const show = w => cells.forEach((c, i) => {
+      const ch = w[i] || ' ';
+      if (reduce) { c.textContent = ch; return; }
+      let k = 0, spins = 3 + i % 4;
+      const t = setInterval(() => {
+        c.classList.remove('flip'); void c.offsetWidth; c.classList.add('flip');
+        c.textContent = k < spins && ch !== ' ' ? ABC[Math.random() * ABC.length | 0] : ch;
+        if (++k > spins) clearInterval(t);
+      }, 70 + i * 6);
+    });
+    show(words[0]);
+    if (!reduce) setInterval(() => { wi = (wi + 1) % words.length; show(words[wi]); }, 2600 + ri * 900);
+  });
+  if ('IntersectionObserver' in window) new IntersectionObserver((es, o) => es.forEach(en => {
+    if (en.isIntersecting && !tRun) { tRun = true; tabloCount(); o.disconnect(); }
+  }), {threshold: .35}).observe(tablo); else tabloCount();
+
+  // появление блоков при прокрутке
+  const rvEls = $$('.sec h2:not(.kicker), .sec .lead, .panel, .safe .vid, .f-photo, .badges, .quotes .q, .myths li, .mosaic figure, .reel, .steps ol li, .promise, .form, .faq details, .c-card, .map');
+  if ('IntersectionObserver' in window && !reduce) {
+    const rio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); rio.unobserve(en.target); } }), {rootMargin: '0px 0px -8% 0px'});
+    rvEls.forEach((el, i) => { el.classList.add('rv'); el.style.transitionDelay = (i % 4) * 70 + 'ms'; rio.observe(el); });
+  }
 })();
 </script>
 </body>
