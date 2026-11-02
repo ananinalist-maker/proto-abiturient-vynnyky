@@ -292,17 +292,17 @@ footer.ft a{text-decoration:none}
 
 /* ===== v2: hero art, motion, accents ===== */
 :root{--wrap:1240px}
-.hero{background:radial-gradient(120% 90% at 58% -10%, #33805a 0, #1b5c3c 32%, #0e4029 62%, #0a3020 100%)}
+.hero{background:linear-gradient(180deg, #284a39 0%, #1d3e2d 55%, #142e21 100%)}
 .hero-stage{min-height:clamp(620px, 47vw, 820px)}
-.hero-art{position:absolute;top:0;right:0;bottom:0;aspect-ratio:1200/670;max-width:none;transform:translate3d(calc(var(--mx,0)*-10px), calc(var(--my,0)*-6px), 0);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.hero-art picture{position:absolute;inset:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent 0, transparent 25%, #000 45%);mask-image:linear-gradient(90deg, transparent 0, transparent 25%, #000 45%)}
+.hero-art{position:absolute;top:0;right:0;bottom:0;aspect-ratio:16/9;max-width:none;transform:translate3d(calc(var(--mx,0)*-10px), calc(var(--my,0)*-6px), 0);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.hero-art picture{position:absolute;inset:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent 0, #000 22%);mask-image:linear-gradient(90deg, transparent 0, #000 22%)}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:68% 60%;animation:kb 16s ease-in-out infinite alternate}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.045) translate3d(-.8%, -.6%, 0)}}
 .spark{position:absolute;width:16px;height:16px;z-index:2;pointer-events:none;background:radial-gradient(circle, #fff 0 18%, transparent 20%), conic-gradient(from 45deg, transparent 0 22%, #FFE48A 22% 28%, transparent 28% 47%, #FFE48A 47% 53%, transparent 53% 72%, #FFE48A 72% 78%, transparent 78% 97%, #FFE48A 97%);border-radius:50%;opacity:0;animation:tw 3.2s ease-in-out infinite}
 .spark.s1{left:61%;top:9%;animation-delay:.2s}.spark.s2{left:80%;top:15%;width:12px;height:12px;animation-delay:1.3s}
 .spark.s3{left:66%;top:44%;width:11px;height:11px;animation-delay:2.1s}.spark.s4{left:53%;top:22%;animation-delay:.8s}
 @keyframes tw{0%,100%{opacity:0;transform:scale(.4) rotate(0)}45%{opacity:1;transform:scale(1.15) rotate(40deg)}60%{opacity:.9}}
-.chip-score{position:absolute;left:40%;top:80%;z-index:3;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,253,247,.96);color:var(--ink);box-shadow:0 14px 36px rgba(0,0,0,.28);animation:bob 4.6s ease-in-out infinite}
+.chip-score{position:absolute;left:57%;top:13%;z-index:3;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,253,247,.96);color:var(--ink);box-shadow:0 14px 36px rgba(0,0,0,.28);animation:bob 4.6s ease-in-out infinite}
 .chip-score svg{width:44px;height:44px;transform:rotate(-90deg)}
 .chip-score circle{fill:none;stroke-width:5}
 .chip-score .trk{stroke:#E6F0E4}.chip-score .val{stroke:var(--lime);stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1;transition:stroke-dashoffset .1s linear}
@@ -350,7 +350,10 @@ footer.ft a{text-decoration:none}
 .cells i.flip{animation:flip .12s linear}
 @keyframes flip{50%{transform:scaleY(.15)}}
 
-@media (min-width:1500px){.chip-score{left:31%;top:70%}}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease;-webkit-mask-image:linear-gradient(90deg, transparent 0, #000 22%);mask-image:linear-gradient(90deg, transparent 0, #000 22%)}
+.hero-art.live .hero-vid{opacity:1}
+.hero-art.live .hero-bg{animation:none}
+@media (max-width:1499px) and (min-width:641px){.hero-art picture,.hero-vid{-webkit-mask-image:linear-gradient(90deg, transparent 0, transparent 20%, #000 38%);mask-image:linear-gradient(90deg, transparent 0, transparent 20%, #000 38%)}}
 /* founder */
 .f-photo{position:relative;margin:0;align-self:start;padding-bottom:40px}
 .f-photo img{height:auto}
@@ -392,10 +395,11 @@ footer.ft a{text-decoration:none}
   .tablo{max-width:460px}
 }
 @media (max-width:640px){
-  .hero-art{position:relative;order:2;height:300px;width:100%;aspect-ratio:auto;transform:none}
-  .hero-art picture{-webkit-mask-image:none;mask-image:none}
-  .hero-bg{object-position:84% 60%}
-  .chip-score{left:4%;top:auto;bottom:16px}
+  .hero-art{position:relative;order:2;height:340px;width:100%;aspect-ratio:auto;transform:none}
+  .hero-art picture,.hero-vid{-webkit-mask-image:none;mask-image:none}
+  .hero-vid{object-position:78% 100%}
+  .hero-bg{object-position:78% 100%}
+  .chip-score{left:auto;right:4%;top:12px}
   .chip-score b{font-size:22px}
   .spark{display:none}
   .f-photo .pola{left:-6px;width:34%}
@@ -450,10 +454,10 @@ footer.ft a{text-decoration:none}
       <div class="hero-art" id="heroArt">
         <picture>
           <source srcset="media/hero-scene.webp" type="image/webp">
-          <img class="hero-bg" src="media/hero-scene.jpg" alt="Учні центру «Абітурієнт» різного віку радіють разом" width="1200" height="670" fetchpriority="high">
+          <img class="hero-bg" src="media/hero-scene.jpg" alt="Мультяшні учні центру «Абітурієнт» усміхаються й вітаються" width="1280" height="720" fetchpriority="high">
         </picture>
-        <i class="spark s1" aria-hidden="true"></i><i class="spark s2" aria-hidden="true"></i><i class="spark s3" aria-hidden="true"></i><i class="spark s4" aria-hidden="true"></i>
-        <div class="chip-score" aria-hidden="true">
+        <video class="hero-vid" id="heroVid" muted loop playsinline preload="none" poster="media/hero-scene.webp" aria-hidden="true"></video>
+                <div class="chip-score" aria-hidden="true">
           <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" class="trk"/><circle cx="22" cy="22" r="18" class="val" id="heroRing"/></svg>
           <div><small>НМТ</small><b id="heroNum">100</b></div>
         </div>
@@ -873,6 +877,15 @@ footer.ft a{text-decoration:none}
     const r = hero.getBoundingClientRect();
     art.style.setProperty('--mx', ((e.clientX - r.left) / r.width - .5).toFixed(3));
     art.style.setProperty('--my', ((e.clientY - r.top) / r.height - .5).toFixed(3));
+  });
+
+  // hero: живая сцена (Veo) догружается после загрузки страницы, до этого стоит картинка
+  const hv = $('#heroVid');
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (hv && !reduce && !saveData) addEventListener('load', () => {
+    hv.src = innerWidth < 700 ? 'media/hero-live-sm.mp4' : 'media/hero-live.mp4';
+    hv.addEventListener('playing', () => art.classList.add('live'), {once: true});
+    hv.play().catch(() => {});
   });
 
   // hero: бейдж НМТ считает 100 → 200
