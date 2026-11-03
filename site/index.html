@@ -410,35 +410,39 @@ footer.ft a{text-decoration:none}
   .rise,.js .rv{opacity:1 !important;transform:none !important}
 }
 
-/* ===== v4 hero: текст на зелёном поле картинки, сцена подходит под него своим пустым верхом ===== */
-.hero{background:#04241f}
-.hero-stage{height:auto;min-height:0;display:flex;flex-direction:column;overflow:hidden;
-  background:radial-gradient(70% 115% at 50% 100%, #3d8a62 0%, #22654a 30%, #0c3a2b 62%, #04241f 100%)}
-.hero-stage::after{content:none}
-.hero-col{order:1;position:relative;z-index:2;width:100%;max-width:1320px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);column-gap:clamp(28px,4vw,72px);align-items:end;padding:calc(var(--hh) + 2.6vh) var(--gut) 0}
-.hero-col > *{max-width:none}
-.hero-art{order:2;position:relative;inset:auto;width:100%;aspect-ratio:16/9;height:auto;max-width:none;transform:none;transition:none;margin-top:calc(-11.5vw + 10px);z-index:1}
-.hero-art picture,.hero-vid{-webkit-mask-image:linear-gradient(180deg, transparent 0, #000 22%) !important;mask-image:linear-gradient(180deg, transparent 0, #000 22%) !important}
-.hero-bg,.hero-vid{object-fit:cover;object-position:50% 0}
+/* ===== v5 hero: живая сцена из брифа, текст слева прямо на картинке ===== */
+.hero{background:#0b3424}
+.hero-stage{position:relative;display:block;height:clamp(620px, calc(100svh - 74px), 56.25vw);min-height:0;overflow:hidden;background:#0b3424}
+.hero-stage::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg, rgba(6,32,22,.55) 0%, rgba(6,32,22,.25) 32%, rgba(6,32,22,0) 48%)}
+.hero-art{position:absolute;top:0;right:0;bottom:0;left:auto;height:100%;width:auto;aspect-ratio:1376/768;min-width:100%;max-width:none;transform:none;transition:none;margin:0}
+@media (min-aspect-ratio:179/100){.hero-art{min-width:0}}
+.hero-art picture,.hero-vid{-webkit-mask-image:linear-gradient(90deg, transparent 0, #000 14%) !important;mask-image:linear-gradient(90deg, transparent 0, #000 14%) !important}
+.hero-bg,.hero-vid{object-fit:cover;object-position:100% 100%}
 .hero-bg{animation:none}
 .hero-art picture{transition:opacity .6s ease .7s}
 .hero-art.live picture{opacity:0}
-.hero h1{font-size:clamp(40px, 4.6vw, 76px);margin-bottom:10px;text-shadow:0 2px 3px rgba(6,40,27,.3), 0 8px 28px rgba(6,40,27,.45)}
-.hero h1 b{display:inline}
-.hero .sub{max-width:560px;margin-bottom:0}
+.hero-col{position:relative;z-index:2;display:block;max-width:var(--wrap);padding:calc(var(--hh) + 3vh) var(--gut) 40px}
+.hero-col > *,.hc-l,.hc-r{max-width:560px}
+.hero h1{font-size:clamp(42px, min(4.8vw, 9vh), 76px);margin-bottom:14px;text-shadow:0 2px 3px rgba(6,40,27,.3), 0 8px 28px rgba(6,40,27,.5)}
+.hero h1 b{display:block}
+.hero .sub{margin-bottom:14px;text-shadow:0 1px 10px rgba(6,40,27,.6)}
 .hc-r .ask{margin-bottom:8px}
-.hc-r .pills{margin-bottom:16px}
-.hc-r .btn.big{margin-bottom:8px}
-.pill{background:rgba(8,30,18,.55)}
+.hc-r .pills{margin-bottom:26px}
+.hc-r .btn.big{margin-bottom:10px}
+.pill{background:rgba(8,30,18,.6);backdrop-filter:blur(6px)}
 .hero-col .rise:nth-child(1){animation-delay:.05s}.hero-col .rise:nth-child(2){animation-delay:.18s}.hero-col .rise:nth-child(3){animation-delay:.3s}
 .hc-r .rise:nth-child(1){animation-delay:.4s}.hc-r .rise:nth-child(2){animation-delay:.5s}.hc-r .rise:nth-child(3){animation-delay:.6s}.hc-r .rise:nth-child(4){animation-delay:.68s}
 @media (max-width:1100px){
-  .hero-col{grid-template-columns:1fr;row-gap:16px}
-  .hero h1{font-size:clamp(38px, 7vw, 64px)}
+  .hero-stage{height:auto;display:flex;flex-direction:column}
+  .hero-stage::after{content:none}
+  .hero-col{order:1;padding-bottom:6px}
+  .hero-art{position:relative;order:2;height:auto;width:100%;min-width:0;aspect-ratio:4/3;inset:auto}
+  .hero-art picture,.hero-vid{-webkit-mask-image:none !important;mask-image:none !important}
+  .hero-bg,.hero-vid{object-position:88% 100%}
+  .hero h1 b{display:inline}
 }
 @media (max-width:640px){
-  .hero-art{margin-top:-8vw}
-  .hero-col{padding-bottom:0}
+  .hero-art{aspect-ratio:1/1}
 }
 </style>
 </head>
@@ -485,7 +489,7 @@ footer.ft a{text-decoration:none}
       <div class="hero-art" id="heroArt">
         <picture>
           <source srcset="media/hero-scene.webp" type="image/webp">
-          <img class="hero-bg" src="media/hero-scene.jpg" alt="Мультяшні учні центру «Абітурієнт» серед усміхнених ромашок вітаються" width="1280" height="720" fetchpriority="high">
+          <img class="hero-bg" src="media/hero-scene.jpg" alt="Мультяшні учні центру «Абітурієнт»: дівчинка у вишиванці стрибає з тестом, старші обіймають малечу" width="1280" height="720" fetchpriority="high">
         </picture>
         <video class="hero-vid" id="heroVid" muted loop playsinline preload="none" poster="media/hero-scene.webp" aria-hidden="true"></video>
       </div>
