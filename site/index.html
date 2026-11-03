@@ -409,6 +409,37 @@ footer.ft a{text-decoration:none}
 @media (prefers-reduced-motion:reduce){
   .rise,.js .rv{opacity:1 !important;transform:none !important}
 }
+
+/* ===== v4 hero: текст на зелёном поле картинки, сцена подходит под него своим пустым верхом ===== */
+.hero{background:#04241f}
+.hero-stage{height:auto;min-height:0;display:flex;flex-direction:column;overflow:hidden;
+  background:radial-gradient(70% 115% at 50% 100%, #3d8a62 0%, #22654a 30%, #0c3a2b 62%, #04241f 100%)}
+.hero-stage::after{content:none}
+.hero-col{order:1;position:relative;z-index:2;width:100%;max-width:1320px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);column-gap:clamp(28px,4vw,72px);align-items:end;padding:calc(var(--hh) + 2.6vh) var(--gut) 0}
+.hero-col > *{max-width:none}
+.hero-art{order:2;position:relative;inset:auto;width:100%;aspect-ratio:16/9;height:auto;max-width:none;transform:none;transition:none;margin-top:calc(-11.5vw + 10px);z-index:1}
+.hero-art picture,.hero-vid{-webkit-mask-image:linear-gradient(180deg, transparent 0, #000 22%) !important;mask-image:linear-gradient(180deg, transparent 0, #000 22%) !important}
+.hero-bg,.hero-vid{object-fit:cover;object-position:50% 0}
+.hero-bg{animation:none}
+.hero-art picture{transition:opacity .6s ease .7s}
+.hero-art.live picture{opacity:0}
+.hero h1{font-size:clamp(40px, 4.6vw, 76px);margin-bottom:10px;text-shadow:0 2px 3px rgba(6,40,27,.3), 0 8px 28px rgba(6,40,27,.45)}
+.hero h1 b{display:inline}
+.hero .sub{max-width:560px;margin-bottom:0}
+.hc-r .ask{margin-bottom:8px}
+.hc-r .pills{margin-bottom:16px}
+.hc-r .btn.big{margin-bottom:8px}
+.pill{background:rgba(8,30,18,.55)}
+.hero-col .rise:nth-child(1){animation-delay:.05s}.hero-col .rise:nth-child(2){animation-delay:.18s}.hero-col .rise:nth-child(3){animation-delay:.3s}
+.hc-r .rise:nth-child(1){animation-delay:.4s}.hc-r .rise:nth-child(2){animation-delay:.5s}.hc-r .rise:nth-child(3){animation-delay:.6s}.hc-r .rise:nth-child(4){animation-delay:.68s}
+@media (max-width:1100px){
+  .hero-col{grid-template-columns:1fr;row-gap:16px}
+  .hero h1{font-size:clamp(38px, 7vw, 64px)}
+}
+@media (max-width:640px){
+  .hero-art{margin-top:-8vw}
+  .hero-col{padding-bottom:0}
+}
 </style>
 </head>
 <body>
@@ -454,18 +485,17 @@ footer.ft a{text-decoration:none}
       <div class="hero-art" id="heroArt">
         <picture>
           <source srcset="media/hero-scene.webp" type="image/webp">
-          <img class="hero-bg" src="media/hero-scene.jpg" alt="Мультяшні учні центру «Абітурієнт» усміхаються й вітаються" width="1280" height="720" fetchpriority="high">
+          <img class="hero-bg" src="media/hero-scene.jpg" alt="Мультяшні учні центру «Абітурієнт» серед усміхнених ромашок вітаються" width="1280" height="720" fetchpriority="high">
         </picture>
         <video class="hero-vid" id="heroVid" muted loop playsinline preload="none" poster="media/hero-scene.webp" aria-hidden="true"></video>
-                <div class="chip-score" aria-hidden="true">
-          <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" class="trk"/><circle cx="22" cy="22" r="18" class="val" id="heroRing"/></svg>
-          <div><small>НМТ</small><b id="heroNum">100</b></div>
-        </div>
       </div>
       <div class="hero-col">
+        <div class="hc-l">
         <p class="eyebrow rise">Репетиторський центр у Винниках · Галицька 34Б</p>
         <h1 id="h1" class="rise">Репетиторство <b>від А до Я</b></h1>
         <p class="sub rise">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.</p>
+        </div>
+        <div class="hc-r">
         <p class="ask rise">Що вам потрібно?</p>
         <div class="pills rise" id="pills">
           <button class="pill" type="button" data-tab="nmt">НМТ комплексно</button>
@@ -475,6 +505,7 @@ footer.ft a{text-decoration:none}
         </div>
         <a class="btn big shine rise" href="#zapys">Записатися на безкоштовне пробне заняття <span class="arr" aria-hidden="true">→</span></a>
         <p class="small rise">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
+        </div>
       </div>
     </div>
     <div class="facts">
@@ -888,21 +919,14 @@ footer.ft a{text-decoration:none}
     hv.play().catch(() => {});
   });
 
-  // hero: бейдж НМТ считает 100 → 200
-  const hNum = $('#heroNum'), hRing = $('#heroRing'), chip = $('.chip-score');
-  function heroCount() {
-    chip.classList.remove('done');
-    countUp(100, 200, 2400, v => { hNum.textContent = v; hRing.style.strokeDashoffset = 113.1 * (1 - (v - 100) / 100); },
-      () => { chip.classList.add('done'); if (!reduce) setTimeout(heroCount, 5200); });
-  }
-  setTimeout(heroCount, reduce ? 0 : 900);
-
   // hero: жёлтый маркер шагает по кнопкам, пока на них не навели
   const pills = $$('#pills .pill');
   let pi = -1, ptimer = null;
   const hop = () => { pills.forEach(b => b.classList.remove('on')); pi = (pi + 1) % pills.length; pills[pi].classList.add('on'); };
-  if (!reduce) setTimeout(() => { hop(); ptimer = setInterval(hop, 1700); }, 1300);
+  const runPills = () => { clearInterval(ptimer); hop(); ptimer = setInterval(hop, 1500); };
+  if (!reduce) setTimeout(runPills, 500);
   $('#pills').addEventListener('pointerenter', () => { clearInterval(ptimer); pills.forEach(b => b.classList.remove('on')); });
+  $('#pills').addEventListener('pointerleave', () => { if (!reduce) runPills(); });
 
   // табло НМТ: счёт внутри видео + шкала + перекидные буквы
   const tablo = $('#tablo'), nums = $$('#tablo .num'), tBar = $('#tabloBar');
