@@ -441,9 +441,24 @@ footer.ft a{text-decoration:none}
   .hero-bg,.hero-vid{object-position:88% 100%}
   .hero h1 b{display:inline}
 }
-@media (max-width:640px){
-  .hero-art{aspect-ratio:1/1}
+@media (max-width:700px){
+  .hero-stage{display:block;height:calc(100svh - 76px);min-height:600px;max-height:860px}
+  .hero-art{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
+  .hero-bg,.hero-vid{object-fit:cover;object-position:50% 100%}
+  .hero-stage::after{content:"";background:linear-gradient(180deg, rgba(6,32,22,.45) 0, rgba(6,32,22,0) 34%, rgba(6,32,22,0) 60%, rgba(6,32,22,.78) 80%, rgba(6,32,22,.94) 100%)}
+  .hero-col{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--hh) + 12px) var(--gut) 18px}
+  .hero-col > *,.hc-l,.hc-r{max-width:none}
+  .hero .eyebrow{font-size:11px;margin-bottom:8px}
+  .hero h1{font-size:clamp(36px, 10.5vw, 46px);margin-bottom:8px}
+  .hero h1 b{display:block}
+  .hero .sub{font-size:15px;line-height:1.4;margin:0}
+  .hc-r .ask{font-size:24px;margin-bottom:6px}
+  .hc-r .pills{gap:7px;margin-bottom:12px}
+  .hc-r .pill{font-size:13.5px;padding:8px 12px}
+  .hc-r .btn.big{width:100%;margin-bottom:0}
+  .hc-r .small{display:none}
 }
+@media (max-width:700px) and (max-height:780px){.hc-r .ask{display:none}.hero .sub{font-size:14.5px}}
 </style>
 </head>
 <body>
@@ -488,6 +503,7 @@ footer.ft a{text-decoration:none}
     <div class="hero-stage">
       <div class="hero-art" id="heroArt">
         <picture>
+          <source media="(max-width:700px)" srcset="media/hero-tall.webp" type="image/webp">
           <source srcset="media/hero-scene.webp" type="image/webp">
           <img class="hero-bg" src="media/hero-scene.jpg" alt="Мультяшні учні центру «Абітурієнт»: дівчинка у вишиванці стрибає з тестом, старші обіймають малечу" width="1280" height="720" fetchpriority="high">
         </picture>
@@ -918,7 +934,9 @@ footer.ft a{text-decoration:none}
   const hv = $('#heroVid');
   const saveData = navigator.connection && navigator.connection.saveData;
   if (hv && !reduce && !saveData) addEventListener('load', () => {
-    hv.src = innerWidth < 700 ? 'media/hero-live-sm.mp4' : 'media/hero-live.mp4';
+    const tall = matchMedia('(max-width:700px)').matches;
+    hv.poster = tall ? 'media/hero-tall.webp' : 'media/hero-scene.webp';
+    hv.src = tall ? 'media/hero-live-tall.mp4' : 'media/hero-live.mp4';
     hv.addEventListener('playing', () => art.classList.add('live'), {once: true});
     hv.play().catch(() => {});
   });
