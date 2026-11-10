@@ -459,6 +459,39 @@ footer.ft a{text-decoration:none}
   .hc-r .small{display:none}
 }
 @media (max-width:700px) and (max-height:780px){.hc-r .ask{display:none}.hero .sub{font-size:14.5px}}
+
+/* ===== единая сетка и типографика: заголовки по центру, одна шкала шрифтов ===== */
+:root{--fs-h2:clamp(30px, 3.1vw, 42px);--fs-h3:clamp(22px, 2vw, 26px);--fs-lead:18px;--fs-body:16.5px;--fs-small:14.5px}
+.sec-head{text-align:center;max-width:840px;margin:0 auto clamp(30px, 4vw, 48px)}
+.sec-head h2,.sec h2,.sec h2.kicker{font:800 var(--fs-h2)/1.16 var(--round);letter-spacing:-.015em;margin:0;color:inherit}
+.sec-head .lead{margin:16px auto 0;max-width:660px}
+.lead{font-size:var(--fs-lead);line-height:1.6}
+.panel h3,.promise h3,.c-card h3{font-size:var(--fs-h3);line-height:1.25;margin-bottom:14px}
+.punch,.faq summary{font-size:var(--fs-lead)}
+.ticks li,.panel > div > p,.q p,.myths .m,.myths .r,.steps ol li,.faq details p,.c-list,.f-photo + div .lead,.thanks p{font-size:var(--fs-body)}
+.thanks p{font:800 var(--fs-h3)/1.3 var(--round)}
+.facts li,.small,.q footer,.c-list b,.mosaic figcaption,.badges li,.vtag,.pnote{font-size:var(--fs-small)}
+.safe .ticks{margin-top:0}
+.tabs{justify-content:center;margin-top:0}
+.myths{max-width:1000px;margin:0 auto}
+.trips{display:block}
+.trips > div{display:block;max-width:760px;margin:0 auto}
+.trips > div > .q{margin:0}
+.mosaic{margin-top:28px}
+.rev-top{justify-content:center;margin-top:-18px}
+.reel{padding-top:20px}
+.steps ol{margin-top:0}
+.promise{margin-top:0}
+.form-wrap{display:block}
+.form{max-width:760px;margin:0 auto}
+.faq{max-width:880px;margin:0 auto}
+.founder{align-items:start}
+/* переносы по правилам: в тексте автоматически по словарю, в заголовках не переносим */
+p,li,blockquote,dd,.lead{hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;text-wrap:pretty}
+h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:manual;text-wrap:balance}
+@media (max-width:900px){
+  .rev-top{margin-top:-10px}
+}
 </style>
 </head>
 <body>
@@ -474,7 +507,7 @@ footer.ft a{text-decoration:none}
       <a href="#napriamy" data-tab="eng">Англійська</a>
       <a href="#napriamy" data-tab="math">Математика</a>
       <a href="#napriamy" data-tab="prim">Початкова школа</a>
-      <a href="#zasnovnytsia">Про засновницю</a>
+      <a href="#zasnovnytsia">Про засновницю</a>
       <a href="#podorozhi">Подорожі</a>
       <a href="#vidguky">Відгуки</a>
       <a href="#kontakty">Контакти</a>
@@ -491,7 +524,7 @@ footer.ft a{text-decoration:none}
   <a href="#napriamy" data-tab="eng">Англійська</a>
   <a href="#napriamy" data-tab="math">Математика</a>
   <a href="#napriamy" data-tab="prim">Початкова школа</a>
-  <a href="#zasnovnytsia">Про засновницю</a>
+  <a href="#zasnovnytsia">Про засновницю</a>
   <a href="#podorozhi">Подорожі</a>
   <a href="#vidguky">Відгуки</a>
   <a href="#kontakty">Контакти</a>
@@ -511,28 +544,28 @@ footer.ft a{text-decoration:none}
       </div>
       <div class="hero-col">
         <div class="hc-l">
-        <p class="eyebrow rise">Репетиторський центр у Винниках · Галицька 34Б</p>
-        <h1 id="h1" class="rise">Репетиторство <b>від А до Я</b></h1>
-        <p class="sub rise">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.</p>
+        <p class="eyebrow rise">Репетиторський центр у Винниках · Галицька 34Б</p>
+        <h1 id="h1" class="rise">Репетиторство <b>від А до Я</b></h1>
+        <p class="sub rise">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.</p>
         </div>
         <div class="hc-r">
-        <p class="ask rise">Що вам потрібно?</p>
+        <p class="ask rise">Що вам потрібно?</p>
         <div class="pills rise" id="pills">
           <button class="pill" type="button" data-tab="nmt">НМТ комплексно</button>
           <button class="pill" type="button" data-tab="eng">Англійська</button>
           <button class="pill" type="button" data-tab="math">Математика</button>
           <button class="pill" type="button" data-tab="prim">Початкова школа</button>
         </div>
-        <a class="btn big shine rise" href="#zapys">Записатися на безкоштовне пробне заняття <span class="arr" aria-hidden="true">→</span></a>
-        <p class="small rise">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
+        <a class="btn big shine rise" href="#zapys">Записатися на безкоштовне пробне заняття <span class="arr" aria-hidden="true">→</span></a>
+        <p class="small rise">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
         </div>
       </div>
     </div>
     <div class="facts">
       <ul>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg><span>НМТ: 3 обов'язкові предмети + 1 на вибір</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Заняття по 60 і 90 хвилин</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.6.1 4.4 1.7 5 4.3"/></svg><span>Група, пара або індивідуально</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg><span>НМТ: 3 обов'язкові предмети + 1 на вибір</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Заняття по 60 і 90 хвилин</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.6.1 4.4 1.7 5 4.3"/></svg><span>Група, пара або індивідуально</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg><span>Тільки очно, безпечний клас</span></li>
       </ul>
     </div>
@@ -540,16 +573,17 @@ footer.ft a{text-decoration:none}
 
   <!-- 2. Безпека -->
   <section class="sec dark" id="bezpeka" aria-labelledby="h-safe">
-    <div class="wrap safe">
+    <div class="wrap">
+      <header class="sec-head"><h2 id="h-safe">Поки ви на роботі, дитина навчається в <span class="hl">безпечному й теплому класі</span></h2></header>
+      <div class="safe">
       <div>
-        <h2 id="h-safe">Поки ви на роботі, дитина навчається в <span class="hl">безпечному й теплому класі</span></h2>
         <ul class="ticks">
-          <li>Центр розташований у напівпідвальному приміщенні з бетонним перекриттям. Стіни кабінету завтовшки пів метра, є вентиляція</li>
-          <li>Світло, тепло й інтернет працюють навіть під час відключень: автономне живлення до двох діб і підігрів підлоги</li>
-          <li>Окремий санвузол і вода у двох місцях</li>
-          <li>З боку проспекту повноцінні вікна, тому в класах світло й затишно</li>
+          <li>Центр розташований у напівпідвальному приміщенні з бетонним перекриттям. Стіни кабінету завтовшки пів метра, є вентиляція</li>
+          <li>Світло, тепло й інтернет працюють навіть під час відключень: автономне живлення до двох діб і підігрів підлоги</li>
+          <li>Окремий санвузол і вода у двох місцях</li>
+          <li>З боку проспекту повноцінні вікна, тому в класах світло й затишно</li>
         </ul>
-        <p class="punch">На пробному занятті покажемо все на власні очі.</p>
+        <p class="punch">На пробному занятті покажемо все на власні очі.</p>
       </div>
       <div class="vid">
         <video data-lazy muted loop playsinline preload="none" poster="media/v3-poster.webp" aria-label="Класи центру «Абітурієнт»">
@@ -558,12 +592,13 @@ footer.ft a{text-decoration:none}
         <span class="vtag">Наші класи · Галицька 34Б</span>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- 3. Напрями -->
   <section class="sec" id="napriamy" aria-labelledby="h-dir">
     <div class="wrap">
-      <h2 id="h-dir" class="kicker">Напрями</h2>
+      <header class="sec-head"><h2 id="h-dir">Напрями</h2></header>
       <div class="tabs" role="tablist" aria-label="Напрями">
         <button class="tab-btn" role="tab" id="t-nmt" aria-controls="p-nmt" aria-selected="true" data-tab="nmt">НМТ комплексно</button>
         <button class="tab-btn" role="tab" id="t-eng" aria-controls="p-eng" aria-selected="false" tabindex="-1" data-tab="eng">Англійська</button>
@@ -573,20 +608,20 @@ footer.ft a{text-decoration:none}
 
       <div class="panel on" role="tabpanel" id="p-nmt" aria-labelledby="t-nmt">
         <div>
-          <h3>Підготовка до НМТ комплексно: усі предмети в одному центрі</h3>
-          <p>До НМТ найкраще готуватися системно і заздалегідь. У нас дитина готується з усіх предметів в одному місці, з викладачами, які добре знають формат тесту.</p>
+          <h3>Підготовка до НМТ комплексно: усі предмети в одному центрі</h3>
+          <p>До НМТ найкраще готуватися системно і заздалегідь. У нас дитина готується з усіх предметів в одному місці, з викладачами, які добре знають формат тесту.</p>
           <ul class="ticks">
             <li>Три обов'язкові предмети: українська мова, математика, історія України</li>
-            <li>Четвертий на вибір: англійська або біологія</li>
-            <li>8 занять по 90 хвилин на місяць з кожного предмета</li>
-            <li>У групі, у парі чи індивідуально, тільки очно</li>
-            <li>Засновниця центру готує до ЗНО і НМТ від самого запровадження тестування</li>
+            <li>Четвертий на вибір: англійська або біологія</li>
+            <li>8 занять по 90 хвилин на місяць з кожного предмета</li>
+            <li>У групі, у парі чи індивідуально, тільки очно</li>
+            <li>Засновниця центру готує до ЗНО і НМТ від самого запровадження тестування</li>
           </ul>
-          <p class="punch">Рік підготовки коштує менше, ніж роки навчання на контракті.</p>
-          <a class="btn" href="#zapys" data-dir="nmt">Записатися на пробне з НМТ</a>
+          <p class="punch">Рік підготовки коштує менше, ніж роки навчання на контракті.</p>
+          <a class="btn" href="#zapys" data-dir="nmt">Записатися на пробне з НМТ</a>
         </div>
         <div class="tablo" id="tablo">
-          <div class="tablo-top"><span>Шкала НМТ</span><span class="rec">заняття в центрі</span></div>
+          <div class="tablo-top"><span>Шкала НМТ</span><span class="rec">заняття в центрі</span></div>
           <div class="score">
             <video data-lazy muted loop playsinline preload="none" poster="media/v2-poster.webp" aria-label="Заняття в центрі «Абітурієнт»">
               <source data-src="media/v2-lite.mp4" type="video/mp4">
@@ -607,45 +642,45 @@ footer.ft a{text-decoration:none}
 
       <div class="panel" role="tabpanel" id="p-eng" aria-labelledby="t-eng" hidden>
         <div>
-          <h3>Англійська, щоб нею говорити: для школярів, студентів і дорослих</h3>
-          <p>Мова потрібна, щоб спілкуватися. Тому на кожному занятті учні говорять, слухають і виконують творчі завдання.</p>
+          <h3>Англійська, щоб нею говорити: для школярів, студентів і дорослих</h3>
+          <p>Мова потрібна, щоб спілкуватися. Тому на кожному занятті учні говорять, слухають і виконують творчі завдання.</p>
           <ul class="ticks">
-            <li>Школярі з 1 по 11 клас вчаться в групах за класами. Малеча вчиться через ігри й пісні, старші самі складають діалоги й тексти</li>
-            <li>Студенти й дорослі: <mark class="todo">уточнити</mark></li>
-            <li>Британські навчальні платформи: 30 % підручник і 70 % платформа, доступ оплачує центр</li>
-            <li>Двічі на тиждень по 60 хвилин</li>
+            <li>Школярі з 1 по 11 клас вчаться в групах за класами. Малеча вчиться через ігри й пісні, старші самі складають діалоги й тексти</li>
+            <li>Студенти й дорослі: <mark class="todo">уточнити</mark></li>
+            <li>Британські навчальні платформи: 30 % підручник і 70 % платформа, доступ оплачує центр</li>
+            <li>Двічі на тиждень по 60 хвилин</li>
           </ul>
-          <a class="btn" href="#zapys" data-dir="eng">Записатися на пробне з англійської</a>
+          <a class="btn" href="#zapys" data-dir="eng">Записатися на пробне з англійської</a>
         </div>
         <div class="art" aria-hidden="true"><span>ABC</span><small>Hello!</small></div>
       </div>
 
       <div class="panel" role="tabpanel" id="p-math" aria-labelledby="t-math" hidden>
         <div>
-          <h3>Математика для старшої школи: не тягне алгебру? Підтягнемо</h3>
-          <p>Програма з математики стала складнішою, і в 7–8 класі багато дітей перестають встигати. Ми знаходимо прогалини, тренуємо обчислення і крок за кроком розбираємо алгебру й геометрію.</p>
+          <h3>Математика для старшої школи: не тягне алгебру? Підтягнемо</h3>
+          <p>Програма з математики стала складнішою, і в 7–8 класі багато дітей перестають встигати. Ми знаходимо прогалини, тренуємо обчислення і крок за кроком розбираємо алгебру й геометрію.</p>
           <ul class="ticks">
-            <li>Алгебра й геометрія з 7 класу</li>
-            <li>Підготовка до НМТ з математики</li>
-            <li>Групи за класами, заняття по 60 хвилин</li>
-            <li>Математика вчить бачити причину й наслідок, а це основа для програмування й науки</li>
+            <li>Алгебра й геометрія з 7 класу</li>
+            <li>Підготовка до НМТ з математики</li>
+            <li>Групи за класами, заняття по 60 хвилин</li>
+            <li>Математика вчить бачити причину й наслідок, а це основа для програмування й науки</li>
           </ul>
-          <p class="punch">Математика йде на допомогу дитині і батькам. Поверніть собі спокійні вечори без сліз над домашкою.</p>
-          <a class="btn" href="#zapys" data-dir="math">Записатися на пробне з математики</a>
+          <p class="punch">Математика йде на допомогу дитині і батькам. Поверніть собі спокійні вечори без сліз над домашкою.</p>
+          <a class="btn" href="#zapys" data-dir="math">Записатися на пробне з математики</a>
         </div>
         <div class="art" aria-hidden="true"><span>a²+b²</span><small>= c²</small></div>
       </div>
 
       <div class="panel" role="tabpanel" id="p-prim" aria-labelledby="t-prim" hidden>
         <div>
-          <h3>Репетитор початкової школи: щоб дитині було цікаво вчитися з першого класу</h3>
-          <p>У молодших класах закладається, як дитина ставитиметься до навчання. Допомагаємо з програмою 1–4 класу в маленькій групі, де вчитель бачить кожного.</p>
+          <h3>Репетитор початкової школи: щоб дитині було цікаво вчитися з першого класу</h3>
+          <p>У молодших класах закладається, як дитина ставитиметься до навчання. Допомагаємо з програмою 1–4 класу в маленькій групі, де вчитель бачить кожного.</p>
           <ul class="ticks">
             <li>Предмети: <mark class="todo">уточнити</mark></li>
-            <li>Підготовка до школи для дошкільнят <mark class="todo">уточнити</mark></li>
-            <li>Через гру, без тиску і без страху помилитися</li>
+            <li>Підготовка до школи для дошкільнят <mark class="todo">уточнити</mark></li>
+            <li>Через гру, без тиску і без страху помилитися</li>
           </ul>
-          <a class="btn" href="#zapys" data-dir="prim">Записатися на пробне</a>
+          <a class="btn" href="#zapys" data-dir="prim">Записатися на пробне</a>
         </div>
         <div class="art" aria-hidden="true"><span>1–4</span><small>клас</small></div>
       </div>
@@ -654,36 +689,38 @@ footer.ft a{text-decoration:none}
 
   <!-- 4. Засновниця та керівник -->
   <section class="sec dark" id="zasnovnytsia" aria-labelledby="h-founder">
-    <div class="wrap founder">
+    <div class="wrap">
+      <header class="sec-head"><h2 id="h-founder">Засновниця та керівник центру</h2></header>
+      <div class="founder">
       <figure class="f-photo">
         <img src="media/founder.webp" alt="Галина Коздрин, засновниця центру «Абітурієнт»" width="720" height="900" loading="lazy">
         <img class="pola" src="media/founder-2.webp" alt="Галина Коздрин у Парижі під час поїздки з учнями" width="420" height="520" loading="lazy">
-        <figcaption><b>Галина Коздрин</b><span>засновниця і керівник «Абітурієнта»</span></figcaption>
+        <figcaption><b>Галина Коздрин</b><span>засновниця і керівник «Абітурієнта»</span></figcaption>
       </figure>
       <div>
-        <h2 id="h-founder">Засновниця та керівник центру</h2>
-        <ul class="badges"><li><b>17</b> років у державних школах</li><li><b>ЗНО → НМТ</b> з першого року тестування</li></ul>
-        <p class="lead">Галина Коздрин 17 років викладала в державних школах. До ЗНО і НМТ вона готує від самого запровадження тестування, тому формат іспиту знає зсередини.</p>
-        <p class="lead">У відгуках батьки й учні дякують їй окремо: за щирість, енергію та ідеї, за продуманий простір центру і за атмосферу, де помилятися не страшно.</p>
-        <p class="lead">Англійську тут вчать, щоб нею користуватися, тому Галина сама везе учнів у Європу. Нормандія, Мон-Сен-Мішель, Париж, Бамберг: фото з поїздок трохи нижче.</p>
-        <p class="lead"><mark class="todo">уточнити</mark> Ваша історія: як з'явився «Абітурієнт» і що для вас найважливіше в навчанні дітей.</p>
+        <ul class="badges"><li><b>17</b> років у державних школах</li><li><b>ЗНО → НМТ</b> з першого року тестування</li></ul>
+        <p class="lead">Галина Коздрин 17 років викладала в державних школах. До ЗНО і НМТ вона готує від самого запровадження тестування, тому формат іспиту знає зсередини.</p>
+        <p class="lead">У відгуках батьки й учні дякують їй окремо: за щирість, енергію та ідеї, за продуманий простір центру і за атмосферу, де помилятися не страшно.</p>
+        <p class="lead">Англійську тут вчать, щоб нею користуватися, тому Галина сама везе учнів у Європу. Нормандія, Мон-Сен-Мішель, Париж, Бамберг: фото з поїздок трохи нижче.</p>
+        <p class="lead"><mark class="todo">уточнити</mark> Ваша історія: як з'явився «Абітурієнт» і що для вас найважливіше в навчанні дітей.</p>
         <div class="quotes">
-          <blockquote class="q"><p>«Чудовий заклад! Обидві дочки займаються тут, їздимо на уроки англійської мови. … Викладачі - супер! Професійно викладають предмети, а діти їх обожнюють. Керівник закладу - пані Галина - заслуговує окремих слів, це надзвичайно щира і доброзичлива людина, сповнена енергії та ідей.»</p><footer>Павло, Google Maps</footer></blockquote>
-          <blockquote class="q"><p>«Дуже подобається навчання в цій школі. Помітно підтягнула англійську мову. Викладачі дуже приємні та сучасні, окрема подяка Галині Тадеївній за чудову організацію простору. Рекомендую!!!»</p><footer>Софія Костерева, Google Maps</footer></blockquote>
-          <blockquote class="q"><p>«Готувалась до нмт з англійської тут, дуже любила ці уроки, інформація подається доступно і цікаво. Вчителі не тиснуть, а лише мотивують. Відчуваєш, що помилятись не страшно. Дякую пані Галині!»</p><footer>Юлія Калина, Google Maps</footer></blockquote>
+          <blockquote class="q"><p>«Чудовий заклад! Обидві дочки займаються тут, їздимо на уроки англійської мови. … Викладачі - супер! Професійно викладають предмети, а діти їх обожнюють. Керівник закладу - пані Галина - заслуговує окремих слів, це надзвичайно щира і доброзичлива людина, сповнена енергії та ідей.»</p><footer>Павло, Google Maps</footer></blockquote>
+          <blockquote class="q"><p>«Дуже подобається навчання в цій школі. Помітно підтягнула англійську мову. Викладачі дуже приємні та сучасні, окрема подяка Галині Тадеївній за чудову організацію простору. Рекомендую!!!»</p><footer>Софія Костерева, Google Maps</footer></blockquote>
+          <blockquote class="q"><p>«Готувалась до нмт з англійської тут, дуже любила ці уроки, інформація подається доступно і цікаво. Вчителі не тиснуть, а лише мотивують. Відчуваєш, що помилятись не страшно. Дякую пані Галині!»</p><footer>Юлія Калина, Google Maps</footer></blockquote>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
   <!-- 5. Чому до нас переходять -->
   <section class="sec paper" id="chomu" aria-labelledby="h-why">
     <div class="wrap">
-      <h2 id="h-why">Вже платили репетитору, а результату немає? <span class="hl">Ось чим ми відрізняємося</span></h2>
+      <header class="sec-head"><h2 id="h-why">Вже платили репетитору, а результату немає? <span class="hl">Ось чим ми відрізняємося</span></h2></header>
       <ul class="myths">
-        <li><span class="m">«Спочатку граматика, говорити потім»</span><span class="to" aria-hidden="true">→</span><span class="r">Мова потрібна для спілкування: говоріння, слухання і творчі завдання на кожному занятті</span></li>
-        <li><span class="m">«Математика дається від природи»</span><span class="to" aria-hidden="true">→</span><span class="r">Математика — це тренування: прогалини закриваються практикою</span></li>
-        <li><span class="m">«Знайомий студент — дешево і нормально»</span><span class="to" aria-hidden="true">→</span><span class="r">Педагог із досвідом шкільної програми не робить домашку за дитину, а вчить робити самій</span></li>
+        <li><span class="m">«Спочатку граматика, говорити потім»</span><span class="to" aria-hidden="true">→</span><span class="r">Мова потрібна для спілкування: говоріння, слухання і творчі завдання на кожному занятті</span></li>
+        <li><span class="m">«Математика дається від природи»</span><span class="to" aria-hidden="true">→</span><span class="r">Математика — це тренування: прогалини закриваються практикою</span></li>
+        <li><span class="m">«Знайомий студент — дешево і нормально»</span><span class="to" aria-hidden="true">→</span><span class="r">Педагог із досвідом шкільної програми не робить домашку за дитину, а вчить робити самій</span></li>
       </ul>
     </div>
   </section>
@@ -691,11 +728,11 @@ footer.ft a{text-decoration:none}
   <!-- 6. Подорожі -->
   <section class="sec" id="podorozhi" aria-labelledby="h-trips">
     <div class="wrap">
+      <header class="sec-head"><h2 id="h-trips">Вчимо англійську, щоб нею користуватися, і <span class="hl">подорожуємо разом</span></h2>
+        <p class="lead">Разом з учнями ми побували в Парижі, Нормандії, на Мон-Сен-Мішель, у Празі, Мюнхені, Венеції, Стамбулі та інших містах.</p></header>
       <div class="trips">
       <div>
-        <h2 id="h-trips">Вчимо англійську, щоб нею користуватися, і <span class="hl">подорожуємо разом</span></h2>
-        <p class="lead">Разом з учнями ми побували в Парижі, Нормандії, на Мон-Сен-Мішель, у Празі, Мюнхені, Венеції, Стамбулі та інших містах.</p>
-        <blockquote class="q"><p>«Париж, мальовнича Нормандія та казковий Мон-Сен-Мішель — кожне місце по-своєму особливе й прекрасне. Усе було настільки красиво, що часом просто не вірилося, що я бачу це на власні очі. Дякую за організацію…»</p><footer>Софія Клименко, Google Maps</footer></blockquote>
+        <blockquote class="q"><p>«Париж, мальовнича Нормандія та казковий Мон-Сен-Мішель — кожне місце по-своєму особливе й прекрасне. Усе було настільки красиво, що часом просто не вірилося, що я бачу це на власні очі. Дякую за організацію…»</p><footer>Софія Клименко, Google Maps</footer></blockquote>
       </div>
       </div>
       <div class="mosaic">
@@ -711,56 +748,57 @@ footer.ft a{text-decoration:none}
   <!-- 7. Відгуки -->
   <section class="sec paper" id="vidguky" aria-labelledby="h-rev">
     <div class="wrap">
+      
+      <header class="sec-head"><h2 id="h-rev">Що кажуть <span class="hl">батьки й учні</span></h2></header>
       <div class="rev-top">
-        <h2 id="h-rev">Що кажуть <span class="hl">батьки й учні</span></h2>
         <div class="arrows"><button type="button" data-dir="-1" aria-label="Попередній відгук">←</button><button type="button" data-dir="1" aria-label="Наступний відгук">→</button></div>
       </div>
       <div class="reel" id="reel" tabindex="0" aria-label="Відгуки">
-        <blockquote class="q"><p>«Донька ходила на математику і англійську, тепер син другий рік на англійську. Діти задоволені. Завжди дружня атмосфера, доступно пояснюють. Приємні викладачі. Подобається, також, що організовують дітям поїздки за кордон.»</p><footer>Ірина Корницька</footer></blockquote>
-        <blockquote class="q"><p>«Дуже тішить результат і прогрес обох дітей. Щиро рекомендую цю школу всім батькам, які хочуть, щоб їхні діти вивчали англійську легко, із задоволенням та хорошими результатами!»</p><footer>Halyna Syzonenko</footer></blockquote>
-        <blockquote class="q"><p>«Дуже радію, що обрали саме вас! Моя доця з великим задоволенням ходить на заняття, хоча я не думала, що таке можливо. Оцінки в школі значно виросли, і мама радіє!!! Моїй дитині вже цікаво вчитися)»</p><footer>Людмила Гулько</footer></blockquote>
-        <blockquote class="q"><p>«Щиро дякуємо за високий професіоналізм всім викладачам, які приймали участь у підготовці до нмт сина. Все чудово, рекомендую»</p><footer>Марта Кузів</footer></blockquote>
-        <blockquote class="q"><p>«Результат від навчання у вас ну прям дууууже помітний: оцінки сина значно підвищилися, а навчання стало для нього набагато цікавішим.»</p><footer>Світлана Мазур</footer></blockquote>
-        <blockquote class="q"><p>«Викладачі пояснюють матеріал просто і зрозуміло, навіть складні теми стають легшими. На заняттях приємна атмосфера, ніхто не тисне і завжди можна поставити будь-яке запитання. … Рекомендую всім, хто хоче нормально підготуватися до вступу.»</p><footer>Maksym Hrydovii</footer></blockquote>
-        <blockquote class="q"><p>«Моя донечка із задоволенням відвідує заняття, завжди повертається додому з гарним настроєм і новими знаннями. Дуже приємно бачити, що вчителі ставляться до дітей з любов'ю та професіоналізмом.»</p><footer>Наталя Кріп</footer></blockquote>
+        <blockquote class="q"><p>«Донька ходила на математику і англійську, тепер син другий рік на англійську. Діти задоволені. Завжди дружня атмосфера, доступно пояснюють. Приємні викладачі. Подобається, також, що організовують дітям поїздки за кордон.»</p><footer>Ірина Корницька</footer></blockquote>
+        <blockquote class="q"><p>«Дуже тішить результат і прогрес обох дітей. Щиро рекомендую цю школу всім батькам, які хочуть, щоб їхні діти вивчали англійську легко, із задоволенням та хорошими результатами!»</p><footer>Halyna Syzonenko</footer></blockquote>
+        <blockquote class="q"><p>«Дуже радію, що обрали саме вас! Моя доця з великим задоволенням ходить на заняття, хоча я не думала, що таке можливо. Оцінки в школі значно виросли, і мама радіє!!! Моїй дитині вже цікаво вчитися)»</p><footer>Людмила Гулько</footer></blockquote>
+        <blockquote class="q"><p>«Щиро дякуємо за високий професіоналізм всім викладачам, які приймали участь у підготовці до нмт сина. Все чудово, рекомендую»</p><footer>Марта Кузів</footer></blockquote>
+        <blockquote class="q"><p>«Результат від навчання у вас ну прям дууууже помітний: оцінки сина значно підвищилися, а навчання стало для нього набагато цікавішим.»</p><footer>Світлана Мазур</footer></blockquote>
+        <blockquote class="q"><p>«Викладачі пояснюють матеріал просто і зрозуміло, навіть складні теми стають легшими. На заняттях приємна атмосфера, ніхто не тисне і завжди можна поставити будь-яке запитання. … Рекомендую всім, хто хоче нормально підготуватися до вступу.»</p><footer>Maksym Hrydovii</footer></blockquote>
+        <blockquote class="q"><p>«Моя донечка із задоволенням відвідує заняття, завжди повертається додому з гарним настроєм і новими знаннями. Дуже приємно бачити, що вчителі ставляться до дітей з любов'ю та професіоналізмом.»</p><footer>Наталя Кріп</footer></blockquote>
       </div>
     </div>
   </section>
 
   <!-- 8. Як почати -->
   <section class="sec" id="yak-pochaty" aria-labelledby="h-steps">
-    <div class="wrap steps">
+    <div class="wrap">
+      <header class="sec-head"><h2 id="h-steps">Що буде після заявки</h2></header>
+      <div class="steps">
       <div>
-        <h2 id="h-steps">Що буде після заявки</h2>
         <ol>
-          <li>Ви залишаєте заявку на сайті або телефонуєте</li>
-          <li>Ми зв'язуємося з вами і підбираємо групу</li>
-          <li>Пробне заняття: дитина вчиться в групі свого класу, а ви знайомитеся з приміщенням і засновницею центру</li>
-          <li>Старт у групі й доступ до британської платформи, яку оплачує центр</li>
+          <li>Ви залишаєте заявку на сайті або телефонуєте</li>
+          <li>Ми зв'язуємося з вами і підбираємо групу</li>
+          <li>Пробне заняття: дитина вчиться в групі свого класу, а ви знайомитеся з приміщенням і засновницею центру</li>
+          <li>Старт у групі й доступ до британської платформи, яку оплачує центр</li>
         </ol>
       </div>
       <div class="promise">
         <h3>Наші обіцянки</h3>
         <ul class="ticks">
-          <li>Пробне заняття ні до чого не зобов'язує</li>
-          <li>Платите помісячно: не бачите сенсу — не продовжуєте</li>
-          <li>Заняття не зриваються через відключення світла</li>
-          <li>Ми не обіцяємо 200 балів чи «заговорить за місяць». Обіцяємо систему, маленьку групу і чесний зворотний зв'язок</li>
+          <li>Пробне заняття ні до чого не зобов'язує</li>
+          <li>Платите помісячно: не бачите сенсу — не продовжуєте</li>
+          <li>Заняття не зриваються через відключення світла</li>
+          <li>Ми не обіцяємо 200 балів чи «заговорить за місяць». Обіцяємо систему, маленьку групу і чесний зворотний зв'язок</li>
         </ul>
       </div>
+    </div>
     </div>
   </section>
 
   <!-- 9. Запис на пробне -->
   <section class="sec dark" id="zapys" aria-labelledby="h-form">
     <div class="wrap form-wrap">
-      <div>
-        <h2 id="h-form">Запишіться на <span class="hl">безкоштовне</span> пробне заняття</h2>
-      </div>
+      <header class="sec-head"><h2 id="h-form">Запишіться на <span class="hl">безкоштовне</span> пробне заняття</h2></header>
       <form class="form" id="form" novalidate>
         <div class="two">
           <div class="f"><label for="f-name">Ім'я</label><input id="f-name" name="name" autocomplete="name" required></div>
-          <div class="f"><label for="f-class">Клас дитини (або «дорослий»)</label><input id="f-class" name="class" required></div>
+          <div class="f"><label for="f-class">Клас дитини (або «дорослий»)</label><input id="f-class" name="class" required></div>
         </div>
         <div class="two">
           <div class="f"><label for="f-dir">Напрям</label>
@@ -774,7 +812,7 @@ footer.ft a{text-decoration:none}
           <div class="f"><label for="f-tel">Телефон</label><input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required></div>
         </div>
         <fieldset class="f">
-          <legend>Як з вами зв'язатися</legend>
+          <legend>Як з вами зв'язатися</legend>
           <div class="chips">
             <label><input type="radio" name="via" value="call" checked><span>Дзвінок</span></label>
             <label><input type="radio" name="via" value="viber"><span>Viber</span></label>
@@ -785,7 +823,7 @@ footer.ft a{text-decoration:none}
         <button class="btn big" type="submit">Записатися <span class="arr" aria-hidden="true">→</span></button>
         <div class="thanks" role="status" aria-live="polite">
           <div class="ok" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 20 20"><path d="M5 10.5l3.2 3.2L15 6.8" stroke="#13261B" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <p>Дякуємо! Ми зателефонуємо вам найближчим часом.</p>
+          <p>Дякуємо! Ми зателефонуємо вам найближчим часом.</p>
         </div>
       </form>
     </div>
@@ -794,14 +832,14 @@ footer.ft a{text-decoration:none}
   <!-- 10. Питання і контакти -->
   <section class="sec paper" id="kontakty" aria-labelledby="h-faq">
     <div class="wrap">
-      <h2 id="h-faq">Часті питання</h2>
+      <header class="sec-head"><h2 id="h-faq">Часті питання</h2></header>
       <div class="faq">
-        <details open><summary>Скільки коштують заняття?</summary><p><mark class="todo">уточнити</mark> Показуємо ціни на сайті чи пишемо «ціну назвемо після пробного заняття»?</p></details>
-        <details><summary>Чим ви відрізняєтеся від репетитора?</summary><p>В одному центрі всі предмети, від початкової школи до НМТ. Педагоги з досвідом шкільної програми, маленькі групи і безпечний клас, який працює навіть під час відключень.</p></details>
-        <details><summary>А якщо дитині не сподобається?</summary><p>Пробне заняття безкоштовне і ні до чого не зобов'язує. Платите помісячно: не бачите сенсу — не продовжуєте.</p></details>
-        <details><summary>Чи можна вчитися онлайн?</summary><p>Ні. Ми живий центр, заняття тільки очно.</p></details>
-        <details open><summary>Що відбувається під час тривоги?</summary><p><mark class="todo">уточнити</mark></p></details>
-        <details open><summary>Коли починати готуватися до НМТ?</summary><p><mark class="todo">уточнити</mark> Наприклад: «найкраще за рік до іспиту»?</p></details>
+        <details open><summary>Скільки коштують заняття?</summary><p><mark class="todo">уточнити</mark> Показуємо ціни на сайті чи пишемо «ціну назвемо після пробного заняття»?</p></details>
+        <details><summary>Чим ви відрізняєтеся від репетитора?</summary><p>В одному центрі всі предмети, від початкової школи до НМТ. Педагоги з досвідом шкільної програми, маленькі групи і безпечний клас, який працює навіть під час відключень.</p></details>
+        <details><summary>А якщо дитині не сподобається?</summary><p>Пробне заняття безкоштовне і ні до чого не зобов'язує. Платите помісячно: не бачите сенсу — не продовжуєте.</p></details>
+        <details><summary>Чи можна вчитися онлайн?</summary><p>Ні. Ми живий центр, заняття тільки очно.</p></details>
+        <details open><summary>Що відбувається під час тривоги?</summary><p><mark class="todo">уточнити</mark></p></details>
+        <details open><summary>Коли починати готуватися до НМТ?</summary><p><mark class="todo">уточнити</mark> Наприклад: «найкраще за рік до іспиту»?</p></details>
       </div>
 
       <div class="contacts">
@@ -815,7 +853,7 @@ footer.ft a{text-decoration:none}
           </ul>
           <div class="row">
             <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=49.8169732,24.1405218" target="_blank" rel="noopener">Прокласти маршрут</a>
-            <a class="btn" href="#zapys">Записатися на пробне</a>
+            <a class="btn" href="#zapys">Записатися на пробне</a>
           </div>
         </div>
         <div class="map">
