@@ -571,9 +571,9 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
 @media (max-width:640px){
   .mbar{grid-template-columns:auto 1fr}
   .mbar .call{padding:12px 16px}
-  .hc-r .pills{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:4px var(--gut);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
-  .hc-r .pills::-webkit-scrollbar{display:none}
-  .hc-r .pill{flex:none}
+  .hc-r .pills{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .hc-r .pill{white-space:normal;text-align:center;line-height:1.15;padding:8px 8px;font-size:13px}
+  .hc-r .pill .opt{display:block;font-size:10.5px;font-weight:600;opacity:.85}
   .mbar .call{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:800;position:relative}
   .mbar .call::after{content:"";position:absolute;inset:-3px;border-radius:999px;border:2px solid var(--lime);animation:ring 2.2s ease-out infinite}
   @keyframes ring{0%{opacity:.8;transform:scale(1)}80%,100%{opacity:0;transform:scale(1.12)}}
@@ -595,6 +595,19 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
   .fmsg a{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.28)}
   .fmsg svg{width:26px;height:26px}
   .fmsg .wa{background:#1FA855}.fmsg .vb{background:#7360F2}
+}
+
+/* первый экран: «Подзвонити» рядом с главной кнопкой */
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px}
+.cta-row .btn.big{margin-bottom:0}
+.hcall{background:var(--lime);color:var(--ink);min-height:52px;padding:12px 20px;gap:8px}
+.hcall svg{width:20px;height:20px}
+.hcall:hover{background:#b9ea85}
+@media (max-width:700px){
+  .cta-row{display:grid;grid-template-columns:1fr auto;gap:8px}
+  .cta-row .btn.big{width:auto;font-size:14.5px;padding:12px 12px 12px 18px}
+  .hcall{width:56px;height:56px;min-height:0;padding:0;border-radius:50%}
+  .hcall span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 }
 </style>
 </head>
@@ -655,12 +668,12 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
         <div class="hc-r">
         <p class="ask rise">Що вам потрібно?</p>
         <div class="pills rise" id="pills">
-          <button class="pill" type="button" data-tab="nmt">НМТ комплексно або окремий предмет</button>
+          <button class="pill" type="button" data-tab="nmt">НМТ комплексно <span class="opt">або окремий предмет</span></button>
           <button class="pill" type="button" data-tab="eng">Англійська</button>
           <button class="pill" type="button" data-tab="math">Математика</button>
           <button class="pill" type="button" data-tab="prim">Початкова школа</button>
         </div>
-        <a class="btn big shine rise" href="#zapys">Записатися на консультацію <span class="arr" aria-hidden="true">→</span></a>
+        <div class="cta-row"><a class="btn big shine rise" href="#zapys">Записатися на консультацію <span class="arr" aria-hidden="true">→</span></a><a class="btn hcall rise" href="tel:+380667561828" aria-label="Подзвонити: 066 756 18 28"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Подзвонити</span></a></div>
         <p class="small rise">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
         </div>
       </div>
