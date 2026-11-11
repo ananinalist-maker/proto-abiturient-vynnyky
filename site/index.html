@@ -492,6 +492,77 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
 @media (max-width:900px){
   .rev-top{margin-top:-10px}
 }
+
+/* ===== интерактивные карточки вкладок (в стиле «Табло НМТ») ===== */
+.wid .tablo-top .rec::before{background:var(--lime)}
+.panel > .wid > p{color:rgba(255,255,255,.72);font-size:13.5px;line-height:1.4;margin:8px 2px 0;max-width:none}
+.wid button{font:inherit;color:inherit;cursor:pointer}
+.wid .hint{display:block;margin-top:10px;font-size:12px;color:rgba(255,255,255,.45);text-align:center}
+/* англійська */
+.chat{display:block;width:100%;text-align:left;border:0;padding:16px;border-radius:16px;background:var(--g900);min-height:176px}
+.msg{display:block;max-width:86%;padding:10px 14px;border-radius:16px;font-size:15.5px;line-height:1.4;margin-bottom:10px;opacity:0;transform:translateY(8px);transition:opacity .35s, transform .35s}
+.msg b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-bottom:2px}
+.msg.t{background:#1E5236;border-bottom-left-radius:4px}
+.msg.s{margin-left:auto;background:var(--yellow);color:var(--ink);border-bottom-right-radius:4px}
+.msg.on{opacity:1;transform:none}
+.caret{display:inline-block;width:2px;height:1em;background:currentColor;margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+.split{display:flex;gap:4px;margin-top:14px;border-radius:12px;overflow:hidden}
+.seg{display:flex;flex-direction:column;align-items:flex-start;gap:0;border:0;padding:10px 12px;background:#14402A;color:rgba(255,255,255,.7);text-align:left;transition:background .25s,color .25s;min-width:0}
+.seg b{font:800 20px/1.1 var(--round);color:inherit}
+.seg span{font-size:12.5px;line-height:1.25}
+.seg.on,.seg:hover{background:var(--lime);color:var(--ink)}
+.seg-note{margin:8px 2px 0;font-size:13px;color:rgba(255,255,255,.65);min-height:1.3em}
+.words{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:12px}
+.wcard{position:relative;height:44px;border:0;background:none;padding:0;perspective:400px}
+.wcard span{position:absolute;inset:0;display:grid;place-items:center;border-radius:10px;font:700 13.5px var(--font);backface-visibility:hidden;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.wcard .f{background:#14402A;color:var(--yellow)}
+.wcard .b{background:var(--yellow);color:var(--ink);transform:rotateY(180deg)}
+.wcard.on .f{transform:rotateY(-180deg)}.wcard.on .b{transform:rotateY(0)}
+/* математика */
+.mtask{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:12px;align-items:center;background:var(--g900);border-radius:16px;padding:14px}
+.tri{width:100%;height:auto;overflow:visible;padding-left:18px}
+.tri .side{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300}
+.tri .a,.tri .b{stroke:var(--lime)}.tri .c{stroke:var(--yellow)}
+.tri .ra{fill:none;stroke:rgba(255,255,255,.4);stroke-width:2}
+.tri text{font:800 17px var(--round);fill:#fff}
+.tri .lc{fill:var(--yellow)}
+.wid.go .tri .side{stroke-dashoffset:0;transition:stroke-dashoffset .9s ease}
+.wid.go .tri .b{transition-delay:.25s}.wid.go .tri .c{transition-delay:.5s}
+.steps-m{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.steps-m li{font:700 15px/1.3 var(--round);color:#fff;opacity:0;transform:translateX(-8px);transition:opacity .35s, transform .35s;font-variant-numeric:tabular-nums}
+.steps-m li.on{opacity:1;transform:none}
+.steps-m .m3{color:var(--yellow);font-size:17px}
+.mnext{display:block;margin:10px auto 0;border:1.5px solid rgba(255,255,255,.25);background:none;border-radius:999px;padding:7px 16px;font-size:13.5px;font-weight:600}
+.mnext:hover{border-color:var(--yellow);color:var(--yellow)}
+.grades{display:flex;gap:6px;margin-top:12px}
+.grades button{flex:1;border:0;border-radius:10px;padding:9px 0;background:#14402A;font:800 16px var(--round);color:rgba(255,255,255,.75);transition:background .25s,color .25s}
+.grades button.on,.grades button:hover{background:var(--yellow);color:var(--ink)}
+.gnote{margin:8px 2px 0;font-size:13.5px;color:rgba(255,255,255,.7);text-align:center}
+.gnote b{color:var(--lime)}
+/* початкова школа */
+.blocks{position:relative;display:block;width:100%;border:0;padding:26px 10px 16px;border-radius:16px;background:var(--g900);min-height:176px}
+.cubes{display:flex;justify-content:center;gap:clamp(4px,1vw,8px)}
+.cube{display:grid;place-items:center;width:clamp(42px,5vw,58px);aspect-ratio:1;border-radius:12px;font:800 clamp(24px,2.8vw,32px)/1 var(--round);color:var(--ink);box-shadow:inset 0 -6px 0 rgba(0,0,0,.18), 0 8px 18px rgba(0,0,0,.3);transition:transform .7s cubic-bezier(.2,1.4,.4,1)}
+.cube:nth-child(5n+1){background:#F5C83A}.cube:nth-child(5n+2){background:#A6E06B}.cube:nth-child(5n+3){background:#FF9F80}.cube:nth-child(5n+4){background:#8FD3FF}.cube:nth-child(5n+5){background:#F7A8D8}
+.star{position:absolute;top:8px;right:14px;font-size:30px;color:var(--yellow);opacity:0;transform:scale(.3) rotate(-40deg);transition:opacity .3s,transform .5s cubic-bezier(.2,1.6,.4,1)}
+.blocks.done .star{opacity:1;transform:none}
+.path{display:flex;align-items:center;margin-top:14px;padding:0 4px}
+.path span,.path b{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#14402A;font:800 15px var(--round);color:rgba(255,255,255,.7);transition:background .3s,color .3s}
+.path b{color:var(--yellow);font-size:18px}
+.path i{flex:1;height:3px;background:#14402A;margin:0 4px;border-radius:2px;transition:background .3s}
+.path .on{background:var(--lime);color:var(--ink)}
+.path b.on{background:var(--yellow);color:var(--ink)}
+.pnote2{margin:8px 2px 0;font-size:13.5px;color:rgba(255,255,255,.7);text-align:center}
+@media (max-width:640px){
+  .msg{font-size:15px}.chat,.blocks{min-height:160px}
+  .words{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mtask{grid-template-columns:1fr 1.15fr;padding:12px}
+  .steps-m li{font-size:14px}.steps-m .m3{font-size:15.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  .msg,.steps-m li{opacity:1;transform:none}
+  .tri .side{stroke-dashoffset:0}
+}
 </style>
 </head>
 <body>
@@ -652,7 +723,25 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
           </ul>
           <a class="btn" href="#zapys" data-dir="eng">Записатися на пробне з англійської</a>
         </div>
-        <div class="art" aria-hidden="true"><span>ABC</span><small>Hello!</small></div>
+        <div class="tablo wid" id="w-eng">
+          <div class="tablo-top"><span>Speaking</span><span class="rec">розмова на уроці</span></div>
+          <button class="chat" type="button" aria-label="Наступний діалог англійською">
+            <span class="msg t"><b>Teacher</b><span class="tx"></span></span>
+            <span class="msg s"><b>Student</b><span class="tx"></span><i class="caret" aria-hidden="true"></i></span>
+            <span class="hint">натисніть, щоб почути ще</span>
+          </button>
+          <div class="split" role="group" aria-label="З чого складається заняття">
+            <button class="seg" type="button" data-k="book" aria-pressed="false" style="flex:30"><b>30&nbsp;%</b><span>підручник</span></button>
+            <button class="seg on" type="button" data-k="plat" aria-pressed="true" style="flex:70"><b>70&nbsp;%</b><span>британська платформа</span></button>
+          </div>
+          <p class="seg-note" aria-live="polite">Доступ до платформи оплачує центр</p>
+          <div class="words">
+            <button class="wcard" type="button"><span class="f">Hello</span><span class="b">Привіт</span></button>
+            <button class="wcard" type="button"><span class="f">Family</span><span class="b">Сім'я</span></button>
+            <button class="wcard" type="button"><span class="f">Weekend</span><span class="b">Вихідні</span></button>
+            <button class="wcard" type="button"><span class="f">Travel</span><span class="b">Подорож</span></button>
+          </div>
+        </div>
       </div>
 
       <div class="panel" role="tabpanel" id="p-math" aria-labelledby="t-math" hidden>
@@ -668,7 +757,30 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
           <p class="punch">Математика йде на допомогу дитині і батькам. Поверніть собі спокійні вечори без сліз над домашкою.</p>
           <a class="btn" href="#zapys" data-dir="math">Записатися на пробне з математики</a>
         </div>
-        <div class="art" aria-hidden="true"><span>a²+b²</span><small>= c²</small></div>
+        <div class="tablo wid" id="w-math">
+          <div class="tablo-top"><span>Задача</span><span class="rec">розв'язуємо разом</span></div>
+          <div class="mtask">
+            <svg class="tri" viewBox="0 0 220 170" aria-hidden="true">
+              <path class="ra" d="M30 140h14v-14"/>
+              <path class="side a" d="M30 140V30"/>
+              <path class="side b" d="M30 140h160"/>
+              <path class="side c" d="M30 30L190 140"/>
+              <text class="la" x="22" y="90" text-anchor="end">a</text><text class="lb" x="110" y="164" text-anchor="middle">b</text><text class="lc" x="118" y="72" text-anchor="start">c</text>
+            </svg>
+            <ol class="steps-m" aria-live="polite">
+              <li class="m1"></li><li class="m2"></li><li class="m3"></li>
+            </ol>
+          </div>
+          <button class="mnext" type="button">Інша задача ↻</button>
+          <div class="grades" role="group" aria-label="Теми за класами">
+            <button type="button" data-t="Лінійні рівняння">7</button>
+            <button type="button" data-t="Теорема Піфагора">8</button>
+            <button type="button" data-t="Прогресії">9</button>
+            <button type="button" data-t="Тригонометрія">10</button>
+            <button type="button" data-t="Похідна і НМТ">11</button>
+          </div>
+          <p class="gnote" aria-live="polite"><b>8 клас</b> · Теорема Піфагора</p>
+        </div>
       </div>
 
       <div class="panel" role="tabpanel" id="p-prim" aria-labelledby="t-prim" hidden>
@@ -682,7 +794,18 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
           </ul>
           <a class="btn" href="#zapys" data-dir="prim">Записатися на пробне</a>
         </div>
-        <div class="art" aria-hidden="true"><span>1–4</span><small>клас</small></div>
+        <div class="tablo wid" id="w-prim">
+          <div class="tablo-top"><span>Через гру</span><span class="rec">без тиску</span></div>
+          <button class="blocks" type="button" aria-label="Скласти інше слово з кубиків">
+            <span class="cubes"></span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="hint">натисніть, щоб скласти інше слово</span>
+          </button>
+          <div class="path" aria-hidden="true">
+            <span>1</span><i></i><span>2</span><i></i><span>3</span><i></i><span>4</span><i></i><b>★</b>
+          </div>
+          <p class="pnote2">клас за класом</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1017,6 +1140,94 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
   if ('IntersectionObserver' in window) new IntersectionObserver((es, o) => es.forEach(en => {
     if (en.isIntersecting && !tRun) { tRun = true; tabloCount(); o.disconnect(); }
   }), {threshold: .35}).observe(tablo); else tabloCount();
+
+
+  // ===== интерактивные карточки вкладок =====
+  const onShow = (el, fn) => {
+    if (!('IntersectionObserver' in window)) return fn();
+    const o = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) fn(); }), {threshold: .4});
+    o.observe(el);
+  };
+  // англійська: диалог печатается, доли урока, карточки слов
+  (() => {
+    const w = $('#w-eng'); if (!w) return;
+    const D = [["Hi! How was your weekend?", "Great! I watched a film in English."],
+               ["What's your favourite subject?", "Maths, but English is fun too!"],
+               ["Where would you like to travel?", "To Paris! And then to London."]];
+    const t = $('.msg.t', w), sm = $('.msg.s', w), ttx = $('.tx', t), stx = $('.tx', sm);
+    let di = 0, timer = null, running = false;
+    function play() {
+      clearTimeout(timer); const [q, a] = D[di];
+      ttx.textContent = q; stx.textContent = ''; t.classList.remove('on'); sm.classList.remove('on');
+      if (reduce) { stx.textContent = a; t.classList.add('on'); sm.classList.add('on'); return; }
+      timer = setTimeout(() => { t.classList.add('on');
+        timer = setTimeout(() => { sm.classList.add('on'); let k = 0;
+          (function type() { stx.textContent = a.slice(0, ++k); if (k < a.length) timer = setTimeout(type, 45);
+            else timer = setTimeout(() => { di = (di + 1) % D.length; play(); }, 3200); })();
+        }, 800);
+      }, 250);
+    }
+    onShow(w, () => { if (!running) { running = true; play(); } });
+    $('.chat', w).addEventListener('click', () => { di = (di + 1) % D.length; running = true; play(); });
+    const note = $('.seg-note', w), N = {book: 'Граматика й нові слова за підручником', plat: 'Доступ до платформи оплачує центр'};
+    $$('.seg', w).forEach(b => { const pick = () => { $$('.seg', w).forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); }); note.textContent = N[b.dataset.k]; };
+      b.addEventListener('click', pick); b.addEventListener('mouseenter', pick); });
+    $$('.wcard', w).forEach(c => { c.addEventListener('click', () => c.classList.toggle('on'));
+      c.addEventListener('mouseenter', () => c.classList.add('on')); c.addEventListener('mouseleave', () => c.classList.remove('on')); });
+    if (!reduce) onShow(w, () => $$('.wcard', w).forEach((c, i) => { setTimeout(() => c.classList.add('on'), 900 + i * 350); setTimeout(() => c.classList.remove('on'), 2600 + i * 350); }));
+  })();
+  // математика: задача решается на глазах, темы по классам
+  (() => {
+    const w = $('#w-math'); if (!w) return;
+    const T = [[3, 4, 5], [6, 8, 10], [5, 12, 13]];
+    let ti = 0, tm = [];
+    const L = $$('.steps-m li', w), lc = $('.lc', w), la = $('.la', w), lb = $('.lb', w);
+    function solve() {
+      tm.forEach(clearTimeout); tm = [];
+      const [a, b, c] = T[ti];
+      la.textContent = 'a = ' + a; lb.textContent = 'b = ' + b; lc.textContent = 'c = ?';
+      const txt = ['a² + b² = c²', a + '² + ' + b + '² = ' + (a * a) + ' + ' + (b * b) + ' = ' + (c * c), 'c = √' + (c * c) + ' = ' + c + ' ✓'];
+      L.forEach((li, i) => { li.textContent = txt[i]; li.classList.remove('on'); });
+      w.classList.remove('go'); void w.offsetWidth;
+      if (reduce) { w.classList.add('go'); L.forEach(li => li.classList.add('on')); lc.textContent = 'c = ' + c; return; }
+      tm.push(setTimeout(() => w.classList.add('go'), 60));
+      L.forEach((li, i) => tm.push(setTimeout(() => li.classList.add('on'), 1300 + i * 900)));
+      tm.push(setTimeout(() => { lc.textContent = 'c = ' + c; }, 1300 + 2 * 900));
+    }
+    let started = false;
+    onShow(w, () => { if (!started) { started = true; solve(); } });
+    $('.mnext', w).addEventListener('click', () => { ti = (ti + 1) % T.length; solve(); });
+    const G = $$('.grades button', w), gn = $('.gnote', w); let gi = 1, gt = null;
+    const setG = i => { gi = i; G.forEach((b, k) => b.classList.toggle('on', k === i)); gn.innerHTML = '<b>' + G[i].textContent + ' клас</b> · ' + G[i].dataset.t; };
+    setG(1);
+    G.forEach((b, i) => { b.addEventListener('click', () => { clearInterval(gt); setG(i); }); b.addEventListener('mouseenter', () => { clearInterval(gt); setG(i); }); });
+    if (!reduce) onShow(w, () => { if (!gt) gt = setInterval(() => setG((gi + 1) % G.length), 2200); });
+  })();
+  // початкова школа: кубики складываются в слово, дорожка 1→4 класс
+  (() => {
+    const w = $('#w-prim'); if (!w) return;
+    const W = ['ШКОЛА', 'КНИГА', 'ДРУЗІ'], box = $('.cubes', w), bl = $('.blocks', w);
+    const P = $$('.path span, .path i, .path b', w);
+    let wi = 0, tm = [];
+    function build() {
+      tm.forEach(clearTimeout); tm = []; bl.classList.remove('done');
+      box.innerHTML = [...W[wi]].map(ch => '<span class="cube">' + ch + '</span>').join('');
+      const cs = $$('.cube', box);
+      if (reduce) { bl.classList.add('done'); return; }
+      cs.forEach(c => { c.style.transition = 'none'; c.style.transform = 'translate(' + (Math.random() * 160 - 80) + 'px,' + (Math.random() * 70 - 50) + 'px) rotate(' + (Math.random() * 120 - 60) + 'deg) scale(.7)'; });
+      void box.offsetWidth;
+      cs.forEach((c, i) => tm.push(setTimeout(() => { c.style.transition = ''; c.style.transform = 'none'; }, 150 + i * 160)));
+      tm.push(setTimeout(() => bl.classList.add('done'), 150 + cs.length * 160 + 500));
+    }
+    function walk() {
+      P.forEach(x => x.classList.remove('on'));
+      if (reduce) { P.forEach(x => x.classList.add('on')); return; }
+      P.forEach((x, i) => tm.push(setTimeout(() => x.classList.add('on'), 400 + i * 220)));
+    }
+    let started = false;
+    onShow(w, () => { if (!started) { started = true; build(); walk(); } });
+    bl.addEventListener('click', () => { wi = (wi + 1) % W.length; build(); walk(); });
+  })();
 
   // появление блоков при прокрутке
   const rvEls = $$('.sec h2:not(.kicker), .sec .lead, .panel, .safe .vid, .f-photo, .badges, .quotes .q, .myths li, .mosaic figure, .reel, .steps ol li, .promise, .form, .faq details, .c-card, .map');
