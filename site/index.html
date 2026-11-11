@@ -5,9 +5,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Репетиторський центр у Винниках | Абітурієнт</title>
-<meta name="description" content="Репетиторський центр у Винниках | Абітурієнт. Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.">
+<meta name="description" content="Репетиторський центр у Винниках | Абітурієнт. Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Очно або онлайн.">
 <meta property="og:title" content="Репетиторський центр у Винниках | Абітурієнт">
-<meta property="og:description" content="Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.">
+<meta property="og:description" content="Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Очно або онлайн.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uk_UA">
 <meta property="og:image" content="https://ananinalist-maker.github.io/proto-abiturient-vynnyky/site/media/hero-scene.jpg">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Golos+Text:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap">
 <link rel="preload" as="image" href="media/hero-scene.webp">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Абітурієнт","description":"Репетиторський центр у Винниках: англійська, математика, НМТ і початкова школа. Тільки очно.","telephone":"+380667561828","address":{"@type":"PostalAddress","streetAddress":"вул. Галицька, 34Б","addressLocality":"Винники","postalCode":"79495","addressCountry":"UA"},"geo":{"@type":"GeoCoordinates","latitude":49.8169732,"longitude":24.1405218},"sameAs":["https://www.instagram.com/abiturient.lviv/"]}
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Абітурієнт","description":"Репетиторський центр у Винниках: англійська, математика, НМТ і початкова школа. Очно або онлайн.","telephone":"+380667561828","address":{"@type":"PostalAddress","streetAddress":"вул. Галицька, 34Б","addressLocality":"Винники","postalCode":"79495","addressCountry":"UA"},"geo":{"@type":"GeoCoordinates","latitude":49.8169732,"longitude":24.1405218},"sameAs":["https://www.instagram.com/abiturient.lviv/"]}
 </script>
 <style>
 :root{
@@ -563,6 +563,23 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
   .msg,.steps-m li{opacity:1;transform:none}
   .tri .side{stroke-dashoffset:0}
 }
+
+/* правки 11.11: заметный звонок на телефоне, телефон крупно у формы */
+.seats{font-size:var(--fs-small);color:var(--muted);margin:10px 0 0}
+.big-tel{display:inline-block;font:800 clamp(22px,2.4vw,28px)/1.2 var(--round);color:var(--yellow);text-decoration:none;white-space:nowrap}
+.badges li{max-width:100%}
+@media (max-width:640px){
+  .mbar{grid-template-columns:auto 1fr}
+  .mbar .call{padding:12px 16px}
+  .hc-r .pills{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:4px var(--gut);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .hc-r .pills::-webkit-scrollbar{display:none}
+  .hc-r .pill{flex:none}
+  .mbar .call{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:800;position:relative}
+  .mbar .call::after{content:"";position:absolute;inset:-3px;border-radius:999px;border:2px solid var(--lime);animation:ring 2.2s ease-out infinite}
+  @keyframes ring{0%{opacity:.8;transform:scale(1)}80%,100%{opacity:0;transform:scale(1.12)}}
+}
+@media (prefers-reduced-motion:reduce){.mbar .call::after{animation:none;opacity:0}}
+@media (max-width:380px){.mbar .btn{font-size:14px;padding-inline:12px;white-space:nowrap}.mbar{gap:6px}}
 </style>
 </head>
 <body>
@@ -617,17 +634,17 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
         <div class="hc-l">
         <p class="eyebrow rise">Репетиторський центр у Винниках · Галицька 34Б</p>
         <h1 id="h1" class="rise">Репетиторство <b>від А до Я</b></h1>
-        <p class="sub rise">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Тільки очно.</p>
+        <p class="sub rise">Від першого класу до вступу: англійська, математика, НМТ і початкова школа в одному центрі у Винниках. Очно або онлайн.</p>
         </div>
         <div class="hc-r">
         <p class="ask rise">Що вам потрібно?</p>
         <div class="pills rise" id="pills">
-          <button class="pill" type="button" data-tab="nmt">НМТ комплексно</button>
+          <button class="pill" type="button" data-tab="nmt">НМТ комплексно або окремий предмет</button>
           <button class="pill" type="button" data-tab="eng">Англійська</button>
           <button class="pill" type="button" data-tab="math">Математика</button>
           <button class="pill" type="button" data-tab="prim">Початкова школа</button>
         </div>
-        <a class="btn big shine rise" href="#zapys">Записатися на безкоштовне пробне заняття <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn big shine rise" href="#zapys">Записатися на консультацію <span class="arr" aria-hidden="true">→</span></a>
         <p class="small rise">Прийдіть у клас, подивіться, як ми вчимо, і познайомтеся із засновницею центру.</p>
         </div>
       </div>
@@ -636,8 +653,8 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       <ul>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg><span>НМТ: 3 обов'язкові предмети + 1 на вибір</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Заняття по 60 і 90 хвилин</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.6.1 4.4 1.7 5 4.3"/></svg><span>Група, пара або індивідуально</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg><span>Тільки очно, безпечний клас</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.6.1 4.4 1.7 5 4.3"/></svg><span>Група, пара або індивідуально, у першій або другій половині дня</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg><span>Очно або онлайн · безпечний клас</span></li>
       </ul>
     </div>
   </section>
@@ -649,16 +666,17 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       <div class="safe">
       <div>
         <ul class="ticks">
+          <li>Безпечний і дуже комфортний освітній простір</li>
           <li>Центр розташований у напівпідвальному приміщенні з бетонним перекриттям. Стіни кабінету завтовшки пів метра, є вентиляція</li>
           <li>Світло, тепло й інтернет працюють навіть під час відключень: автономне живлення до двох діб і підігрів підлоги</li>
-          <li>Окремий санвузол і вода у двох місцях</li>
-          <li>З боку проспекту повноцінні вікна, тому в класах світло й затишно</li>
+          <li>Окремий санвузол і вода у двох доступах</li>
+          <li>З боку житлового комплексу повноцінні вікна, тому в класах світло й затишно</li>
         </ul>
-        <p class="punch">На пробному занятті покажемо все на власні очі.</p>
+        <p class="punch">На консультації чи пробному занятті побачите все на власні очі.</p>
       </div>
       <div class="vid">
-        <video data-lazy muted loop playsinline preload="none" poster="media/v3-poster.webp" aria-label="Класи центру «Абітурієнт»">
-          <source data-src="media/v3-lite.mp4" type="video/mp4">
+        <video data-lazy muted loop playsinline preload="none" poster="media/klasy-mix-poster.webp" aria-label="Заняття в центрі «Абітурієнт»: старші учні й малеча">
+          <source data-src="media/klasy-mix.mp4" type="video/mp4">
         </video>
         <span class="vtag">Наші класи · Галицька 34Б</span>
       </div>
@@ -680,16 +698,19 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       <div class="panel on" role="tabpanel" id="p-nmt" aria-labelledby="t-nmt">
         <div>
           <h3>Підготовка до НМТ комплексно: усі предмети в одному центрі</h3>
-          <p>До НМТ найкраще готуватися системно і заздалегідь. У нас дитина готується з усіх предметів в одному місці, з викладачами, які добре знають формат тесту.</p>
+          <p>До НМТ найкраще готуватися системно і заздалегідь. У нас дитина готується з усіх предметів в одному місці, з репетиторами, які добре знають формат тесту.</p>
           <ul class="ticks">
             <li>Три обов'язкові предмети: українська мова, математика, історія України</li>
             <li>Четвертий на вибір: англійська або біологія</li>
+            <li>Комплексно (4 предмети) або окремий предмет на вибір</li>
             <li>8 занять по 90 хвилин на місяць з кожного предмета</li>
-            <li>У групі, у парі чи індивідуально, тільки очно</li>
-            <li>Засновниця центру готує до ЗНО і НМТ від самого запровадження тестування</li>
+            <li>У групі, у парі чи індивідуально, очно або онлайн</li>
+            <li>Репетитори центру готують до НМТ (колись ЗНО) від самого початку тестування</li>
           </ul>
           <p class="punch">Рік підготовки коштує менше, ніж роки навчання на контракті.</p>
+          <p>Діти з високими балами отримують стипендію або знижку 25–30 %. Знижка у відсотках, тож з роками вона важить дедалі більше: ви вчите дитину інвестувати з розумом.</p>
           <a class="btn" href="#zapys" data-dir="nmt">Записатися на пробне з НМТ</a>
+          <p class="seats">Пробних занять небагато.</p>
         </div>
         <div class="tablo" id="tablo">
           <div class="tablo-top"><span>Шкала НМТ</span><span class="rec">заняття в центрі</span></div>
@@ -714,17 +735,18 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       <div class="panel" role="tabpanel" id="p-eng" aria-labelledby="t-eng" hidden>
         <div>
           <h3>Англійська, щоб нею говорити: для школярів, студентів і дорослих</h3>
-          <p>Мова потрібна, щоб спілкуватися. Тому на кожному занятті учні говорять, слухають і виконують творчі завдання.</p>
+          <p>Мова потрібна, щоб спілкуватися, а в дитинстві — щоб розвиватися. Тому на кожному занятті учні говорять, слухають і виконують творчі завдання.</p>
           <ul class="ticks">
-            <li>Школярі з 1 по 11 клас вчаться в групах за класами. Малеча вчиться через ігри й пісні, старші самі складають діалоги й тексти</li>
-            <li>Студенти й дорослі: <mark class="todo">уточнити</mark></li>
+            <li>Школярі з 1 по 11 клас вчаться в групах за віком, рівнем знань і темпом сприймання. Малеча вчиться через ігри й пісні</li>
+            <li>Студенти й дорослі: раз на тиждень по 2 години з перервою, дні за домовленістю</li>
+            <li>Працюємо лише з автентичними матеріалами, платформами та електронними ресурсами</li>
             <li>Британські навчальні платформи: 30 % підручник і 70 % платформа, доступ оплачує центр</li>
-            <li>Двічі на тиждень по 60 хвилин</li>
+            <li>Двічі на тиждень по 60 хвилин або як вам зручно</li>
           </ul>
-          <a class="btn" href="#zapys" data-dir="eng">Записатися на пробне з англійської</a>
+          <a class="btn" href="#zapys" data-dir="eng">Записатися на консультацію</a>
         </div>
         <div class="tablo wid" id="w-eng">
-          <div class="tablo-top"><span>Speaking</span><span class="rec">розмова на уроці</span></div>
+          <div class="tablo-top"><span>Speaking</span><span class="rec">розмова на уроці</span></div>
           <button class="chat" type="button" aria-label="Наступний діалог англійською">
             <span class="msg t"><b>Teacher</b><span class="tx"></span></span>
             <span class="msg s"><b>Student</b><span class="tx"></span><i class="caret" aria-hidden="true"></i></span>
@@ -734,7 +756,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
             <button class="seg" type="button" data-k="book" aria-pressed="false" style="flex:30"><b>30&nbsp;%</b><span>підручник</span></button>
             <button class="seg on" type="button" data-k="plat" aria-pressed="true" style="flex:70"><b>70&nbsp;%</b><span>британська платформа</span></button>
           </div>
-          <p class="seg-note" aria-live="polite">Доступ до платформи оплачує центр</p>
+          <p class="seg-note" aria-live="polite">Доступ до платформи оплачує центр</p>
           <div class="words">
             <button class="wcard" type="button"><span class="f">Hello</span><span class="b">Привіт</span></button>
             <button class="wcard" type="button"><span class="f">Family</span><span class="b">Сім'я</span></button>
@@ -746,16 +768,16 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
 
       <div class="panel" role="tabpanel" id="p-math" aria-labelledby="t-math" hidden>
         <div>
-          <h3>Математика для старшої школи: не тягне алгебру? Підтягнемо</h3>
-          <p>Програма з математики стала складнішою, і в 7–8 класі багато дітей перестають встигати. Ми знаходимо прогалини, тренуємо обчислення і крок за кроком розбираємо алгебру й геометрію.</p>
+          <h3>Математика з 5 класу: не тягне алгебра? Проблеми з геометрією? Підтягнемо</h3>
+          <p>Програма шкільна. Наше завдання — допомогти учневі полюбити математику. А полюбить він її, тільки коли буде знати: ніхто не любить те, чого не знає.</p>
           <ul class="ticks">
-            <li>Алгебра й геометрія з 7 класу</li>
+            <li>Математика з 5 класу. З 7 класу алгебра й геометрія: одне заняття на тиждень алгебра, друге геометрія</li>
             <li>Підготовка до НМТ з математики</li>
-            <li>Групи за класами, заняття по 60 хвилин</li>
-            <li>Математика вчить бачити причину й наслідок, а це основа для програмування й науки</li>
+            <li>Групи за класами, за шкільною програмою, заняття по 60 хвилин</li>
+            <li>Математика — наука наук: причина і наслідок, основа логічного мислення. Вона потрібна всім: порахувати фарбу, покласти плитку</li>
           </ul>
-          <p class="punch">Математика йде на допомогу дитині і батькам. Поверніть собі спокійні вечори без сліз над домашкою.</p>
-          <a class="btn" href="#zapys" data-dir="math">Записатися на пробне з математики</a>
+          <p class="punch">Математика йде на допомогу і батькам, і школярам. Поверніть собі спокійні вечори без сліз над домашкою.</p>
+          <a class="btn" href="#zapys" data-dir="math">Записатися на консультацію</a>
         </div>
         <div class="tablo wid" id="w-math">
           <div class="tablo-top"><span>Задача</span><span class="rec">розв'язуємо разом</span></div>
@@ -773,29 +795,32 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
           </div>
           <button class="mnext" type="button">Інша задача ↻</button>
           <div class="grades" role="group" aria-label="Теми за класами">
+            <button type="button" data-t="Дроби">5</button>
+            <button type="button" data-t="Пропорції й відсотки">6</button>
             <button type="button" data-t="Лінійні рівняння">7</button>
             <button type="button" data-t="Теорема Піфагора">8</button>
             <button type="button" data-t="Прогресії">9</button>
             <button type="button" data-t="Тригонометрія">10</button>
             <button type="button" data-t="Похідна і НМТ">11</button>
           </div>
-          <p class="gnote" aria-live="polite"><b>8 клас</b> · Теорема Піфагора</p>
+          <p class="gnote" aria-live="polite"><b>8 клас</b> · Теорема Піфагора</p>
         </div>
       </div>
 
       <div class="panel" role="tabpanel" id="p-prim" aria-labelledby="t-prim" hidden>
         <div>
           <h3>Репетитор початкової школи: щоб дитині було цікаво вчитися з першого класу</h3>
-          <p>У молодших класах закладається, як дитина ставитиметься до навчання. Допомагаємо з програмою 1–4 класу в маленькій групі, де вчитель бачить кожного.</p>
+          <p>Формуємо й розвиваємо навички читання й обчислення, щоб дитині було цікаво і вона була впевнена в собі. Головне — не відбити бажання вчитися і навчити вчитися.</p>
           <ul class="ticks">
-            <li>Предмети: <mark class="todo">уточнити</mark></li>
-            <li>Підготовка до школи для дошкільнят <mark class="todo">уточнити</mark></li>
+            <li>Предмети: читання, математика, англійська</li>
+            <li>Підготовка до школи для дошкільнят</li>
+            <li>З дітьми працюють лише вчителі початкових класів: вони знають психологію й вікові особливості та змінюють діяльність приблизно кожні 10 хвилин</li>
             <li>Через гру, без тиску і без страху помилитися</li>
           </ul>
-          <a class="btn" href="#zapys" data-dir="prim">Записатися на пробне</a>
+          <a class="btn" href="#zapys" data-dir="prim">Записатися на консультацію</a>
         </div>
         <div class="tablo wid" id="w-prim">
-          <div class="tablo-top"><span>Через гру</span><span class="rec">без тиску</span></div>
+          <div class="tablo-top"><span>Через гру</span><span class="rec">без тиску</span></div>
           <button class="blocks" type="button" aria-label="Скласти інше слово з кубиків">
             <span class="cubes"></span>
             <span class="star" aria-hidden="true">★</span>
@@ -804,7 +829,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
           <div class="path" aria-hidden="true">
             <span>1</span><i></i><span>2</span><i></i><span>3</span><i></i><span>4</span><i></i><b>★</b>
           </div>
-          <p class="pnote2">клас за класом</p>
+          <p class="pnote2">клас за класом</p>
         </div>
       </div>
     </div>
@@ -821,11 +846,11 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
         <figcaption><b>Галина Коздрин</b><span>засновниця і керівник «Абітурієнта»</span></figcaption>
       </figure>
       <div>
-        <ul class="badges"><li><b>17</b> років у державних школах</li><li><b>ЗНО → НМТ</b> з першого року тестування</li></ul>
-        <p class="lead">Галина Коздрин 17 років викладала в державних школах. До ЗНО і НМТ вона готує від самого запровадження тестування, тому формат іспиту знає зсередини.</p>
-        <p class="lead">У відгуках батьки й учні дякують їй окремо: за щирість, енергію та ідеї, за продуманий простір центру і за атмосферу, де помилятися не страшно.</p>
+        <ul class="badges"><li><b>17</b> років викладання в п'яти різних державних школах</li><li><b>ЗНО → НМТ</b> з першого року тестування</li><li><b>Корпус Миру</b> офіційний партнер в Україні</li></ul>
+        <p class="lead">Галина Коздрин 17 років викладала в п'яти різних державних школах і 20 років працює репетитором. Була тренером та інструктором ЗНО, перевіряла шифровані твори. До ЗНО і НМТ готує від самого запровадження тестування, тому формат іспиту знає зсередини.</p>
+        <p class="lead">Багато років у державних школах вона бачила прогалини, з якими діти йдуть на іспит. ЗНО подолало корупцію при вступі, але воно складне й комплексне, і до нього треба готуватися окремо. Так з'явився «Абітурієнт». Галина — мама трьох дітей, навчається на семінарах британських видавництв і авторів-методистів. Її принцип: «Хочеш зробити добре для себе — зроби для когось».</p>
+        <p class="lead">Офіційний партнер Корпусу Миру в Україні (міжнародна волонтерська організація, заснована Кеннеді). Сертифікат: <mark class="todo">уточнити</mark> · номер диплома (перевіряється в «Дії»): <mark class="todo">уточнити</mark></p>
         <p class="lead">Англійську тут вчать, щоб нею користуватися, тому Галина сама везе учнів у Європу. Нормандія, Мон-Сен-Мішель, Париж, Бамберг: фото з поїздок трохи нижче.</p>
-        <p class="lead"><mark class="todo">уточнити</mark> Ваша історія: як з'явився «Абітурієнт» і що для вас найважливіше в навчанні дітей.</p>
         <div class="quotes">
           <blockquote class="q"><p>«Чудовий заклад! Обидві дочки займаються тут, їздимо на уроки англійської мови. … Викладачі - супер! Професійно викладають предмети, а діти їх обожнюють. Керівник закладу - пані Галина - заслуговує окремих слів, це надзвичайно щира і доброзичлива людина, сповнена енергії та ідей.»</p><footer>Павло, Google Maps</footer></blockquote>
           <blockquote class="q"><p>«Дуже подобається навчання в цій школі. Помітно підтягнула англійську мову. Викладачі дуже приємні та сучасні, окрема подяка Галині Тадеївній за чудову організацію простору. Рекомендую!!!»</p><footer>Софія Костерева, Google Maps</footer></blockquote>
@@ -896,28 +921,29 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       <div>
         <ol>
           <li>Ви залишаєте заявку на сайті або телефонуєте</li>
-          <li>Ми зв'язуємося з вами і підбираємо групу</li>
-          <li>Пробне заняття: дитина вчиться в групі свого класу, а ви знайомитеся з приміщенням і засновницею центру</li>
+          <li>Ми зв'язуємося з вами, консультуємо і підбираємо групу або індивідуальні заняття</li>
+          <li>Пробне заняття з НМТ або перше заняття: дитина вчиться в групі свого віку, а ви отримуєте відгук після заняття</li>
           <li>Старт у групі й доступ до британської платформи, яку оплачує центр</li>
         </ol>
       </div>
       <div class="promise">
         <h3>Наші обіцянки</h3>
         <ul class="ticks">
-          <li>Пробне заняття ні до чого не зобов'язує</li>
+          <li>Пробне заняття або консультація ні до чого не зобов'язує</li>
           <li>Платите помісячно: не бачите сенсу — не продовжуєте</li>
           <li>Заняття не зриваються через відключення світла</li>
-          <li>Ми не обіцяємо 200 балів чи «заговорить за місяць». Обіцяємо систему, маленьку групу і чесний зворотний зв'язок</li>
+          <li>Ми не обіцяємо 200 балів чи «заговорить за місяць». Обіцяємо систему, невелику групу, чесний зворотний зв'язок і контроль</li>
         </ul>
       </div>
     </div>
     </div>
   </section>
 
-  <!-- 9. Запис на пробне -->
+  <!-- 9. Запис на консультацію -->
   <section class="sec dark" id="zapys" aria-labelledby="h-form">
     <div class="wrap form-wrap">
-      <header class="sec-head"><h2 id="h-form">Запишіться на <span class="hl">безкоштовне</span> пробне заняття</h2></header>
+      <header class="sec-head"><h2 id="h-form"><span class="hl">Запис</span> на консультацію</h2>
+        <p class="lead">Є питання? Залишайте заявку або телефонуйте, проконсультуємо: <a class="big-tel" href="tel:+380667561828">066 756 18 28</a></p></header>
       <form class="form" id="form" novalidate>
         <div class="two">
           <div class="f"><label for="f-name">Ім'я</label><input id="f-name" name="name" autocomplete="name" required></div>
@@ -943,7 +969,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
             <label><input type="radio" name="via" value="whatsapp"><span>WhatsApp</span></label>
           </div>
         </fieldset>
-        <button class="btn big" type="submit">Записатися <span class="arr" aria-hidden="true">→</span></button>
+        <button class="btn big" type="submit">Записатися на консультацію <span class="arr" aria-hidden="true">→</span></button>
         <div class="thanks" role="status" aria-live="polite">
           <div class="ok" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 20 20"><path d="M5 10.5l3.2 3.2L15 6.8" stroke="#13261B" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <p>Дякуємо! Ми зателефонуємо вам найближчим часом.</p>
@@ -957,12 +983,13 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
     <div class="wrap">
       <header class="sec-head"><h2 id="h-faq">Часті питання</h2></header>
       <div class="faq">
-        <details open><summary>Скільки коштують заняття?</summary><p><mark class="todo">уточнити</mark> Показуємо ціни на сайті чи пишемо «ціну назвемо після пробного заняття»?</p></details>
-        <details><summary>Чим ви відрізняєтеся від репетитора?</summary><p>В одному центрі всі предмети, від початкової школи до НМТ. Педагоги з досвідом шкільної програми, маленькі групи і безпечний клас, який працює навіть під час відключень.</p></details>
-        <details><summary>А якщо дитині не сподобається?</summary><p>Пробне заняття безкоштовне і ні до чого не зобов'язує. Платите помісячно: не бачите сенсу — не продовжуєте.</p></details>
-        <details><summary>Чи можна вчитися онлайн?</summary><p>Ні. Ми живий центр, заняття тільки очно.</p></details>
-        <details open><summary>Що відбувається під час тривоги?</summary><p><mark class="todo">уточнити</mark></p></details>
-        <details open><summary>Коли починати готуватися до НМТ?</summary><p><mark class="todo">уточнити</mark> Наприклад: «найкраще за рік до іспиту»?</p></details>
+        <details open><summary>Скільки коштують заняття?</summary><p><mark class="todo">уточнити</mark> Ціни покажемо тут, щойно центр їх надішле.</p></details>
+        <details><summary>Чим ви відрізняєтеся?</summary><p>Ми команда: вболіваємо за цілісний результат НМТ, а не кожен за свій предмет. Вчимо думати на тесті комплексно й справлятися зі стресом. І не збиваємо розклад.</p></details>
+        <details><summary>А якщо дитині не сподобається?</summary><p>Пробне заняття з НМТ і консультація ні до чого не зобов'язують. Платите помісячно: не бачите сенсу — не продовжуєте.</p></details>
+        <details><summary>Чи можна вчитися онлайн?</summary><p>Так, можна. Заняття проходять очно або онлайн.</p></details>
+        <details><summary>Що відбувається під час тривоги?</summary><p>В офісі безпечне приміщення, тож заняття триває. Онлайн — за ситуацією. Якщо заняття не скасоване, воно зараховується в абонемент і не переноситься.</p></details>
+        <details><summary>Чи можна перенести заняття?</summary><p>Абонементи не переносяться. Індивідуальні й парні заняття можна перенести до 2 разів на місяць, якщо їх оплачено і ви попередили звечора.</p></details>
+        <details><summary>Коли починати готуватися до НМТ?</summary><p>Місця бронюємо в травні–червні, навчання починається з серпня, підготовка триває 10 місяців.</p></details>
       </div>
 
       <div class="contacts">
@@ -971,12 +998,12 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
           <ul class="c-list">
             <li><b>Адреса</b><span>Галицька 34Б, Винники</span></li>
             <li><b>Телефон</b><a href="tel:+380667561828">066 756 18 28</a></li>
-            <li><b>Графік роботи</b><mark class="todo">уточнити</mark></li>
+            <li><b>Графік роботи</b><span>Пн–Сб з 10:00 до останнього учня, неділя — вихідний</span></li>
             <li><b>Instagram</b><a href="https://www.instagram.com/abiturient.lviv/" target="_blank" rel="noopener">Instagram</a></li>
           </ul>
           <div class="row">
             <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=49.8169732,24.1405218" target="_blank" rel="noopener">Прокласти маршрут</a>
-            <a class="btn" href="#zapys">Записатися на пробне</a>
+            <a class="btn" href="#zapys">Записатися на консультацію</a>
           </div>
         </div>
         <div class="map">
@@ -995,7 +1022,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
 </footer>
 
 <div class="mbar">
-  <a class="btn call" href="tel:+380667561828" aria-label="Подзвонити: 066 756 18 28"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></a>
+  <a class="btn call" href="tel:+380667561828" aria-label="Подзвонити: 066 756 18 28"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span>Подзвонити</span></a>
   <a class="btn" href="#zapys">Залишити заявку</a>
 </div>
 
@@ -1197,9 +1224,9 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
     let started = false;
     onShow(w, () => { if (!started) { started = true; solve(); } });
     $('.mnext', w).addEventListener('click', () => { ti = (ti + 1) % T.length; solve(); });
-    const G = $$('.grades button', w), gn = $('.gnote', w); let gi = 1, gt = null;
+    const G = $$('.grades button', w), gn = $('.gnote', w); let gi = 3, gt = null;
     const setG = i => { gi = i; G.forEach((b, k) => b.classList.toggle('on', k === i)); gn.innerHTML = '<b>' + G[i].textContent + ' клас</b> · ' + G[i].dataset.t; };
-    setG(1);
+    setG(3);
     G.forEach((b, i) => { b.addEventListener('click', () => { clearInterval(gt); setG(i); }); b.addEventListener('mouseenter', () => { clearInterval(gt); setG(i); }); });
     if (!reduce) onShow(w, () => { if (!gt) gt = setInterval(() => setG((gi + 1) % G.length), 2200); });
   })();
