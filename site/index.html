@@ -403,6 +403,20 @@ footer.ft a{text-decoration:none}
 .lessons img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .lessons video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .lessons figure:hover img{transform:scale(1.05)}
+.lessons .zoom{display:block;width:100%;height:100%;cursor:zoom-in}
+.lessons .ls-vid{cursor:zoom-in}
+.lb{border:0;padding:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;background:transparent;overflow:hidden}
+.lb::backdrop{background:rgba(6,24,15,.92)}
+.lb[open]{display:grid;place-items:center}
+.lb-fig{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lb-fig img,.lb-fig video{display:block;max-width:92vw;max-height:80dvh;width:auto;height:auto;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-fig figcaption{color:#fff;font:600 var(--fs-small)/1.3 var(--font)}
+.lb-x,.lb-nav{position:fixed;display:grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;cursor:pointer}
+.lb-x:hover,.lb-nav:hover{background:rgba(255,255,255,.28)}
+.lb-x svg,.lb-nav svg{width:22px;height:22px}
+.lb-x{top:14px;right:14px}
+.lb-nav{top:50%;transform:translateY(-50%)}.lb-nav.prev{left:14px}.lb-nav.next{right:14px}
+@media (max-width:640px){.lb-nav{top:auto;bottom:22px;transform:none}.lb-nav.prev{left:calc(50% - 60px)}.lb-nav.next{right:calc(50% - 60px)}}
 .lessons figcaption{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;background:rgba(255,253,247,.94);color:var(--ink);font:700 var(--fs-small)/1.3 var(--font)}
 .lessons .ls-vid figcaption{background:rgba(10,36,22,.78);color:#fff;backdrop-filter:blur(4px)}
 .lessons .ls-vid figcaption::before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--lime);vertical-align:1px}
@@ -728,7 +742,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
     </div>
     <div class="facts">
       <ul>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg><span>НМТ: 3 обов’язкові предмети + 1 на вибір</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg><span>НМТ: 3 обов’язкові предмети + 1 на вибір (англійська або біологія)</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Заняття по 60 і 90 хвилин</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.6.1 4.4 1.7 5 4.3"/></svg><span>Група, пара або індивідуально, у першій або другій половині дня</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg><span>Очно або онлайн · безпечний клас</span></li>
@@ -739,12 +753,10 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
   <!-- 2. Безпека -->
   <section class="sec dark" id="bezpeka" aria-labelledby="h-safe">
     <div class="wrap">
-      <header class="sec-head"><h2 id="h-safe">Поки ви на роботі, дитина навчається в <span class="hl">безпечному й теплому класі</span></h2></header>
+      <header class="sec-head"><h2 id="h-safe">Поки ви на роботі, дитина навчається в <span class="hl">безпечному, комфортному освітньому просторі</span></h2></header>
       <div class="safe">
       <div>
         <ul class="ticks">
-          <li>Сміливо стверджуємо: у нас безпечний і дуже комфортний освітній простір</li>
-          <li>Центр розташований у напівпідвальному приміщенні з бетонним перекриттям. Стіни кабінету завтовшки пів метра, є вентиляція</li>
           <li>Світло, тепло й інтернет працюють навіть під час відключень: автономне живлення до двох діб і підігрів підлоги</li>
           <li>Окремий санвузол і вода у двох доступах</li>
           <li>З боку житлового комплексу повноцінні вікна, тому в класах світло й затишно</li>
@@ -775,16 +787,16 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       <div class="panel on" role="tabpanel" id="p-nmt" aria-labelledby="t-nmt">
         <div>
           <h3>Підготовка до НМТ комплексно: усі предмети в одному центрі</h3>
-          <p>До НМТ найкраще готуватися системно і заздалегідь. У нас дитина готується з усіх предметів в одному місці, з репетиторами, які добре знають формат тесту.</p>
+          <p>До НМТ найкраще готуватися системно і заздалегідь. У нас абітурієнти готуються з усіх предметів в одному місці, з репетиторами, які добре знають формат тесту.</p>
           <ul class="ticks">
             <li>Три обов’язкові предмети: українська мова, математика, історія України</li>
             <li>Четвертий на вибір: англійська або біологія</li>
-            <li>Комплексно (4 предмети) або окремий предмет на вибір</li>
+            <li>Комплексно (4 предмети) або окремий предмет</li>
             <li>8 занять по 90 хвилин на місяць з кожного предмета</li>
             <li>У групі, у парі чи індивідуально, очно або онлайн</li>
             <li>Репетитори центру готують до НМТ (колись ЗНО) від самого початку тестування</li>
           </ul>
-          <p class="punch">Рік підготовки коштує менше, ніж роки навчання на контракті.</p>
+          <p class="punch">10 місяців підготовки коштує менше, ніж рік навчання на контракті.</p>
           <p>Діти з високими балами отримують стипендію або знижку 25–30%. Знижка у відсотках, тож з роками вона важить дедалі більше: ви вчите дитину інвестувати з розумом.</p>
           <a class="btn" href="#zapys" data-dir="nmt">Записатися на пробне з НМТ</a>
           <p class="seats">Пробних занять небагато.</p>
@@ -845,13 +857,13 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
 
       <div class="panel" role="tabpanel" id="p-math" aria-labelledby="t-math" hidden>
         <div>
-          <h3>Математика з 5 класу: не тягне алгебра? Проблеми з геометрією? Підтягнемо</h3>
+          <h3>Математика з 5 класу: не тягне алгебру? Проблеми з геометрією? Підтягнемо</h3>
           <p>Програма шкільна. Наше завдання — допомогти учневі полюбити математику. А полюбить він її, тільки коли буде знати: ніхто не любить те, чого не знає.</p>
           <ul class="ticks">
             <li>Математика з 5 класу. З 7 класу алгебра й геометрія: одне заняття на тиждень алгебра, друге геометрія</li>
             <li>Підготовка до НМТ з математики</li>
             <li>Групи за класами, за шкільною програмою, заняття по 60 хвилин</li>
-            <li>Математика — наука наук: причина і наслідок, основа логічного мислення. Вона потрібна всім: порахувати фарбу, покласти плитку</li>
+            <li>Математика — наука наук: причина і наслідок, основа логічного мислення. Вона потрібна всім: порахувати фарбу, покласти плитку, зробити покупки, порахувати бюджет і свої відсотки 😉</li>
           </ul>
           <p class="punch">Математика йде на допомогу і батькам, і школярам. Поверніть собі спокійні вечори без сліз над домашкою.</p>
           <a class="btn" href="#zapys" data-dir="math">Записатися на консультацію</a>
@@ -918,16 +930,16 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       <header class="sec-head"><h2 id="h-lessons">Подивіться, як ми <span class="hl">вчимо</span></h2>
         <p class="lead">Фото й відео з наших класів на Галицькій 34Б: малеча, старшокласники і підготовка до НМТ.</p></header>
       <div class="lessons">
-        <figure class="ls-vid">
+        <figure class="ls-vid" aria-label="Відкрити відео більшим">
           <video data-lazy muted loop playsinline preload="none" poster="media/nmt-reel-poster.webp" aria-label="Заняття старшокласників у центрі «Абітурієнт»: підготовка до НМТ">
             <source data-src="media/nmt-reel.mp4" type="video/mp4">
           </video>
           <figcaption>Підготовка до НМТ</figcaption>
         </figure>
-        <figure><img src="media/lesson-senior-800.webp" srcset="media/lesson-senior-480.webp 480w, media/lesson-senior-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Старшокласники на занятті в репетиторському центрі «Абітурієнт» у Винниках" width="800" height="533" loading="lazy"><figcaption>Старші класи</figcaption></figure>
-        <figure><img src="media/lesson-pair-800.webp" srcset="media/lesson-pair-480.webp 480w, media/lesson-pair-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Початкова школа: двоє учнів виконують завдання за одним столом" width="800" height="533" loading="lazy"><figcaption>Початкова школа</figcaption></figure>
-        <figure><img src="media/lesson-junior-800.webp" srcset="media/lesson-junior-480.webp 480w, media/lesson-junior-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Молодші школярі на груповому занятті в класі із зеленою стіною, Винники" width="800" height="533" loading="lazy"><figcaption>Молодші класи</figcaption></figure>
-        <figure><img src="media/lesson-group-800.webp" srcset="media/lesson-group-480.webp 480w, media/lesson-group-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Діти сміються під час заняття, старший учень допомагає молодшим" width="800" height="533" loading="lazy"><figcaption>У групі</figcaption></figure>
+        <figure><a class="zoom" href="media/lesson-senior-1600.webp"><img src="media/lesson-senior-800.webp" srcset="media/lesson-senior-480.webp 480w, media/lesson-senior-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Старшокласники на занятті в репетиторському центрі «Абітурієнт» у Винниках" width="800" height="533" loading="lazy"></a><figcaption>Старші класи</figcaption></figure>
+        <figure><a class="zoom" href="media/lesson-pair-1600.webp"><img src="media/lesson-pair-800.webp" srcset="media/lesson-pair-480.webp 480w, media/lesson-pair-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Початкова школа: двоє учнів виконують завдання за одним столом" width="800" height="533" loading="lazy"></a><figcaption>Початкова школа</figcaption></figure>
+        <figure><a class="zoom" href="media/lesson-junior-1600.webp"><img src="media/lesson-junior-800.webp" srcset="media/lesson-junior-480.webp 480w, media/lesson-junior-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Молодші школярі на груповому занятті в класі із зеленою стіною, Винники" width="800" height="533" loading="lazy"></a><figcaption>Молодші класи</figcaption></figure>
+        <figure><a class="zoom" href="media/lesson-group-1600.webp"><img src="media/lesson-group-800.webp" srcset="media/lesson-group-480.webp 480w, media/lesson-group-800.webp 800w" sizes="(max-width:700px) 50vw, 360px" alt="Діти сміються під час заняття, старший учень допомагає молодшим" width="800" height="533" loading="lazy"></a><figcaption>У групі</figcaption></figure>
       </div>
     </div>
   </section>
@@ -947,8 +959,8 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
         <ul class="badges"><li><b>17</b> років викладання в п’яти різних державних школах</li><li><b>ЗНО → НМТ</b> з першого року тестування</li><li><b>Корпус Миру</b> офіційний партнер в Україні</li></ul>
         <p class="lead">Галина Коздрин 17 років викладала в п’яти різних державних школах і 20 років працює репетитором. Була тренером та інструктором ЗНО, перевіряла шифровані твори. До ЗНО і НМТ готує від самого запровадження тестування, тому формат іспиту знає зсередини.</p>
         <p class="lead">Багато років у державних школах вона бачила прогалини, з якими діти йдуть на іспит. ЗНО подолало корупцію при вступі, але воно складне й комплексне, і до нього треба готуватися окремо. Так з’явився «Абітурієнт». Галина — мама трьох дітей, навчається на семінарах британських видавництв і авторів-методистів. Її принцип: «Хочеш зробити добре для себе — зроби для когось».</p>
-        <p class="lead">Офіційний партнер Корпусу Миру в Україні (міжнародна волонтерська організація, заснована Кеннеді). Сертифікат: <mark class="todo">уточнити</mark> · номер диплома (перевіряється в «Дії»): <mark class="todo">уточнити</mark></p>
-        <p class="lead">Англійську тут вчать, щоб нею користуватися, тому Галина сама везе учнів у Європу. Нормандія, Мон-Сен-Мішель, Париж, Бамберг: фото з поїздок трохи нижче.</p>
+        <p class="lead">Офіційний партнер Корпусу Миру в Україні (міжнародна американська волонтерська організація, яку заснував Кеннеді; працює на рівні урядів). Сертифікат: <mark class="todo">уточнити</mark> · номер диплома (перевіряється в «Дії»): <mark class="todo">уточнити</mark></p>
+        <p class="lead">Англійську тут вчать, щоб нею користуватися, тому Галина сама везе учнів у Європу: Франція, Австрія (Відень), Чехія (Прага), Німеччина (Берлін), Угорщина, неодноразово Італія. Фото з поїздок трохи нижче.</p>
         <div class="quotes">
           <blockquote class="q"><p>«Чудовий заклад! Обидві дочки займаються тут, їздимо на уроки англійської мови. […] Викладачі — супер! Професійно викладають предмети, а діти їх обожнюють. Керівник закладу — пані Галина — заслуговує окремих слів, це надзвичайно щира і доброзичлива людина, сповнена енергії та ідей».</p><footer>Павло, Google Maps</footer></blockquote>
           <blockquote class="q"><p>«Дуже подобається навчання в цій школі. Помітно підтягнула англійську мову. Викладачі дуже приємні та сучасні, окрема подяка Галині Тадеївній за чудову організацію простору. Рекомендую!!!»</p><footer>Софія Костерева, Google Maps</footer></blockquote>
@@ -975,7 +987,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
   <section class="sec" id="podorozhi" aria-labelledby="h-trips">
     <div class="wrap">
       <header class="sec-head"><h2 id="h-trips">Вчимо англійську, щоб нею користуватися, і <span class="hl">подорожуємо разом</span></h2>
-        <p class="lead">Разом з учнями ми побували в Парижі, Нормандії, на Мон-Сен-Мішель, у Празі, Мюнхені, Венеції, Стамбулі та інших містах.</p></header>
+        <p class="lead">Разом з учнями ми побували в Парижі, Нормандії, на Мон-Сен-Мішель, у Відні, Празі, Берліні, Мюнхені, Венеції, Стамбулі та інших містах.</p></header>
       <div class="trips">
       <div>
         <blockquote class="q"><p>«Париж, мальовнича Нормандія та казковий Мон-Сен-Мішель — кожне місце по-своєму особливе й прекрасне. Усе було настільки красиво, що часом просто не вірилося, що я бачу це на власні очі. Дякую за організацію…»</p><footer>Софія Клименко, Google Maps</footer></blockquote>
@@ -1122,6 +1134,12 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
 </footer>
 
 <div class="fmsg" aria-label="Написати в месенджер"><a class="wa" href="https://wa.me/380667561828" target="_blank" rel="noopener noreferrer" aria-label="Написати у WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></a><a class="vb" href="viber://chat?number=%2B380667561828" aria-label="Написати у Viber"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.4 2c2.1 0 5.2.3 7 2 1.4 1.3 2 3.3 2.1 5.9.1 2.6-.1 7.4-4.8 8.7v2.1c0 .6-.7.9-1.1.5l-2.2-2.3c-.6 0-1.3 0-1.9-.1-3.4-.3-5.9-1.6-6.8-4.6-.6-2-.6-4.4-.4-6.3C3.5 4.2 6.6 2.1 11.4 2zm.2 1.8c-4 0-6.3 1.6-6.6 4.3-.2 1.7-.2 3.7.3 5.4.6 2 2.3 3.1 5.5 3.3.6 0 1.3.1 1.9.1l1.3 1.4v-1.9c3.9-1 4.1-4.9 4-7.1-.1-2.1-.6-3.6-1.5-4.4-1.3-1.2-3.8-1.6-4.9-1.6zm.6 2.7c1.9.1 3.1 1.3 3.2 3.2a.4.4 0 0 1-.8 0c-.1-1.5-1-2.3-2.4-2.4a.4.4 0 0 1 0-.8zm-3.1.2c.3 0 .5.2.7.5l.8 1.2c.2.4.1.8-.2 1l-.4.3c-.2.2-.2.4-.1.6.5 1.2 1.4 2.1 2.6 2.6.2.1.4 0 .6-.1l.3-.4c.3-.3.7-.4 1-.2l1.2.8c.3.2.4.6.2.9-.4.8-1.2 1.2-2 .9-2.6-1-4.6-3-5.5-5.6-.3-.8.1-1.6.8-2l.3-.1z"/></svg></a></div>
+<dialog class="lb" id="lb" aria-label="Фото й відео з занять">
+  <button class="lb-x" type="button" aria-label="Закрити"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  <button class="lb-nav prev" type="button" aria-label="Попереднє"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <figure class="lb-fig"></figure>
+  <button class="lb-nav next" type="button" aria-label="Наступне"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</dialog>
 <div class="mbar">
   <a class="btn call" href="tel:+380667561828" aria-label="Подзвонити: 066 756 18 28"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span>Подзвонити</span></a>
   <a class="btn" href="#zapys">Залишити заявку</a>
@@ -1300,8 +1318,9 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
     const note = $('.seg-note', w), N = {book: 'Граматика й нові слова за підручником', plat: 'Доступ до платформи оплачує центр'};
     $$('.seg', w).forEach(b => { const pick = () => { $$('.seg', w).forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); }); note.textContent = N[b.dataset.k]; };
       b.addEventListener('click', pick); b.addEventListener('mouseenter', pick); });
+    const canHover = matchMedia('(hover: hover)').matches;
     $$('.wcard', w).forEach(c => { c.addEventListener('click', () => c.classList.toggle('on'));
-      c.addEventListener('mouseenter', () => c.classList.add('on')); c.addEventListener('mouseleave', () => c.classList.remove('on')); });
+      if (canHover) { c.addEventListener('mouseenter', () => c.classList.add('on')); c.addEventListener('mouseleave', () => c.classList.remove('on')); } });
     if (!reduce) onShow(w, () => $$('.wcard', w).forEach((c, i) => { setTimeout(() => c.classList.add('on'), 900 + i * 350); setTimeout(() => c.classList.remove('on'), 2600 + i * 350); }));
   })();
   // математика: задача решается на глазах, темы по классам
@@ -1355,6 +1374,38 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
     let started = false;
     onShow(w, () => { if (!started) { started = true; build(); walk(); } });
     bl.addEventListener('click', () => { wi = (wi + 1) % W.length; build(); walk(); });
+  })();
+
+  // фото и ролик блока «Подивіться, як ми вчимо» открываются крупно
+  (() => {
+    const lb = $('#lb'); if (!lb || !lb.showModal) return;
+    const fig = $('.lb-fig', lb);
+    const items = $$('.lessons figure').map(f => {
+      const a = f.querySelector('a.zoom'), v = f.querySelector('video');
+      return {el: a || f, video: !a, src: a ? a.getAttribute('href') : v.querySelector('source').dataset.src,
+              alt: a ? a.querySelector('img').alt : v.getAttribute('aria-label'), cap: f.querySelector('figcaption').textContent};
+    });
+    let cur = 0;
+    const show = i => {
+      cur = (i + items.length) % items.length; const it = items[cur];
+      const m = document.createElement(it.video ? 'video' : 'img');
+      m.src = it.src;
+      if (it.video) { m.controls = m.autoplay = m.loop = m.muted = m.playsInline = true; m.setAttribute('aria-label', it.alt); } else m.alt = it.alt;
+      const c = document.createElement('figcaption'); c.textContent = it.cap;
+      fig.replaceChildren(m, c);
+    };
+    const open = i => { show(i); lb.showModal(); };
+    items.forEach((it, i) => {
+      it.el.addEventListener('click', e => { e.preventDefault(); open(i); });
+      if (it.video) { it.el.tabIndex = 0; it.el.setAttribute('role', 'button');
+        it.el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } }); }
+    });
+    $('.lb-x', lb).addEventListener('click', () => lb.close());
+    $('.lb-nav.prev', lb).addEventListener('click', () => show(cur - 1));
+    $('.lb-nav.next', lb).addEventListener('click', () => show(cur + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+    lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+    lb.addEventListener('close', () => fig.replaceChildren());
   })();
 
   // мессенджеры на телефоне появляются после первого экрана
