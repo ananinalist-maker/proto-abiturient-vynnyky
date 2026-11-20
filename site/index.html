@@ -247,6 +247,22 @@ fieldset.f{border:0;margin:0;padding:0;min-width:0}
 .form.sent > :not(.thanks){display:none}
 .form.sent .thanks{display:block}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* 20.11: стрічка документів у блоці «Засновниця» */
+.docs{margin-top:clamp(44px,6vw,72px)}
+.docs-title{font:800 var(--fs-h3)/1.25 var(--round);text-align:center;margin:0 0 18px;color:#fff}
+.docs-track{overflow:hidden;padding:6px 0 12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.docs-run{display:flex;width:max-content;animation:docs-run 70s linear infinite}
+.docs-track:hover .docs-run,.docs-track:focus-within .docs-run,.docs-track.hold .docs-run,.docs-track.off .docs-run{animation-play-state:paused}
+.docs-row{display:flex;gap:18px;margin:0;padding:0 18px 0 0;list-style:none}
+@keyframes docs-run{to{transform:translate3d(-50%,0,0)}}
+.doc{--doc-h:240px;display:flex;flex-direction:column;gap:9px;width:min-content;margin:0;padding:8px 8px 10px;border:0;border-radius:16px;background:#FFFDF7;color:var(--ink);cursor:zoom-in;text-align:left;box-shadow:0 12px 30px rgba(0,0,0,.28);transition:transform .25s}
+.doc:hover,.doc:focus-visible{transform:translateY(-3px)}
+.doc:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.doc img{display:block;height:var(--doc-h);width:auto;max-width:none;border-radius:8px}
+.doc span{display:block;height:calc(2 * 1.3em);overflow:hidden;font:600 13.5px/1.3 var(--font);hyphens:auto;-webkit-hyphens:auto}
+.docs-note{margin:12px 0 0;text-align:center;font-size:var(--fs-small);color:rgba(255,255,255,.72)}
+@media (max-width:640px){.doc{--doc-h:190px}.doc span{font-size:12.5px;height:calc(3 * 1.3em)}.docs-row{gap:12px;padding-right:12px}}
+@media (prefers-reduced-motion:reduce){.docs-run{animation:none}.docs-track{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.docs-row[aria-hidden]{display:none}.doc{transition:none}}
 .form-err{margin:0;padding:12px 16px;border-radius:14px;background:#FFF1E6;color:#7A2E0E;font-size:var(--fs-small);line-height:1.45;text-align:center}
 .form-err a{color:inherit;font-weight:700}
 .form.busy .btn{opacity:.6;pointer-events:none}
@@ -979,7 +995,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
         <ul class="badges"><li><b>17</b> років викладання в п’яти різних державних школах</li><li><b>ЗНО → НМТ</b> з першого року тестування</li><li><b>Корпус Миру</b> офіційний партнер в Україні</li></ul>
         <p class="lead">Галина Коздрин 17 років викладала в п’яти різних державних школах і 20 років працює репетитором. Була тренером та інструктором ЗНО, перевіряла шифровані твори. До ЗНО і НМТ готує від самого запровадження тестування, тому формат іспиту знає зсередини.</p>
         <p class="lead">Багато років у державних школах вона бачила прогалини, з якими діти йдуть на іспит. ЗНО подолало корупцію при вступі, але воно складне й комплексне, і до нього треба готуватися окремо. Так з’явився «Абітурієнт». Галина — мама трьох дітей, навчається на семінарах британських видавництв і авторів-методистів. Її принцип: «Хочеш зробити добре для себе — зроби для когось».</p>
-        <p class="lead">Офіційний партнер Корпусу Миру в Україні (міжнародна американська волонтерська організація, яку заснував Кеннеді; працює на рівні урядів). Сертифікат: <mark class="todo">уточнити</mark> · номер диплома (перевіряється в «Дії»): <mark class="todo">уточнити</mark></p>
+        <p class="lead">Офіційний партнер Корпусу Миру в Україні (міжнародна американська волонтерська організація, яку заснував Кеннеді; працює на рівні урядів). Сертифікат і дипломи дивіться в стрічці нижче. Номер диплома спеціаліста BK 30566877 можна перевірити в «Дії».</p>
         <p class="lead">Англійську тут вчать, щоб нею користуватися, тому Галина сама везе учнів у Європу: Франція, Австрія (Відень), Чехія (Прага), Німеччина (Берлін), Угорщина, неодноразово Італія. Фото з поїздок трохи нижче.</p>
         <div class="quotes">
           <blockquote class="q"><p>«Чудовий заклад! Обидві дочки займаються тут, їздимо на уроки англійської мови. […] Викладачі — супер! Професійно викладають предмети, а діти їх обожнюють. Керівник закладу — пані Галина — заслуговує окремих слів, це надзвичайно щира і доброзичлива людина, сповнена енергії та ідей».</p><footer>Павло, Google Maps</footer></blockquote>
@@ -988,6 +1004,28 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
         </div>
       </div>
     </div>
+      <div class="docs" aria-labelledby="h-docs">
+        <h3 class="docs-title" id="h-docs">Дипломи й нагороди</h3>
+        <div class="docs-track">
+          <div class="docs-run">
+            <ul class="docs-row">
+              <li><button class="doc" type="button" data-i="0" data-big="media/docs/doc-peace-corps-1600.webp"><img src="media/docs/doc-peace-corps-520.webp" width="739" height="520" alt="Сертифікат Корпусу Миру та USAID на ім’я Галини Коздрин: тренінг «Project Design and Management», Львів, 2020" loading="lazy" decoding="async"><span>Сертифікат Корпусу Миру й USAID, 2020</span></button></li>
+              <li><button class="doc" type="button" data-i="1" data-big="media/docs/doc-dyplom-specialist-1600.webp"><img src="media/docs/doc-dyplom-specialist-520.webp" width="513" height="520" alt="Диплом спеціаліста з відзнакою BK 30566877, Дрогобицький державний педагогічний університет імені Івана Франка, 2006" loading="lazy" decoding="async"><span>Диплом спеціаліста з відзнакою, 2006</span></button></li>
+              <li><button class="doc" type="button" data-i="2" data-big="media/docs/doc-gramota-tg-1600.webp"><img src="media/docs/doc-gramota-tg-520.webp" width="381" height="520" alt="Грамота Підберізцівської територіальної громади Галині Коздрин, 2024" loading="lazy" decoding="async"><span>Грамота Підберізцівської ТГ, 2024</span></button></li>
+              <li><button class="doc" type="button" data-i="3" data-big="media/docs/doc-podyaka-olimpiada-1600.webp"><img src="media/docs/doc-podyaka-olimpiada-520.webp" width="734" height="520" alt="Подяка Галині Коздрин за підготовку переможців II етапу Всеукраїнської олімпіади з англійської мови, 2020/2021" loading="lazy" decoding="async"><span>Подяка за переможців олімпіади з англійської</span></button></li>
+              <li><button class="doc" type="button" data-i="4" data-big="media/docs/doc-dyplom-bakalavr-1600.webp"><img src="media/docs/doc-dyplom-bakalavr-520.webp" width="509" height="520" alt="Диплом бакалавра з відзнакою BK 28167336, Дрогобицький державний педагогічний університет імені Івана Франка, 2005" loading="lazy" decoding="async"><span>Диплом бакалавра з відзнакою, 2005</span></button></li>
+            </ul>
+            <ul class="docs-row" aria-hidden="true">
+              <li><button class="doc" type="button" data-i="0" data-big="media/docs/doc-peace-corps-1600.webp" tabindex="-1"><img src="media/docs/doc-peace-corps-520.webp" width="739" height="520" alt="Сертифікат Корпусу Миру та USAID на ім’я Галини Коздрин: тренінг «Project Design and Management», Львів, 2020" loading="lazy" decoding="async"><span>Сертифікат Корпусу Миру й USAID, 2020</span></button></li>
+              <li><button class="doc" type="button" data-i="1" data-big="media/docs/doc-dyplom-specialist-1600.webp" tabindex="-1"><img src="media/docs/doc-dyplom-specialist-520.webp" width="513" height="520" alt="Диплом спеціаліста з відзнакою BK 30566877, Дрогобицький державний педагогічний університет імені Івана Франка, 2006" loading="lazy" decoding="async"><span>Диплом спеціаліста з відзнакою, 2006</span></button></li>
+              <li><button class="doc" type="button" data-i="2" data-big="media/docs/doc-gramota-tg-1600.webp" tabindex="-1"><img src="media/docs/doc-gramota-tg-520.webp" width="381" height="520" alt="Грамота Підберізцівської територіальної громади Галині Коздрин, 2024" loading="lazy" decoding="async"><span>Грамота Підберізцівської ТГ, 2024</span></button></li>
+              <li><button class="doc" type="button" data-i="3" data-big="media/docs/doc-podyaka-olimpiada-1600.webp" tabindex="-1"><img src="media/docs/doc-podyaka-olimpiada-520.webp" width="734" height="520" alt="Подяка Галині Коздрин за підготовку переможців II етапу Всеукраїнської олімпіади з англійської мови, 2020/2021" loading="lazy" decoding="async"><span>Подяка за переможців олімпіади з англійської</span></button></li>
+              <li><button class="doc" type="button" data-i="4" data-big="media/docs/doc-dyplom-bakalavr-1600.webp" tabindex="-1"><img src="media/docs/doc-dyplom-bakalavr-520.webp" width="509" height="520" alt="Диплом бакалавра з відзнакою BK 28167336, Дрогобицький державний педагогічний університет імені Івана Франка, 2005" loading="lazy" decoding="async"><span>Диплом бакалавра з відзнакою, 2005</span></button></li>
+            </ul>
+          </div>
+        </div>
+        <p class="docs-note">Натисніть на документ, щоб роздивитися.</p>
+      </div>
     </div>
   </section>
 
@@ -1156,7 +1194,7 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
 </footer>
 
 <div class="fmsg" aria-label="Написати в месенджер"><a class="wa" href="https://wa.me/380667561828" target="_blank" rel="noopener noreferrer" aria-label="Написати у WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></a><a class="vb" href="viber://chat?number=%2B380667561828" aria-label="Написати у Viber"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.4 2c2.1 0 5.2.3 7 2 1.4 1.3 2 3.3 2.1 5.9.1 2.6-.1 7.4-4.8 8.7v2.1c0 .6-.7.9-1.1.5l-2.2-2.3c-.6 0-1.3 0-1.9-.1-3.4-.3-5.9-1.6-6.8-4.6-.6-2-.6-4.4-.4-6.3C3.5 4.2 6.6 2.1 11.4 2zm.2 1.8c-4 0-6.3 1.6-6.6 4.3-.2 1.7-.2 3.7.3 5.4.6 2 2.3 3.1 5.5 3.3.6 0 1.3.1 1.9.1l1.3 1.4v-1.9c3.9-1 4.1-4.9 4-7.1-.1-2.1-.6-3.6-1.5-4.4-1.3-1.2-3.8-1.6-4.9-1.6zm.6 2.7c1.9.1 3.1 1.3 3.2 3.2a.4.4 0 0 1-.8 0c-.1-1.5-1-2.3-2.4-2.4a.4.4 0 0 1 0-.8zm-3.1.2c.3 0 .5.2.7.5l.8 1.2c.2.4.1.8-.2 1l-.4.3c-.2.2-.2.4-.1.6.5 1.2 1.4 2.1 2.6 2.6.2.1.4 0 .6-.1l.3-.4c.3-.3.7-.4 1-.2l1.2.8c.3.2.4.6.2.9-.4.8-1.2 1.2-2 .9-2.6-1-4.6-3-5.5-5.6-.3-.8.1-1.6.8-2l.3-.1z"/></svg></a></div>
-<dialog class="lb" id="lb" aria-label="Фото й відео з занять">
+<dialog class="lb" id="lb" aria-label="Перегляд фото, відео й документів">
   <button class="lb-x" type="button" aria-label="Закрити"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
   <button class="lb-nav prev" type="button" aria-label="Попереднє"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <figure class="lb-fig"></figure>
@@ -1435,12 +1473,14 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
   (() => {
     const lb = $('#lb'); if (!lb || !lb.showModal) return;
     const fig = $('.lb-fig', lb);
-    const items = $$('.lessons figure').map(f => {
+    const lessons = $$('.lessons figure').map(f => {
       const a = f.querySelector('a.zoom'), v = f.querySelector('video');
       return {el: a || f, video: !a, src: a ? a.getAttribute('href') : v.querySelector('source').dataset.src,
               alt: a ? a.querySelector('img').alt : v.getAttribute('aria-label'), cap: f.querySelector('figcaption').textContent};
     });
-    let cur = 0;
+    const docs = $$('.docs-row:not([aria-hidden]) .doc').map(b => ({el: b, video: false, src: b.dataset.big,
+              alt: b.querySelector('img').alt, cap: b.querySelector('span').textContent}));
+    let items = lessons, cur = 0;
     const show = i => {
       cur = (i + items.length) % items.length; const it = items[cur];
       const m = document.createElement(it.video ? 'video' : 'img');
@@ -1449,18 +1489,34 @@ h1,h2,h3,summary,.btn,.pill,.tab-btn,.eyebrow{hyphens:manual;-webkit-hyphens:man
       const c = document.createElement('figcaption'); c.textContent = it.cap;
       fig.replaceChildren(m, c);
     };
-    const open = i => { show(i); lb.showModal(); };
-    items.forEach((it, i) => {
-      it.el.addEventListener('click', e => { e.preventDefault(); open(i); });
+    const open = (group, i) => { items = group; show(i); lb.showModal(); };
+    lessons.forEach((it, i) => {
+      it.el.addEventListener('click', e => { e.preventDefault(); open(lessons, i); });
       if (it.video) { it.el.tabIndex = 0; it.el.setAttribute('role', 'button');
-        it.el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } }); }
+        it.el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(lessons, i); } }); }
     });
+    $$('.docs .doc').forEach(b => b.addEventListener('click', () => open(docs, +b.dataset.i)));
     $('.lb-x', lb).addEventListener('click', () => lb.close());
     $('.lb-nav.prev', lb).addEventListener('click', () => show(cur - 1));
     $('.lb-nav.next', lb).addEventListener('click', () => show(cur + 1));
     lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
     lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
     lb.addEventListener('close', () => fig.replaceChildren());
+  })();
+
+  // стрічка документів: їде сама; пауза при наведенні (CSS), фокусі, дотику і поза екраном
+  (() => {
+    const tr = $('.docs-track'); if (!tr) return;
+    let t;
+    tr.addEventListener('pointerdown', () => { clearTimeout(t); tr.classList.add('hold'); });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev => tr.addEventListener(ev, () => {
+      clearTimeout(t); t = setTimeout(() => tr.classList.remove('hold'), 1500); }));
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(es => es.forEach(en => tr.classList.toggle('off', !en.isIntersecting))).observe(tr);
+      // картинки дорожки грузим все сразу, когда лента подходит к экрану: иначе дальние карточки «проявляются» на ходу
+      new IntersectionObserver((es, io) => { if (es.some(en => en.isIntersecting)) { $$('img', tr).forEach(i => { i.loading = 'eager'; }); io.disconnect(); } },
+        {rootMargin: '900px 0px'}).observe(tr);
+    }
   })();
 
   // мессенджеры на телефоне появляются после первого экрана
